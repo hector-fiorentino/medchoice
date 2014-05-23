@@ -1,0 +1,79 @@
+@charset "utf-8";
+body {
+	
+}
+h1{color:#fff;}
+#contenedor {
+	height: auto;
+	width: 100%;
+	text-align: center;
+}
+#contenedor #logotipo {
+	margin-right: auto;
+	margin-left: auto;
+}
+#contenedor #formulario {
+	width: 240px;
+	margin-right: auto;
+	margin-left: auto;
+	height: 80px;
+}
+#contenedor #formulario form #campoizq {
+	float: left;
+	width: 75px;
+}
+#contenedor #formulario form #campoizq #montoizq {
+	width: 75px;
+}
+#contenedor #formulario form #campoizq #monedaizq {
+	width: 75px;
+	margin-top: 10px;
+}
+#contenedor #formulario form #flecha {
+	float: left;
+	margin-left: 20px;
+}
+#contenedor #formulario form #campoder {
+	float: right;
+	width: 75px;
+}
+#contenedor #formulario form #campoder #montoder {
+	width: 75px;
+}
+#contenedor #formulario form #campoder #monedader {
+	width: 75px;
+	margin-top: 10px;
+}
+#contenedor #formulario form input {
+}
+#contenedor #chat {
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+}
+#contenedor #chat img {
+	margin-right: auto;
+	margin-left: auto;
+}
+.acordion{
+	width:280px;
+	margin-right: auto;
+	margin-left: auto;
+	display:block;
+}
+.agregar{
+	display:block;
+	width:110px;
+	margin-left:auto;
+	margin-right:auto;
+	color:#fff !important;
+	text-shadow:none;
+}
+.opciones{display:block;width:280px;margin-left:auto;margin-right:auto;text-align:right;}
+#puntos{font-size:40px;color:#0a4b81;}
+.share{}
+.error{color:#FF0000;font-weight:bold;}
+#bienvenido{colod:#999;font-size:14px;}
+.good{color:#04B404;font-weight:bold;}
+.ui-body-a{background-color:#000 !important;}
+.mm{color:#fff;text-shadow:none;}
