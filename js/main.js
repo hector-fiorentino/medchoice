@@ -334,7 +334,7 @@ function main(){
         var friendIDs = [];
             var fdata;
             function me() {
-                FB.api('/me', { fields:'name, email, first_name, last_name' },  function(response) {
+                FB.api('/me', { fields:'name, email, first_name, last_name, gender' },  function(response) {
                        if (response.error) {
                        alert(JSON.stringify(response.error));
                        } else {
@@ -875,6 +875,7 @@ function registro(datos){
     alert("username:"+datos.seudonimo+",nombre:"+datos.nombre+",apellido:"+datos.apellido+",emailreg:"+datos.email+",uid:"+datos.uid+",token:"+datos.token+",sexo:"+datos.sexo+",passReg:"+datos.pass+",identidad:"+datos.identidad+",terminos:"+datos.terminos);
         $.post("http://medchoice.com.ar/registro/nuevo",{guardar:1,username:datos.seudonimo,nombre:datos.nombre,apellido:datos.apellido,emailreg:datos.email,uid:datos.uid,token:datos.token,sexo:datos.sexo,passReg:datos.pass,identidad:datos.identidad,terminos:datos.terminos},function(exito){
                 if(exito){
+                    alert("FUNCIONO = "+exito);
                     if(exito!=""){ 
                         switch(exito){
                             case "ER101":
