@@ -40,6 +40,7 @@ function dbAdapter(){
 	        "correcta INTEGER)",[]);
 	    tx.executeSql("CREATE TABLE IF NOT EXISTS "+
 	        "usuarios(ID INTEGER PRIMARY KEY ASC,"+
+	        "username TEXT,"+
 	        "nombre TEXT,"+
 	        "apellido TEXT,"+
 	        "email TEXT,"+
@@ -201,9 +202,9 @@ function dbAdapter(){
 	 	this.db.transaction(
 	 		function (tx){
 			 		var sql = "INSERT INTO usuarios " +
-		            "(ID, nombre, apellido, email, pass, nivel, estado, terminos, recupero, fcreacion) " +
+		            "(ID, username, nombre, apellido, email, pass, nivel, estado, terminos, recupero, fcreacion) " +
 		            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		            tx.executeSql(sql, [datos.ID, datos.nombre, datos.apellido, datos.email, datos.pass, "usuario", datos.estado, datos.terminos, "",datos.fcreacion],
+		            tx.executeSql(sql, [datos.ID, datos.username, datos.nombre, datos.apellido, datos.email, datos.pass, "usuario", datos.estado, datos.terminos, "",datos.fcreacion],
 		            function (tx, results) {
 		                    //console.log('INSERT success');
 		                    deferred.resolve(results.insertId);

@@ -8,8 +8,8 @@ function main(){
             
             FB.Event.subscribe('auth.login', function(response) {
                                //alert('auth.login event');
-                               alert("ya esta logeado");
-                               me();
+                               //alert("ya esta logeado");
+                               //me();
                                });
             
             FB.Event.subscribe('auth.logout', function(response) {
@@ -41,6 +41,7 @@ function main(){
     var idEvaluacion = 0;
     var idUsuario = window.localStorage.getItem("userID"); 
     var userName = window.localStorage.getItem("userName");
+    var fconnect = window.localStorage.getItem("fConnect");
     if(idUsuario > 0){$.mobile.changePage($("#pagemenuppal"))}
     var fullTiempo = 0; //Contador de tiempo general en segundos.
     var correctas = 0; //Contador de respuestas correctas.
@@ -318,7 +319,9 @@ function main(){
             function(response) {
                 alert(JSON.stringify(response));
                 if (response.authResponse.session_key) {
-                    alert('logged in');
+                    //alert('logged in');
+                    window.localStorage.setItem("fConnect",true);
+                    fconnect = true;
                     //alert(JSON.stringify(response.session));
                     me();
                 } else {
@@ -335,9 +338,18 @@ function main(){
                        if (response.error) {
                        alert(JSON.stringify(response.error));
                        } else {
-                       //var data = document.getElementById('data');
-                       fdata=response;
-                       alert(JSON.stringify(fdata));
+                       var datos = [];
+                       datos.seudonimo = response.name;
+                       datos.nombre = response.first_name;
+                       datos.apellido = response.last_name;
+                       datos.email = response.email;
+                       datos.uid = response.id;
+                       datos.token = "";
+                       datos.sexo = response.gender;
+                       datos.pass = "Rj45F";//OCULTAR.
+                       datos.identidad = 1;
+                       datos.terminos = 2;
+                       registro(datos);
                        }
                        });
             }
@@ -663,6 +675,8 @@ function main(){
         }
     };
 
+    
+
     /* REGISTRO DE USUARIO *//////////////////////////////////////
     $("#registrar").click(function(){
         $("#erterminos").empty();
@@ -674,9 +688,13 @@ function main(){
         var Apellido = $("#apellido").val();
         var Email = $("#emailreg").val();
         var Pass = $("#passreg").val();
+        var sexo = "";
         var Identidad = $("#identidad").val();
         var Terminos = 0;
         var seudonimo = "";
+        seudonimo = Nombre;
+        inicial = " "+Apellido.charAt(0)+".";
+        seudonimo += inicial.toUpperCase();
         var inicial = "";
         var er = 0;
         if($("#terminos-1a").prop("checked")==true && $("#terminos-1b").prop("checked")==true){
@@ -704,6 +722,9 @@ function main(){
                 $("#eremail").html("El e-mail ingresado no contiene un formato válido.");
             }
         }
+        $( "select[name='sexo'] option:selected" ).each(function() {
+            sexo=$(this).val();
+        });
         if(Pass == ""){
             er++;
             $("#erpass").html("Campo obligatorio");
@@ -714,54 +735,20 @@ function main(){
                             textVisible: true,
                             theme: 'a',
                             html: ""
-                });
-            $.post("http://medchoice.com.ar/registro/nuevo",{guardar:1,nombre:Nombre,apellido:Apellido,emailreg:Email,passReg:Pass,identidad:Identidad,terminos:Terminos},function(exito){
-                if(exito){
-                    if(exito!=""){ 
-                        switch(exito){
-                            case "ER101":
-                                 $("#ernombre").html("Campo obligatorio");
-                            break;
-                            case "ER102":
-                                 $("#erapellido").html("Campo obligatorio");
-                            break;
-                            case "ER103":
-                                 $("#eremail").html("El e-mail ya se encuentra registrado");
-                            break;
-                            default:
-                            //console.log("USUARIO REGISTRADO CON EL ID "+exito);
-                            var datos = [];
-                            datos.ID = exito;
-                            datos.nombre = Nombre;
-                            datos.apellido = Apellido;
-                            datos.email = Email;
-                            datos.pass = convertirSha1(Pass);
-                            datos.estado = Identidad;
-                            datos.terminos = Terminos;
-                            datos.fcreacion = new Date();
-                            seudonimo = Nombre;
-                            inicial = " "+Apellido.charAt(0)+".";
-                            seudonimo += inicial.toUpperCase();
-                            //GUARDAR REGISTRO DE USUARIO EN BASE INTERNA Y DEJAR LOGEADO.
-                            db.guardarUsuario(datos).done(function(exito){
-                                console.log("ID"+exito);
-                                idUsuario = exito;
-                                userName = seudonimo;
-                                window.localStorage.setItem("userID",idUsuario);
-                                window.localStorage.setItem("userName",seudonimo);
-                                $("#nombre").val("");
-                                $("#apellido").val("");
-                                $("#emailreg").val("");
-                                $("#passreg").val("");
-                                $("#terminos-1a").prop("checked",true);
-                                $("#terminos-1b").prop("checked",true);
-                                $.mobile.changePage($("#pagemenuppal"));
-                            })
-                        }
-                    }
-                    $.mobile.loading('hide');
-                }
-            })
+            });
+            var datos = [];
+            datos.username = seudonimo;
+            datos.nombre = Nombre;
+            datos.apellido = Apellido;
+            datos.email = Email;
+            datos.uid = "";
+            datos.token = "";
+            datos.sexo = sexo;
+            datos.pass = Pass;
+            datos.identidad = Identidad;
+            datos.terminos = Terminos;
+            
+            registro(datos);
         }
     })
    ///////////*FIN DE REGISTRO*///////////////////////////////////
@@ -865,6 +852,12 @@ function main(){
         idUsuario = 0;
         window.localStorage.removeItem("userID");
         window.localStorage.removeItem("userName");
+        if(window.localStorage.getItem('fConnect')==true){
+                FB.logout(function(response) {
+                          alert('logged out');
+                });
+                window.localStorage.setItem('fConnect',false);
+        }
         $("#email").html("");
         $("#pass").html("");
         $("#erlogin").html("");
@@ -878,6 +871,57 @@ document.addEventListener("backbutton", onBackKeyDown, false);
 function onBackKeyDown() {
     // Maneja el evento del botón atrás
 }
+function registro(datos){
+        $.post("http://medchoice.com.ar/registro/nuevo",{guardar:1,username:datos.seudonimo,nombre:datos.nombre,apellido:datos.apellido,emailreg:datos.email,uid:datos.uid,token:datos.token,sexo:datos.sexo,passReg:datos.pass,identidad:datos.identidad,terminos:datos.terminos},function(exito){
+                if(exito){
+                    if(exito!=""){ 
+                        switch(exito){
+                            case "ER101":
+                                 $("#ernombre").html("Campo obligatorio");
+                            break;
+                            case "ER102":
+                                 $("#erapellido").html("Campo obligatorio");
+                            break;
+                            case "ER103":
+                                 $("#eremail").html("El e-mail ya se encuentra registrado");
+                            break;
+                            default:
+                            //console.log("USUARIO REGISTRADO CON EL ID "+exito);
+                            var valores = [];
+                            valores.ID = exito;
+                            valores.username= datos.seudonimo;
+                            valores.nombre = datos.nombre;
+                            valores.apellido = datos.apellido;
+                            valores.email = datos.email;
+                            valores.uid = datos.uid;
+                            valores.token = datos.token;
+                            valores.sexo = datos.sexo;
+                            valores.pass = convertirSha1(datos.pass);
+                            valores.estado = datos.identidad;
+                            valores.terminos = datos.terminos;
+                            valores.fcreacion = new Date();
+                            //GUARDAR REGISTRO DE USUARIO EN BASE INTERNA Y DEJAR LOGEADO.
+                            db.guardarUsuario(valores).done(function(exito){
+                                console.log("ID"+exito);
+                                idUsuario = exito;
+                                userName = datos.seudonimo;
+                                window.localStorage.setItem("userID",idUsuario);
+                                window.localStorage.setItem("userName",datos.seudonimo);
+                                $("#nombre").val("");
+                                $("#apellido").val("");
+                                $("#emailreg").val("");
+                                $("#passreg").val("");
+                                $("#terminos-1a").prop("checked",true);
+                                $("#terminos-1b").prop("checked",true);
+                                $.mobile.changePage($("#pagemenuppal"));
+                            })
+                        }
+                    }
+                    $.mobile.loading('hide');
+                }
+            })
+    }
+
 function validar_email(valor){
     // creamos nuestra regla con expresiones regulares.
         var filter = /[\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;
