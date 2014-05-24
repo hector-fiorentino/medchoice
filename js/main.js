@@ -737,7 +737,7 @@ function main(){
                             html: ""
             });
             var datos = [];
-            datos.username = seudonimo;
+            datos.seudonimo = seudonimo;
             datos.nombre = Nombre;
             datos.apellido = Apellido;
             datos.email = Email;
