@@ -211,6 +211,7 @@ function dbAdapter(){
 		                    deferred.resolve(results.insertId);
 		            },
 		            function (tx, error) {
+		            	alert(error.message);
 		                deferred.resolve(error.message);
 		                //console.log('INSERT error: ' + error.message);
 		            });	
