@@ -899,9 +899,9 @@ function registro(datos){
                             valores.terminos = datos.terminos;
                             valores.fcreacion = new Date();
                             //GUARDAR REGISTRO DE USUARIO EN BASE INTERNA Y DEJAR LOGEADO.
-                             alert(valores);
+                             alert(valores.ID+" "+valores.username+" "+valores.nombre+" "+valores.apellido+" "+valores.email+" "+valores.pass+" "+valores.estado+" "+valores.terminos+" "+valores.fcreacion);
                             db.guardarUsuario(valores).done(function(exito){
-                                console.log("ID"+exito);
+                                //console.log("ID"+exito);
                                 alert("ID"+exito);
                                 idUsuario = exito;
                                 userName = datos.seudonimo;

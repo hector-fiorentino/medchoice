@@ -38,6 +38,7 @@ function dbAdapter(){
 	        "respuesta TEXT,"+
 	        "pregunta_id INTEGER,"+
 	        "correcta INTEGER)",[]);
+	    //tx.executeSql("DROP TABLE ")
 	    tx.executeSql("CREATE TABLE IF NOT EXISTS "+
 	        "usuarios(ID INTEGER PRIMARY KEY ASC,"+
 	        "username TEXT,"+
@@ -210,7 +211,8 @@ function dbAdapter(){
 		                    deferred.resolve(results.insertId);
 		            },
 		            function (tx, error) {
-		                console.log('INSERT error: ' + error.message);
+		                deferred.resolve(error.message);
+		                //console.log('INSERT error: ' + error.message);
 		            });	
 	 		},
 	        function (error) {
