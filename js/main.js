@@ -872,10 +872,9 @@ function onBackKeyDown() {
     // Maneja el evento del botón atrás
 }
 function registro(datos){
-    alert("username:"+datos.seudonimo+",nombre:"+datos.nombre+",apellido:"+datos.apellido+",emailreg:"+datos.email+",uid:"+datos.uid+",token:"+datos.token+",sexo:"+datos.sexo+",passReg:"+datos.pass+",identidad:"+datos.identidad+",terminos:"+datos.terminos);
+    //alert("username:"+datos.seudonimo+",nombre:"+datos.nombre+",apellido:"+datos.apellido+",emailreg:"+datos.email+",uid:"+datos.uid+",token:"+datos.token+",sexo:"+datos.sexo+",passReg:"+datos.pass+",identidad:"+datos.identidad+",terminos:"+datos.terminos);
         $.post("http://medchoice.com.ar/registro/nuevo",{guardar:1,username:datos.seudonimo,nombre:datos.nombre,apellido:datos.apellido,emailreg:datos.email,uid:datos.uid,token:datos.token,sexo:datos.sexo,passReg:datos.pass,identidad:datos.identidad,terminos:datos.terminos},function(exito){
                 if(exito){
-                    alert("FUNCIONO = "+exito);
                     if(exito!=""){ 
                         switch(exito){
                             case "ER101":
@@ -895,9 +894,6 @@ function registro(datos){
                             valores.nombre = datos.nombre;
                             valores.apellido = datos.apellido;
                             valores.email = datos.email;
-                            valores.uid = datos.uid;
-                            valores.token = datos.token;
-                            valores.sexo = datos.sexo;
                             valores.pass = convertirSha1(datos.pass);
                             valores.estado = datos.identidad;
                             valores.terminos = datos.terminos;

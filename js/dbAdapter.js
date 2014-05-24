@@ -203,7 +203,7 @@ function dbAdapter(){
 	 		function (tx){
 			 		var sql = "INSERT INTO usuarios " +
 		            "(ID, username, nombre, apellido, email, pass, nivel, estado, terminos, recupero, fcreacion) " +
-		            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		            tx.executeSql(sql, [datos.ID, datos.username, datos.nombre, datos.apellido, datos.email, datos.pass, "usuario", datos.estado, datos.terminos, "",datos.fcreacion],
 		            function (tx, results) {
 		                    //console.log('INSERT success');
