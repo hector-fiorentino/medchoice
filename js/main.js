@@ -323,20 +323,7 @@ function main(){
                     window.localStorage.setItem("fConnect",true);
                     fconnect = true;
                     //alert(JSON.stringify(response.session));
-                     db.usuarioFB(response.userId).done(function(exito){
-                        if(exito){
-                            var seudonimo = "";
-                            seudonimo = exito.nombre;
-                            inicial = " "+exito.apellido.charAt(0)+".";
-                            seudonimo += inicial.toUpperCase();
-                            window.localStorage.setItem("userID",exito.ID);
-                            window.localStorage.setItem("userName",seudonimo);
-                            $.mobile.loading( 'hide');
-                            $.mobile.changePage($("#pagemenuppal"));
-                        }else{
-                            me();
-                        } 
-                     })
+                     
                     
                 } else {
                     alert('not logged in');
