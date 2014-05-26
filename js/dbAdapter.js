@@ -182,7 +182,7 @@ function dbAdapter(){
 	                    	deferred.resolve(results.rows.item(0));
 	                	}else{
 	                		deferred.resolve(0);
-	                	}
+	                }
 	 			})
 	 		},
 	 		function (error) {

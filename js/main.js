@@ -323,7 +323,7 @@ function main(){
                     window.localStorage.setItem("fConnect",true);
                     fconnect = true;
                     //alert(JSON.stringify(response.session));
-                     db.traerUsuario(response.userId).done(function(exito){
+                     db.usuarioFB(response.userId).done(function(exito){
                         if(exito){
                             var seudonimo = "";
                             seudonimo = exito.nombre;
@@ -332,7 +332,7 @@ function main(){
                             window.localStorage.setItem("userID",exito.ID);
                             window.localStorage.setItem("userName",seudonimo);
                             $.mobile.loading( 'hide');
-                            $.mobile.changePage($("#pagemenuppal"))
+                            $.mobile.changePage($("#pagemenuppal"));
                         }else{
                             me();
                         } 
