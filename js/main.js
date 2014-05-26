@@ -322,9 +322,9 @@ function main(){
                     //alert('logged in');
                     window.localStorage.setItem("fConnect",true);
                     fconnect = true;
-                    alert(JSON.stringify(response));
-                   // alert(response.session.userId);
-                     db.usuarioFb(response.userId).done(function(exito){
+                    //alert(JSON.stringify(response));
+                    //alert(response.authResponse.userId);
+                     db.usuarioFb(response.authResponse.userId).done(function(exito){
                         if(exito){
                             alert("Estaba"+exito.nombre);
                             var seudonimo = "";
