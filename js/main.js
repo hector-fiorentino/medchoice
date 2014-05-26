@@ -317,13 +317,27 @@ function main(){
     $("#fconnect").click(function(){
         FB.login(
             function(response) {
-                alert(JSON.stringify(response));
+                //alert(JSON.stringify(response));
                 if (response.authResponse.session_key) {
                     //alert('logged in');
                     window.localStorage.setItem("fConnect",true);
                     fconnect = true;
                     //alert(JSON.stringify(response.session));
-                    me();
+                     db.traerUsuario(response.userId).done(function(exito){
+                        if(exito){
+                            var seudonimo = "";
+                            seudonimo = exito.nombre;
+                            inicial = " "+exito.apellido.charAt(0)+".";
+                            seudonimo += inicial.toUpperCase();
+                            window.localStorage.setItem("userID",exito.ID);
+                            window.localStorage.setItem("userName",seudonimo);
+                            $.mobile.loading( 'hide');
+                            $.mobile.changePage($("#pagemenuppal"))
+                        }else{
+                            me();
+                        } 
+                     })
+                    
                 } else {
                     alert('not logged in');
                 }

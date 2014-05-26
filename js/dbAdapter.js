@@ -172,7 +172,25 @@ function dbAdapter(){
     	return deferred.promise();
 	 }
 	 /////////*FIN OBTENER USUARIO *///////////////////////////////////////
-
+	 this.usuarioFB = function(uid){
+	 	var deferred = $.Deferred();
+	 	this.db.transaction(
+	 		function (tx){
+	 			var sql = "SELECT * FROM usuarios WHERE uid = '".uid."'";
+	 			tx.executeSql(sql, [], function (tx, results){
+	 				if(results.rows.length > 0){
+	                    	deferred.resolve(results.rows.item(0));
+	                	}else{
+	                		deferred.resolve(0);
+	                	}
+	 			})
+	 		},
+	 		function (error) {
+	                console.log("Transaction Error: " + error.message);
+	        }
+	 	)
+	 	return deferred.promise();
+	 }
 	 /*Validar USUARIO*///////////////////////////////////////////
 	 this.validarUsuario = function(datos){
 	 	var deferred = $.Deferred();
@@ -195,10 +213,6 @@ function dbAdapter(){
 	 	return deferred.promise();
 	 }
 	 /////////*FIN VALIDAR USUARIO*//////////////////////////////
-	 this.probarFun = function(esto){
-	 	console.log("este va");
-	 	alert("va");
-	 }
 
 	 /*Guardar USUARIO*//////////////////////////////
 	 this.guardarUsuario = function(datos){
