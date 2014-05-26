@@ -898,7 +898,7 @@ function registro(datos){
                             valores.estado = datos.identidad;
                             valores.terminos = datos.terminos;
                             valores.fcreacion = new Date();*/
-                            datis.pass = convertirSha1(datos.pass);
+                            datos.pass = convertirSha1(datos.pass);
                             datos.fcreacion = new Date();
                             datos.ID = exito;
                             //GUARDAR REGISTRO DE USUARIO EN BASE INTERNA Y DEJAR LOGEADO.

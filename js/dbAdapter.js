@@ -51,6 +51,7 @@ function dbAdapter(){
 	        "terminos INTEGER,"+
 	        "recupero TEXT,"+
 	        "fcreacion DATETIME)", []);
+	    tx.executeSql("INSERT INTO usuarios (ID, username, nombre,apellido,email,pass,nivel,estado,terminos,recupero,fcreacion) VALUES (1,'pepe B.','Pepe','Alonso','alon@gfss.com','axcadsdfwecvx23scx','usuario',1,2,'','2013-12-12')");
 	    tx.executeSql("CREATE TABLE IF NOT EXISTS "+
 	        "evaluaciones(ID INTEGER PRIMARY KEY ASC,"+
 	        "usuario_id INTEGER,"+
@@ -62,7 +63,6 @@ function dbAdapter(){
 	        "puntaje REAL,"+
 	        "respuestas TEXT,"+
 	        "fcreacion DATETIME)",[]);
-	    tx.executeSql("DELETE FROM preguntas WHERE id=112");
 	 }
 
 	 this.addFirstData = function(datos){
