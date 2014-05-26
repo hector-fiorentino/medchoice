@@ -326,13 +326,15 @@ function main(){
                     //alert(response.authResponse.userId);
                      db.usuarioFb(response.authResponse.userId).done(function(exito){
                         if(exito){
-                            alert("Estaba"+exito.nombre);
                             var seudonimo = "";
                             seudonimo = exito.nombre;
+                            var inicial = "";
                             inicial = " "+exito.apellido.charAt(0)+".";
                             seudonimo += inicial.toUpperCase();
                             window.localStorage.setItem("userID",exito.ID);
                             window.localStorage.setItem("userName",seudonimo);
+                            userID = exito.ID;
+                            userName = seudonimo;
                             $.mobile.loading( 'hide');
                             $.mobile.changePage($("#pagemenuppal"));
                         }else{
