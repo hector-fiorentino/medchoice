@@ -323,8 +323,8 @@ function main(){
                     window.localStorage.setItem("fConnect",true);
                     fconnect = true;
                     //alert(JSON.stringify(response.session));
-                    alert(response.userId);
-                     db.usuarioFb(response.userId).done(function(exito){
+                    alert(response.session.userId);
+                     db.usuarioFb(response.session.userId).done(function(exito){
                         if(exito){
                             alert("Estaba"+exito.nombre);
                             var seudonimo = "";
