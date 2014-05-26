@@ -325,7 +325,7 @@ function main(){
                     //alert(JSON.stringify(response.session));
                      db.usuarioFb(response.userId).done(function(exito){
                         if(exito){
-                            console.log("Estaba"+exito.nombre);
+                            alert("Estaba"+exito.nombre);
                             var seudonimo = "";
                             seudonimo = exito.nombre;
                             inicial = " "+exito.apellido.charAt(0)+".";
@@ -335,7 +335,7 @@ function main(){
                             $.mobile.loading( 'hide');
                             $.mobile.changePage($("#pagemenuppal"));
                         }else{
-                            console.log("No estaba");
+                            alert("No estaba");
                             me();
                         } 
                      })
