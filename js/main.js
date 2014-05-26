@@ -904,6 +904,8 @@ function registro(datos){
                             //GUARDAR REGISTRO DE USUARIO EN BASE INTERNA Y DEJAR LOGEADO.
                              //alert(valores.ID+" "+valores.username+" "+valores.nombre+" "+valores.apellido+" "+valores.email+" "+valores.pass+" "+valores.estado+" "+valores.terminos+" "+valores.fcreacion);
                             console.log("los datos están");
+                            console.log(db);
+                            alert(db);
                             db.probarFun("hola");
                             db.guardarUsuario(datos).done(function(exito){
                                 console.log("ID"+exito);
