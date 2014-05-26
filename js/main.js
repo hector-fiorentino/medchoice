@@ -864,14 +864,7 @@ function main(){
         $.mobile.changePage($("#pageadmin"));
    })
    /////////*FIN LOGOUT*///////////////////
-}
-
-document.addEventListener("backbutton", onBackKeyDown, false);
-
-function onBackKeyDown() {
-    // Maneja el evento del botón atrás
-}
-function registro(datos){
+   function registro(datos){
     //alert("username:"+datos.seudonimo+",nombre:"+datos.nombre+",apellido:"+datos.apellido+",emailreg:"+datos.email+",uid:"+datos.uid+",token:"+datos.token+",sexo:"+datos.sexo+",passReg:"+datos.pass+",identidad:"+datos.identidad+",terminos:"+datos.terminos);
         $.post("http://medchoice.com.ar/registro/nuevo",{guardar:1,username:datos.seudonimo,nombre:datos.nombre,apellido:datos.apellido,emailreg:datos.email,uid:datos.uid,token:datos.token,sexo:datos.sexo,passReg:datos.pass,identidad:datos.identidad,terminos:datos.terminos},function(exito){
                 if(exito){
@@ -906,7 +899,7 @@ function registro(datos){
                             console.log("los datos están");
                             console.log("No funciona="+db);
                             //alert(db);
-                            db.probarFun("hola");
+                            //db.probarFun("hola");
                             db.guardarUsuario(datos).done(function(exito){
                                 console.log("ID"+exito);
                                 idUsuario = exito;
@@ -927,6 +920,14 @@ function registro(datos){
                 }
             })
     }
+}
+
+document.addEventListener("backbutton", onBackKeyDown, false);
+
+function onBackKeyDown() {
+    // Maneja el evento del botón atrás
+}
+
 
 function validar_email(valor){
     // creamos nuestra regla con expresiones regulares.
