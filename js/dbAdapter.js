@@ -199,6 +199,7 @@ function dbAdapter(){
 
 	 /*Guardar USUARIO*//////////////////////////////
 	 this.guardarUsuario = function(datos){
+	 	alert("ESTOY ACÁ");
 	 	var deferred = $.Deferred();
 	 	this.db.transaction(
 	 		function (tx){
@@ -218,6 +219,7 @@ function dbAdapter(){
 		            });	
 	 		},
 	        function (error) {
+	        	alert(error.message);
 	                console.log("Transaction Error: " + error.message);
 	        }
 
