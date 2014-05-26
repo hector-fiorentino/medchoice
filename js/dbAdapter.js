@@ -207,6 +207,7 @@ function dbAdapter(){
 		            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		            tx.executeSql(sql, [datos.ID, datos.username, datos.nombre, datos.apellido, datos.email, datos.pass, "usuario", datos.estado, datos.terminos, "",datos.fcreacion],
 		            function (tx, results) {
+		            		alert("OK");
 		                    //console.log('INSERT success');
 		                    deferred.resolve(results.insertId);
 		            },
