@@ -323,6 +323,7 @@ function main(){
                     window.localStorage.setItem("fConnect",true);
                     fconnect = true;
                     //alert(JSON.stringify(response.session));
+                    alert(response.userId);
                      db.usuarioFb(response.userId).done(function(exito){
                         if(exito){
                             alert("Estaba"+exito.nombre);
@@ -335,6 +336,7 @@ function main(){
                             $.mobile.loading( 'hide');
                             $.mobile.changePage($("#pagemenuppal"));
                         }else{
+                            alert(exito);
                             alert("No estaba");
                             me();
                         } 
