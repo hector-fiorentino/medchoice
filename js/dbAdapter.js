@@ -42,6 +42,7 @@ function dbAdapter(){
 	    tx.executeSql("CREATE TABLE IF NOT EXISTS "+
 	        "usuarios(ID INTEGER PRIMARY KEY ASC,"+
 	        "username TEXT,"+
+	        "uid TEXT,"+
 	        "nombre TEXT,"+
 	        "apellido TEXT,"+
 	        "email TEXT,"+
@@ -172,25 +173,8 @@ function dbAdapter(){
     	return deferred.promise();
 	 }
 	 /////////*FIN OBTENER USUARIO *///////////////////////////////////////
-	 /*this.usuarioFB = function(uid){
-	 	var deferred = $.Deferred();
-	 	this.db.transaction(
-	 		function (tx){
-	 			var sql = "SELECT * FROM usuarios WHERE uid = '".uid."'";
-	 			tx.executeSql(sql, [], function (tx, results){
-	 				if(results.rows.length > 0){
-	                    	deferred.resolve(results.rows.item(0));
-	                	}else{
-	                		deferred.resolve(0);
-	                }
-	 			})
-	 		},
-	 		function (error) {
-	                console.log("Transaction Error: " + error.message);
-	        }
-	 	)
-	 	return deferred.promise();
-	 }*/
+
+	 /*OBTENER USUARIO FB*//////////////////////////////////////////////////
 	 this.usuarioFb = function(uid){
 	 	var deferred = $.Deferred();
 	 	this.db.transaction(
@@ -211,6 +195,9 @@ function dbAdapter(){
 	 	);
 	 	return deferred.promise();
 	 }
+	 /////////*FIN OBTENER USUARIO FB *///////////////////////////////////////
+
+
 	 /*Validar USUARIO*///////////////////////////////////////////
 	 this.validarUsuario = function(datos){
 	 	var deferred = $.Deferred();
@@ -236,14 +223,13 @@ function dbAdapter(){
 
 	 /*Guardar USUARIO*//////////////////////////////
 	 this.guardarUsuario = function(datos){
-	 	console.log("ESTOY ACÁ");
 	 	var deferred = $.Deferred();
 	 	this.db.transaction(
 	 		function (tx){
 			 		var sql = "INSERT INTO usuarios " +
-		            "(ID, username, nombre, apellido, email, pass, nivel, estado, terminos, recupero, fcreacion) " +
-		            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		            tx.executeSql(sql, [datos.ID, datos.username, datos.nombre, datos.apellido, datos.email, datos.pass, "usuario", datos.estado, datos.terminos, "",datos.fcreacion],
+		            "(ID, username, uid, nombre, apellido, email, pass, nivel, estado, terminos, recupero, fcreacion) " +
+		            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		            tx.executeSql(sql, [datos.ID, datos.seudonimo, datos.uid, datos.nombre, datos.apellido, datos.email, datos.pass, "usuario", datos.estado, datos.terminos, "",datos.fcreacion],
 		            function (tx, results) {
 		            		//alert("OK");
 		                    console.log('INSERT success');
