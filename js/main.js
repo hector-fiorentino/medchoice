@@ -888,8 +888,8 @@ function registro(datos){
                             break;
                             default:
                             //console.log("USUARIO REGISTRADO CON EL ID "+exito);
-                            var valores = [];
-                            valores.ID = exito;
+                           // var valores = [];
+                           /* valores.ID = exito;
                             valores.username= datos.seudonimo;
                             valores.nombre = datos.nombre;
                             valores.apellido = datos.apellido;
@@ -897,10 +897,14 @@ function registro(datos){
                             valores.pass = convertirSha1(datos.pass);
                             valores.estado = datos.identidad;
                             valores.terminos = datos.terminos;
-                            valores.fcreacion = new Date();
+                            valores.fcreacion = new Date();*/
+                            datis.pass = convertirSha1(datos.pass);
+                            datos.fcreacion = new Date();
+                            datos.ID = exito;
                             //GUARDAR REGISTRO DE USUARIO EN BASE INTERNA Y DEJAR LOGEADO.
-                             alert(valores.ID+" "+valores.username+" "+valores.nombre+" "+valores.apellido+" "+valores.email+" "+valores.pass+" "+valores.estado+" "+valores.terminos+" "+valores.fcreacion);
-                            db.guardarUsuario(valores).done(function(exito){
+                             //alert(valores.ID+" "+valores.username+" "+valores.nombre+" "+valores.apellido+" "+valores.email+" "+valores.pass+" "+valores.estado+" "+valores.terminos+" "+valores.fcreacion);
+                            alert(datos);
+                            db.guardarUsuario(datos).done(function(exito){
                                 //console.log("ID"+exito);
                                 alert("ID"+exito);
                                 idUsuario = exito;
