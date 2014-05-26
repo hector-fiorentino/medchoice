@@ -51,7 +51,7 @@ function dbAdapter(){
 	        "terminos INTEGER,"+
 	        "recupero TEXT,"+
 	        "fcreacion DATETIME)", []);
-	    tx.executeSql("INSERT INTO usuarios (ID, username, nombre,apellido,email,pass,nivel,estado,terminos,recupero,fcreacion) VALUES (1,'pepe B.','Pepe','Alonso','alon@gfss.com','axcadsdfwecvx23scx','usuario',1,2,'','2013-12-12')");
+	    //tx.executeSql("INSERT INTO usuarios (ID, username, nombre,apellido,email,pass,nivel,estado,terminos,recupero,fcreacion) VALUES (1,'pepe B.','Pepe','Alonso','alon@gfss.com','axcadsdfwecvx23scx','usuario',1,2,'','2013-12-12')");
 	    tx.executeSql("CREATE TABLE IF NOT EXISTS "+
 	        "evaluaciones(ID INTEGER PRIMARY KEY ASC,"+
 	        "usuario_id INTEGER,"+
@@ -195,11 +195,14 @@ function dbAdapter(){
 	 	return deferred.promise();
 	 }
 	 /////////*FIN VALIDAR USUARIO*//////////////////////////////
-	 
+	 this.probarFun = function(esto){
+	 	console.log("este va");
+	 	alert("va");
+	 }
 
 	 /*Guardar USUARIO*//////////////////////////////
 	 this.guardarUsuario = function(datos){
-	 	alert("ESTOY ACÁ");
+	 	console.log("ESTOY ACÁ");
 	 	var deferred = $.Deferred();
 	 	this.db.transaction(
 	 		function (tx){
@@ -208,18 +211,18 @@ function dbAdapter(){
 		            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		            tx.executeSql(sql, [datos.ID, datos.username, datos.nombre, datos.apellido, datos.email, datos.pass, "usuario", datos.estado, datos.terminos, "",datos.fcreacion],
 		            function (tx, results) {
-		            		alert("OK");
-		                    //console.log('INSERT success');
+		            		//alert("OK");
+		                    console.log('INSERT success');
 		                    deferred.resolve(results.insertId);
 		            },
 		            function (tx, error) {
-		            	alert(error.message);
+		            	//alert(error.message);
 		                deferred.resolve(error.message);
-		                //console.log('INSERT error: ' + error.message);
+		                console.log('INSERT error: ' + error.message);
 		            });	
 	 		},
 	        function (error) {
-	        	alert(error.message);
+	        	//alert(error.message);
 	                console.log("Transaction Error: " + error.message);
 	        }
 
