@@ -2,7 +2,6 @@
 body {
 	
 }
-h1{color:#fff;}
 #contenedor {
 	height: auto;
 	width: 100%;
@@ -77,3 +76,111 @@ h1{color:#fff;}
 .good{color:#04B404;font-weight:bold;}
 .ui-body-a{background-color:#000 !important;}
 .mm{color:#fff;text-shadow:none;}
+
+/*PAGE ADMIN (LOGIN)*/
+#pageadmin{height:100% !important;}
+#pageadmin .ui-content {position:relative;padding:0px !important;height:90%;}
+#pageadmin #centrador{text-align: center;height:100%;}
+#pageadmin #centrador:before {content: '';display: inline-block;height: 100%;vertical-align: middle;}
+#pageadmin #centro{display: inline-block;vertical-align: middle;width: 280px;}
+#pageadmin #centro h1{margin:0px;padding:0px;}
+.volver{float:left; margin-left:20px;}
+.firma{float:right;margin-right:20px;}
+#mypanel .ui-listview{border:none;background:none;box-shadow: none;}
+#mypanel .ui-listview a{color:#333 !important;border:none;}
+/*#pagemenuppal #centrador{text-align: center;height:100%;}
+#pagemenuppal #centrador:before {content: '';display: inline-block;height: 100%;vertical-align: middle;}
+
+/* Low density (120), mdpi */
+@media screen and (-webkit-device-pixel-ratio: 0.75) {
+  
+}
+/* Medium density (160), mdpi */
+@media screen and (-webkit-device-pixel-ratio: 1) and (max-device-width : 380px){
+  
+}
+
+@media screen and (-webkit-device-pixel-ratio: 1) and (min-device-width : 600px) and (max-device-width : 720px){
+
+  
+}
+@media screen and (-webkit-device-pixel-ratio: 1) and (min-device-width : 722px) and (max-device-width : 770px){
+  
+}
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+	#pruebacss{display:none;}
+	/*PAGE LOGIN*/
+	#email{font-size:24px;}
+	#pass{font-size:24px;}
+	#logoBig{width:500px}
+	#login{width:200px;margin-left:auto;margin-right:auto;margin-bottom:30px;background-color:#034a80 !important;color:#fff;border:none;text-shadow:none;}
+	.registrobtn{width:150px;background-color:#f4f5f5 !important;padding-top:5px;padding-bottom:5px;border:none;text-shadow:none;color:#333;margin-bottom:20px;margin-left:auto;margin-right:auto;}
+	#fconnect{margin-bottom:10px;}
+	#pageadmin #centro{width: 500px; text-align:center;}
+
+	/*PAGE REGISTRO*/
+	#pageregistrarse form{width:500px !important;margin-left:auto;margin-right:auto;}
+	#pageregistrarse input{font-size:18px;}
+	#pageregistrarse p{font-size:18px;text-align:left;font-weight:bold;}
+	#pageregistrarse label {font-size:18px;text-align:left;margin-top:10px;}
+	#pageregistrarse #registrar{position:relative;width:300px;margin-left:auto;margin-right:auto;margin-bottom:30px;background-color:#034a80 !important;color:#fff;border:none;text-shadow:none;}
+	#pageregistrarse #registrar i{position:absolute;font-size: 24px;top:8px;left:10px;font-weight:bold;}
+	.volver i{font-size:24px;}
+
+	/*PAGE MENUPRINCIPAL*/
+	.menuicon{font-size:64px; color:#fff;}
+	.menup a{margin-left:auto;margin-right:auto;background-color:#034a80 !important;padding:30px !important;width:64px !important;border-radius:140px !important;}
+	.menup p{font-size:16px !important; color:#034a80 !important;}
+	#pagemenuppal .ui-grid-a{width:500px;margin-left:auto;margin-right:auto;margin-top:60px;}
+	.ui-bar-a{background:none !important;border:none !important;margin-bottom:40px;}
+	.actualizar{width:500px;margin-right: auto;margin-left: auto}
+	.ui-header{padding-top:30px !important;}
+	.ui-title{width:250px;background-image:url(../imagenes/logochicox1.png);height:40px;background-repeat: no-repeat;margin:0px auto !important;}
+	#bienvenido{font-size:28px;padding:4px;margin:10px; margin-top:20px;color:#fff;background-color:#ccc;border-radius:5px;}
+	.salir{top:25px;right:25px;display:block;}
+	.salir span,.options span{font-size:24px;}
+	.options{top:25px;left:25px;display:block;}
+
+	/*PANEL LATERAL*/
+	.ui-panel{width:12em !important;}
+	#mypanel{width:140px;}
+	#mypanel{width:140px;background:#fff;height:100%;}
+	#mypanel .nave{font-size:18px;padding-top:20px;}
+	#mypanel .ui-listview{border:none;background:none;box-shadow: none;width:140px !important;margin:0px;padding:0px;}
+	#mypanel .ui-listview a{display:block; margin-left:30px;border:none; background-color:#034a80; padding:10px 15px 10px 13px; width:26px !important; border-radius:60px;margin-bottom:20px;}
+	#mypanel .ui-listview a i{color:#fff; font-size:32px;}
+	#mypanel a.cerrar{padding:10px;background:none;}
+	#mypanel a.cerrar span{color:#666;font-size:36px;}
+
+}
+
+@media screen and (-webkit-device-pixel-ratio: 1) and (min-device-width : 775px) and (max-device-width : 805px){
+  	#pruebacss{display:none;}
+	/*PAGE LOGIN*/
+	#email{font-size:24px;}
+	#pass{font-size:24px;}
+	#logoBig{width:500px}
+	#login{width:200px;margin-left:auto;margin-right:auto;margin-bottom:30px;background-color:#034a80 !important;color:#fff;border:none;text-shadow:none;}
+	.registrobtn{width:150px;background-color:#f4f5f5 !important;padding-top:5px;padding-bottom:5px;border:none;text-shadow:none;color:#333;margin-bottom:20px;margin-left:auto;margin-right:auto;}
+	#fconnect{margin-bottom:10px;}
+	#pageadmin #centro{width: 500px; text-align:center;}
+	.menuicon{}
+}
+/* High density (240), hdpi */
+@media screen and (-webkit-device-pixel-ratio: 1.5) {
+  
+}
+@media screen and (-webkit-device-pixel-ratio: 1.5) and (min-device-width : 540px){
+  
+}
+/* Extra high density (320), xhdpi */
+@media screen and (-webkit-device-pixel-ratio: 2) and (orientation:portrait) {
+  
+}
+@media screen and (-webkit-device-pixel-ratio: 3) and (orientation:portrait) {
+  
+}
+@media screen and (min-device-width: 750px) and (-webkit-min-device-pixel-ratio: 1.1) and (-webkit-max-device-pixel-ratio: 1.5) {
+  
+}

@@ -25,6 +25,8 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" href="css/jquery.mobile-1.4.0.min.css" />
         <link rel="stylesheet" type="text/css" href="css/estilos.css" />
+        <link rel="stylesheet" href="pe-icon-7-stroke/css/pe-icon-7-stroke.css">
+        <link rel="stylesheet" href="path/to/pe-icon-7-stroke/css/helper.css">
         <script src="js/jquery-1.10.0.js"></script>
         <script src="js/jquery.mobile-1.4.0.min.js"></script>
         <script type="text/javascript" src="js/sha1.js"></script>
@@ -64,27 +66,34 @@
   <div id="fb-root"></div>
     <div data-role="page" id="pageadmin">
 
-     <div data-role="header" data-theme="b"><img src="imagenes/logo.png" width="300"></div><!-- /header -->
+     <div data-role="header" data-theme="b"></div><!-- /header -->
 
      <div role="main" class="ui-content" >
-
-      <form>
-       <input type="text" name="email" id="email" value="" placeholder="E-mail">
-       <input type="password" data-clear-btn="true" name="pass" id="pass" value="" placeholder="Contraseña">
-       <p id="erlogin" class="error"></p>
-       <input type="button" id="login" value="Ingresar" data-theme="a">
-   </form>
-   <a href="#pageregistrarse" class="ui-btn ui-corner-all">Registrarse</a>
-   <a href="#" id="fconnect"><img src="imagenes/facebook.jpg" width="180"></a> </div><!-- /content -->
+      <p id="pruebacss">texto loco</p>
+      <div id="centrador">
+        <div id="centro">
+        <h1><img src="imagenes/logo.png" id="logoBig"></h1>
+        <form>
+         <input type="text" name="email" id="email" value="" placeholder="E-mail">
+        <input type="password" data-clear-btn="true" name="pass" id="pass" value="" placeholder="Contraseña">
+          <p id="erlogin" class="error"></p>
+        </form>
+        <a href="#" id="login" class="ui-btn ui-corner-all">Ingresar</a>
+        <a href="#" id="fconnect"><img src="imagenes/facebook.jpg" width="180"></a> 
+        <a href="#pageregistrarse" class="registrobtn ui-btn ui-corner-all">Registrarse</a>
+        
+      </div>
+    </div>
+  </div><!-- /content -->
 
    <div data-role="footer" data-theme="b" data-position="fixed">
-    <p align="right" style="margin-right:10px">Powered by <img src="imagenes/logomedapps.png" width="100" align="top"></p>
+    <p align="right" class="firma">Powered by <img src="imagenes/logomedapps.png" width="100" align="top"></p>
 </div><!-- /footer -->
 </div><!-- /page -->
 
 <div data-role="page" id="pageregistrarse">
 
- <div data-role="header" data-theme="b"><img src="imagenes/logo.png" width="300"></div><!-- /header -->
+ <div data-role="header" data-theme="b"><h1></h1></div><!-- /header -->
 
  <div role="main" class="ui-content" >
 
@@ -115,46 +124,35 @@
           <label for="terminos-1b">Acépto los términos y condiciones.</label>
        <p id="erterminos" class="error"></p>
        </fieldset>
-       <input type="button" id="registrar" value="Aceptar" data-theme="a">
+       <a href="#" id="registrar" class="ui-btn ui-corner-all"><i class="pe-7s-add-user pe-fw"></i>Aceptar</a>
    </form>
 
 </div><!-- /content -->
 
 <div data-role="footer" data-theme="b" data-position="fixed">
-   <a href="#" data-icon="arrow-l" style="margin-left:10px; float:left" data-rel="back">Volver</a>
-   <p align="right" style="margin-right:10px; float:right">Powered by <img src="imagenes/logomedapps.png" width="100" align="top"></p>
+   <a href="#" data-rel="back" class="volver" data-theme="a"><i class="pe-7s-left-arrow pe-fw"></i></a>
+   <p align="right" class="firma">Powered by <img src="imagenes/logomedapps.png" width="100" align="top"></p>
 </div><!-- /footer -->
 </div><!-- /page -->
 
 <div data-role="page" id="pagemenuppal">
 
- <div data-role="header" data-theme="b">
-   <img src="imagenes/logo.png" width="300">
-</div><!-- /header -->
+ <div data-role="header">
+    <h1></h1>
+    <a href="#" class="ui-btn-right closeSession salir"><span class="pe-7s-delete-user"></a>
+  </div><!-- /header -->
 
 <div role="main" class="ui-content" >
   <p id="bienvenido"></p>
-   <table width="300" border="0" align="center" cellpadding="00" style="margin-top:20px">
-      <tr>
-        <td><p><a href="#pageexamenes"><img src="imagenes/realizar-examen.png" width="99" height="96"></a></p>
-          <p>Realizar exámen</p></td>
-          <td>&nbsp;</td>
-          <td><p><a href="#pagescores"><img src="imagenes/mis-scoresUntitled-1.png" width="99" height="96"></a></p>
-              <p>Mis Scores</p></td>
-          </tr>
-          <tr>
-            <td height="19">&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td><p><a href="#pageranking"><img src="imagenes/ranking.png" width="99" height="96"></a></p>
-              <p>Ranking</p></td>
-              <td>&nbsp;</td>
-              <td><p><a href="#pageconsultas"><img src="imagenes/consultas.png" width="99" height="96"></a></p>
-                  <p>Consultas<br>y sugerencias</p></td>
-              </tr>
-          </table>
+  <div class="ui-grid-a">
+    <div class="ui-block-a"><div class="ui-bar ui-bar-a menup"><a href="#pageexamenes"><span class="pe-7s-check menuicon"></span></a><p>Realizar exámen</p></div></div>
+    <div class="ui-block-b"><div class="ui-bar ui-bar-a menup"><a href="#pagescores"><span class="pe-7s-study menuicon"></span></a>
+              <p>Mis Scores</p></div></div>
+    <div class="ui-block-a"><div class="ui-bar ui-bar-a menup"><a href="#pageranking"><span class="pe-7s-star menuicon"></span></a>
+              <p>Ranking</p></div></div>
+    <div class="ui-block-b"><div class="ui-bar ui-bar-a menup"><a href="#pageconsultas"><span class="pe-7s-mail-open-file menuicon"></span></a><p>Consultas y sugerencias</p></div></div>
+  </div><!-- /grid-c -->
+
           <p id="estadoUpdate"></p>
           <a href="#" class="ui-btn ui-icon-alert ui-btn-icon-left ui-shadow ui-corner-all actualizar">Realizar Update</a>
           <div data-role="popup" id="popupUpdate" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
@@ -171,13 +169,14 @@
       </div><!-- /content -->
 
       <div data-role="footer" data-theme="b" data-position="fixed">
-      </div><!-- /navbar -->
-  </div><!-- /footer -->
+   <p align="right" class="firma">Powered by <img src="imagenes/logomedapps.png" width="100" align="top"></p>
+</div><!-- /footer -->
 </div><!-- /page -->
 <div data-role="page" id="pageexamenes" style="background-color:#fff">
- <div data-role="header" data-theme="b">
-     <a href="#mypanel" style="padding:3px;"><img src="imagenes/panel.png" width="25" height="25"></a>
-     <h1 style="margin-top:5px !important"><a href="#pagemenuppal" style="border:none;background:none;text-align:center;width:100%;"><img src="imagenes/logo.png" width="150"/></a></h1>
+ <div data-role="header" data-theme="a">
+     <a href="#mypanel" class="ui-btn-left options"><span class="pe-7s-menu"></a>
+     <h1></h1>
+     <a href="#" class="ui-btn-right closeSession salir"><span class="pe-7s-delete-user"></a>
  </div><!-- /header -->
 
  <div role="main" class="ui-content">
@@ -330,15 +329,19 @@
 </div>
 </div>
 <!-- /page -->
-<div data-role="panel" data-display="push" id="mypanel" style="background-color:#034B80">
-     <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow" data-theme="a" >
-         <li class="ui-first-child"><a href="#pageexamenes" class="ui-btn ui-btn-icon-right ui-icon-carat-r mm">Realizar exámen</a></li>
-         <li class="ui-li-has-count"><a href="#pagescores" class="ui-btn ui-btn-icon-right ui-icon-carat-r mm">Mis scores</a></li>
-         <li class="ui-li-has-count"><a href="#pageranking" class="ui-btn ui-btn-icon-right ui-icon-carat-r mm">Ranking</a></li>
-         <li class="ui-li-has-count"><a href="#pageconsultas" class="ui-btn ui-btn-icon-right ui-icon-carat-r mm">Consultas y sugerencias</a></li>
-         <li class="ui-last-child"><a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r actualizar mm">Actualizar</a></li>
+<div data-role="panel" data-display="overlay" id="mypanel">
+  <div id="backpanel">
+  <p class="nave">Navegación</p>
+     <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all" data-theme="a" >
+         <li class="ui-first-child"><a href="#pageexamenes" class="ui-btn mm"><i class="pe-7s-check pe-fw"></i></a><li>
+         <li class="ui-li-has-count"><a href="#pagescores" class="ui-btn mm"><i class="pe-7s-study pe-fw"></i></a></li>
+         <li class="ui-li-has-count"><a href="#pageranking" class="ui-btn mm"><i class="pe-7s-star pe-fw"></i></a></li>
+         <li class="ui-li-has-count"><a href="#pageconsultas" class="ui-btn mm"><i class="pe-7s-mail-open-file pe-fw"></i></a></li>
+         <li class="ui-last-child"><a href="#" class="ui-btn actualizar mm"><i class="pe-7s-refresh-cloud pe-fw"></i></a></li>
+         <a href="#mypanel" class="cerrar" data-rel="close"><span class="pe-7s-close-circle"></span></a>
      </ul>
-     <button class="ui-btn ui-icon-delete ui-btn-icon-left ui-shadow ui-corner-all closeSession">Cerrar Sesión</button>
+
+   </div>
  </div><!-- /panel -->
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
