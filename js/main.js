@@ -167,7 +167,7 @@ function main(){
                         }else{
                             $("#iniciar").html("Iniciar");
                             $("#continuar").css("display","none");
-                            $("#msg").html("Usted está por empezar a comenzar el examen "+nameExamen+". Una vez hecho click en iniciar, comenzará a correr el tiempo y su Score.");      
+                            $("#msg").html('Usted comenzará el examen "'+nameExamen+'". Al realizar click en Iniciar, comenzará a correr el tiempo y su score. De lo contrario, presionar "Cancelar"');      
                         }
                     });
                 });

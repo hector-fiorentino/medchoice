@@ -145,7 +145,7 @@
 <div role="main" class="ui-content" >
   <p id="bienvenido"></p>
   <div class="ui-grid-a">
-    <div class="ui-block-a"><div class="ui-bar ui-bar-a menup"><a href="#pageexamenes"><span class="pe-7s-check menuicon"></span></a><p>Realizar exámen</p></div></div>
+    <div class="ui-block-a"><div class="ui-bar ui-bar-a menup"><a href="#pageexamenes"><span class="pe-7s-note2 menuicon"></span></a><p>Realizar exámen</p></div></div>
     <div class="ui-block-b"><div class="ui-bar ui-bar-a menup"><a href="#pagescores"><span class="pe-7s-study menuicon"></span></a>
               <p>Mis Scores</p></div></div>
     <div class="ui-block-a"><div class="ui-bar ui-bar-a menup"><a href="#pageranking"><span class="pe-7s-star menuicon"></span></a>
@@ -180,9 +180,13 @@
  </div><!-- /header -->
 
  <div role="main" class="ui-content">
-
+    <h2>Seleccione el examen que desee realizar</h2>
     <ul data-role="listview" data-inset="true" id="examenes">    
-         
+         <li><a href="#popupDialog" data-rel="popup" data-position-to="window">Acura</a></li>
+         <li><a href="#">Audi</a></li>
+         <li><a href="#">BMW</a></li>
+        <li><a href="#">Cadillac</a></li>
+        <li><a href="#">Ferrari</a></li>
     </ul>
 
 </div><!-- /content -->
@@ -192,10 +196,10 @@
     <h1>Comenzar Exámen</h1>
     </div>
     <div role="main" class="ui-content">
-        <h3 class="ui-title" id="msg">Usted está por empezar a comenzar el examen XXXXXXXXXXXX. Una vez hecho click en iniciar, comenzará a correr el tiempo y su Score.</h3>
-        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancelar</a>
-        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" id="continuar" style="display:none;">Continuar</a>
-        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" id="iniciar">Iniciar</a>
+        <h3 id="msg">Usted comenzará el examen "XXXX". Al realizar click en Iniciar, comenzará a correr el tiempo y su score. De lo contrario, presionar "Cancelar"</h3>
+        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back"><i class="pe-7s-close pe-fw"></i><span>Cancelar</span></a>
+        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" id="continuar" style="display:none;"><i class="pe-7s-timer pe-fw"></i><span>Continuar</span></a>
+        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" id="iniciar"><i class="pe-7s-stopwatch pe-fw"></i><span>Iniciar</span></a>
     </div>
 </div>
 
@@ -206,9 +210,11 @@
 <!-- EXAMEN -->
 <div data-role="page" id="pageexamen" style="background-color:#fff">
 
- <div data-role="header" data-theme="b">
-     <a href="#mypanel" style="padding:3px;"><img src="imagenes/panel.png" width="25" height="25"></a>
-     <h1 style="margin-top:5px !important"><a href="#pagemenuppal" style="border:none;background:none;text-align:center;width:100%;"><img src="imagenes/logo.png" width="150"/></a></h1></div>
+     <div data-role="header" data-theme="b">
+       <a href="#mypanel" class="ui-btn-left options"><span class="pe-7s-menu"></a>
+       <h1></h1>
+       <a href="#" class="ui-btn-right closeSession salir"><span class="pe-7s-delete-user"></span></a>
+     </div>
 
      <div role="main" class="ui-content">
          <h2 style="margin-top:20px" id="examen"><!--aquí va el titulo del examen --></h2>
@@ -255,9 +261,11 @@
 </div><!-- /footer -->
 </div><!-- /page -->
 <div data-role="page" id="pagescores" style="background-color:#fff">
- <div data-role="header" data-theme="b">
-     <a href="#mypanel" style="padding:3px;"><img src="imagenes/panel.png" width="25" height="25"></a>
-     <h1 style="margin-top:5px !important"><a href="#pagemenuppal" style="border:none;background:none;text-align:center;width:100%;"><img src="imagenes/logo.png" width="150"/></a></h1></div><!-- /header -->
+      <div data-role="header" data-theme="b">
+       <a href="#mypanel" class="ui-btn-left options"><span class="pe-7s-menu"></a>
+       <h1></h1>
+       <a href="#" class="ui-btn-right closeSession salir"><span class="pe-7s-delete-user"></a>
+     </div><!-- /header -->
 
      <div role="main" class="ui-content">
       <h2 style="margin-top:20px">Scores</h2>
@@ -282,8 +290,11 @@
 <div data-role="page" id="pageranking" style="background-color:#fff">
 
  <div data-role="header" data-theme="b">
-    <a href="#mypanel" style="padding:3px;"><img src="imagenes/panel.png" width="25" height="25"></a>
-     <h1 style="margin-top:5px !important"><a href="#pagemenuppal" style="border:none;background:none;text-align:center;width:100%;"><img src="imagenes/logo.png" width="150"/></a></h1></div><!-- /header -->
+     <div data-role="header" data-theme="b">
+       <a href="#mypanel" class="ui-btn-left options"><span class="pe-7s-menu"></a>
+       <h1></h1>
+       <a href="#" class="ui-btn-right closeSession salir"><span class="pe-7s-delete-user"></a>
+     </div><!-- /header -->
 
      <div role="main" class="ui-content">
       <h2 style="margin-top:20px">Ranking</h2>
@@ -310,9 +321,11 @@
 <!-- /page -->
 <div data-role="page" id="pageconsultas" style="background-color:#fff">
 
- <div data-role="header" data-theme="b">
-    <a href="#mypanel" style="padding:3px;"><img src="imagenes/panel.png" width="25" height="25"></a>
-     <h1 style="margin-top:5px !important"><a href="#pagemenuppal" style="border:none;background:none;text-align:center;width:100%;"><img src="imagenes/logo.png" width="150"/></a></h1></div><!-- /header -->
+      <div data-role="header" data-theme="b">
+       <a href="#mypanel" class="ui-btn-left options"><span class="pe-7s-menu"></a>
+       <h1></h1>
+       <a href="#" class="ui-btn-right closeSession salir"><span class="pe-7s-delete-user"></a>
+     </div><!-- /header -->
 
      <div role="main" class="ui-content">
       <h2 style="margin-top:20px">Consultas<br>y sugerencias</h2>
@@ -333,7 +346,7 @@
   <div id="backpanel">
   <p class="nave">Navegación</p>
      <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all" data-theme="a" >
-         <li class="ui-first-child"><a href="#pageexamenes" class="ui-btn mm"><i class="pe-7s-check pe-fw"></i></a><li>
+         <li class="ui-first-child"><a href="#pageexamenes" class="ui-btn mm"><i class="pe-7s-note2 pe-fw"></i></a><li>
          <li class="ui-li-has-count"><a href="#pagescores" class="ui-btn mm"><i class="pe-7s-study pe-fw"></i></a></li>
          <li class="ui-li-has-count"><a href="#pageranking" class="ui-btn mm"><i class="pe-7s-star pe-fw"></i></a></li>
          <li class="ui-li-has-count"><a href="#pageconsultas" class="ui-btn mm"><i class="pe-7s-mail-open-file pe-fw"></i></a></li>

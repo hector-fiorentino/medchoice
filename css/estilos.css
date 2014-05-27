@@ -88,6 +88,11 @@ body {
 .firma{float:right;margin-right:20px;}
 #mypanel .ui-listview{border:none;background:none;box-shadow: none;}
 #mypanel .ui-listview a{color:#333 !important;border:none;}
+.ui-listview{margin-left:auto !important; margin-right:auto !important;}
+#popupDialog{background:#fff !important;border:none;}
+#popupDialog .ui-header{padding-top:0px !important;}
+#popupDialog .ui-title{background:none;background-color:#0a4b81;height:auto !important;width:auto;color:#fff;text-shadow:none;font-size:18px;}
+#popupDialog .ui-content{color:#666;font-size:14px;text-shadow:none;padding:30px;}
 /*#pagemenuppal #centrador{text-align: center;height:100%;}
 #pagemenuppal #centrador:before {content: '';display: inline-block;height: 100%;vertical-align: middle;}
 
@@ -153,6 +158,12 @@ body {
 	#mypanel a.cerrar{padding:10px;background:none;}
 	#mypanel a.cerrar span{color:#666;font-size:36px;}
 
+	/*PAGE EXAMENES*/
+	.ui-listview{width:600px;}
+
+	/*POPUPS*/
+	#popupDialog a i{display:inline-block;font-size:20px;padding-right:10px;}
+	#popupDialog a span{display:inline-block;font-size:20px;}
 }
 
 @media screen and (-webkit-device-pixel-ratio: 1) and (min-device-width : 775px) and (max-device-width : 805px){
