@@ -89,10 +89,10 @@ body {
 #mypanel .ui-listview{border:none;background:none;box-shadow: none;}
 #mypanel .ui-listview a{color:#333 !important;border:none;}
 .ui-listview{margin-left:auto !important; margin-right:auto !important;}
-#popupDialog{background:#fff !important;border:none;}
-#popupDialog .ui-header{padding-top:0px !important;}
-#popupDialog .ui-title{background:none;background-color:#0a4b81;height:auto !important;width:auto;color:#fff;text-shadow:none;font-size:18px;}
-#popupDialog .ui-content{color:#666;font-size:14px;text-shadow:none;padding:30px;}
+#popupDialog,#popupUpdate{background:#fff !important;border:none;}
+#popupDialog .ui-header,#popupUpdate .ui-header{padding-top:0px !important;}
+#popupDialog .ui-title,#popupUpdate .ui-title{background:none;background-color:#0a4b81;height:auto !important;width:auto;color:#fff;text-shadow:none;font-size:18px;}
+#popupDialog .ui-content,#popupUpdate .ui-content{color:#666;font-size:14px;text-shadow:none;padding:30px;}
 /*#pagemenuppal #centrador{text-align: center;height:100%;}
 #pagemenuppal #centrador:before {content: '';display: inline-block;height: 100%;vertical-align: middle;}
 
@@ -148,7 +148,7 @@ body {
 	.options{top:25px;left:25px;display:block;}
 
 	/*PANEL LATERAL*/
-	.ui-panel{width:12em !important;}
+	
 	#mypanel{width:140px;}
 	#mypanel{width:140px;background:#fff;height:100%;}
 	#mypanel .nave{font-size:18px;padding-top:20px;}
@@ -162,8 +162,10 @@ body {
 	.ui-listview{width:600px;}
 
 	/*POPUPS*/
-	#popupDialog a i{display:inline-block;font-size:20px;padding-right:10px;}
-	#popupDialog a span{display:inline-block;font-size:20px;}
+	#popupDialog{width:400px;}
+	#popupUpdate{width:600px;}
+	#popupDialog a i,#popupUpdate a i{display:inline-block;font-size:20px;padding-right:10px;}
+	#popupDialog a span,#popupUpdate a span{display:inline-block;font-size:20px;}
 }
 
 @media screen and (-webkit-device-pixel-ratio: 1) and (min-device-width : 775px) and (max-device-width : 805px){

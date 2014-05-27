@@ -1,8 +1,9 @@
 function main(){
     //alert("OK");
     //Arranque provisorio
-    //$.mobile.changePage($("#pageexamenes"));
-    if ((typeof cordova == 'undefined') && (typeof Cordova == 'undefined')) alert('Cordova variable does not exist. Check that you have included cordova.js correctly');
+    $.mobile.changePage($("#pagemenuppal"));
+
+    /*if ((typeof cordova == 'undefined') && (typeof Cordova == 'undefined')) alert('Cordova variable does not exist. Check that you have included cordova.js correctly');
             if (typeof CDV == 'undefined') alert('CDV variable does not exist. Check that you have included cdv-plugin-fb-connect.js correctly');
             if (typeof FB == 'undefined') alert('FB variable does not exist. Check that you have included the Facebook JS SDK file.');
             
@@ -23,7 +24,7 @@ function main(){
             FB.Event.subscribe('auth.statusChange', function(response) {
                                //alert('auth.statusChange event');
                                });
-    FB.init({ appId: "1537747696452721", nativeInterface: CDV.FB, useCachedDialogs: false });
+    FB.init({ appId: "1537747696452721", nativeInterface: CDV.FB, useCachedDialogs: false });*/
 
     var update;
     if(window.localStorage.getItem("lastUpdate")){
@@ -131,7 +132,7 @@ function main(){
     });
 
     $("#pageexamenes").on("pageshow",function(event){
-        $.mobile.loading( 'show', {
+       $.mobile.loading( 'show', {
             text: 'Cargando',
             textVisible: true,
             theme: 'a',
