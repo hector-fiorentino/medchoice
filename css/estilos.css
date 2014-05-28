@@ -234,9 +234,9 @@ body {
 	/*PAGE LOGIN*/
 	#email{font-size:16px;}
 	#pass{font-size:16px;}
-	#logoBig{width:80%}
-	#login{width:80%;margin-left:auto;margin-right:auto;margin-bottom:30px;background-color:#034a80 !important;color:#fff;border:none;text-shadow:none;}
-	.registrobtn{width:75%;background-color:#f4f5f5 !important;padding-top:5px;padding-bottom:5px;border:none;text-shadow:none;color:#333;margin-bottom:20px;margin-left:auto;margin-right:auto;}
+	#logoBig{width:250px}
+	#login{font-size:18px;height:40px;width:100px;margin-left:auto;margin-right:auto;margin-bottom:30px;background-color:#034a80 !important;color:#fff;border:none;text-shadow:none;}
+	.registrobtn{width:75px;background-color:#f4f5f5 !important;padding-top:5px;padding-bottom:5px;border:none;text-shadow:none;color:#333;margin-bottom:20px;margin-left:auto;margin-right:auto;}
 	#fconnect{margin-bottom:5px;}
 	#pageadmin #centro{width: 80%; text-align:center;}
 
