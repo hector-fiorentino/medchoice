@@ -230,10 +230,7 @@ body {
 }
 /* High density (240), hdpi */
 @media screen and (-webkit-device-pixel-ratio: 1.5) {
-  
-}
-@media screen and (-webkit-device-pixel-ratio: 1.5) and (min-device-width : 540px){
-	#pruebacss{display:none;}
+  #pruebacss{display:none;}
 	/*PAGE LOGIN*/
 	#email{font-size:16px;}
 	#pass{font-size:16px;}
@@ -323,6 +320,9 @@ body {
 	#consultar{width:200px;color:#666;}
 	#consultar i{font-size:32px; display:inline-block;vertical-align: middle;margin-right:10px;}
 	#consultar span{font-size:24px;display: inline-block;vertical-align: middle;}
+}
+@media screen and (-webkit-device-pixel-ratio: 1.5) and (min-device-width : 540px){
+	
   
 }
 /* Extra high density (320), xhdpi */
