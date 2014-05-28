@@ -233,6 +233,96 @@ body {
   
 }
 @media screen and (-webkit-device-pixel-ratio: 1.5) and (min-device-width : 540px){
+	#pruebacss{display:none;}
+	/*PAGE LOGIN*/
+	#email{font-size:16px;}
+	#pass{font-size:16px;}
+	#logoBig{width:80%}
+	#login{width:80%;margin-left:auto;margin-right:auto;margin-bottom:30px;background-color:#034a80 !important;color:#fff;border:none;text-shadow:none;}
+	.registrobtn{width:75%;background-color:#f4f5f5 !important;padding-top:5px;padding-bottom:5px;border:none;text-shadow:none;color:#333;margin-bottom:20px;margin-left:auto;margin-right:auto;}
+	#fconnect{margin-bottom:5px;}
+	#pageadmin #centro{width: 80%; text-align:center;}
+
+	/*PAGE REGISTRO*/
+	#pageregistrarse form{width:500px !important;margin-left:auto;margin-right:auto;}
+	#pageregistrarse input{font-size:18px;}
+	#pageregistrarse p{font-size:18px;text-align:left;font-weight:bold;}
+	#pageregistrarse label {font-size:18px;text-align:left;margin-top:10px;}
+	#pageregistrarse #registrar{position:relative;width:300px;margin-left:auto;margin-right:auto;margin-bottom:30px;background-color:#034a80 !important;color:#fff;border:none;text-shadow:none;}
+	#pageregistrarse #registrar i{position:absolute;font-size: 24px;top:8px;left:10px;font-weight:bold;}
+	.volver i{font-size:24px;}
+
+	/*PAGE MENUPRINCIPAL*/
+	.menuicon{font-size:48px; color:#fff;}
+	.menup a{margin-left:auto;margin-right:auto;background-color:#034a80 !important;padding:15px !important;width:48px !important;border-radius:100px !important;}
+	.menup p{font-size:14px !important; color:#034a80 !important;}
+	#pagemenuppal .ui-grid-a{width:80%;margin-left:auto;margin-right:auto;margin-top:20px;}
+	.ui-bar-a{background:none !important;border:none !important;margin-bottom:20px;}
+	.actualizar{width:80%;margin-right: auto;margin-left: auto}
+	.ui-header{padding-top:10px !important;}
+	.ui-title{width:250px;background-image:url(../imagenes/logochicox2.png);background-size: 50% 50%;height:40px;background-repeat: no-repeat;margin:0px auto !important;}
+	#bienvenido{font-size:18px;padding:4px;margin:10px; margin-top:10px;color:#fff;background-color:#ccc;border-radius:5px;}
+	.salir{top:25px;right:25px;display:block;}
+	.salir span,.options span{font-size:24px;}
+	.options{top:25px;left:25px;display:block;}
+
+	/*PANEL LATERAL*/
+	
+	#mypanel{width:140px;}
+	#mypanel{width:140px;background:#fff;height:100%;}
+	#mypanel .nave{font-size:18px;padding-top:20px;}
+	#mypanel .ui-listview{border:none;background:none;box-shadow: none;width:140px !important;margin:0px;padding:0px;}
+	#mypanel .ui-listview a{display:block; margin-left:30px;border:none; background-color:#034a80; padding:10px 15px 10px 13px; width:26px !important; border-radius:60px;margin-bottom:20px;}
+	#mypanel .ui-listview a i{color:#fff; font-size:32px;}
+	#mypanel a.cerrar{padding:10px;background:none;}
+	#mypanel a.cerrar span{color:#666;font-size:36px;}
+
+	/*PAGE EXAMENES*/
+	.ui-listview{width:600px;}
+
+	/*Page Examen*/
+	#infoexamen{width:728px;margin:20px auto 0px auto;}
+	#examen{color:#8b8b8a;float:left;background:#e7e7e7;padding:0px 20px 0px 0px;margin:5px 0px 0px 15px;}
+	#examen i{font-size:38px;display:inline-block;vertical-align:middle;margin-right:15px;}
+	#examen span{display:inline-block;vertical-align: middle}
+	#tiempo i{font-size:42px;display:inline-block;vertical-align: middle;margin-right:10px;}
+	#tiempo span{display:inline-block;vertical-align: middle;}
+	#tiempo{background:#ccc;font-size:20px;color:#fff;padding:5px;border-radius: 4px;width:200px;margin:0px auto 0px auto;float:right;}
+	#respuestas{width:600px;margin:60px auto 0px auto;}
+	#respuestas legend{margin:30px;}
+	.ui-controlgroup-vertical .ui-controlgroup-controls .ui-btn{border-bottom-width:1px !important}
+	#respuestas .ui-radio{margin-bottom:20px;border-radius:10px !important;}
+	#respuestas .ui-radio label{font-weight:normal !important;}
+	/*.ui-page-theme-a .ui-btn{}*/
+	.nextBtn{width:195px;background:#0a4b81 !important;color:#fff !important;text-shadow:none !important;font-size:20px !important;padding:5px !important;float:right !important;}
+	.nextBtn i{font-size:42px;color:#fff;vertical-align: middle;}
+	.nextBtn span{display:inline-block;vertical-align: middle;margin-right:10px;}
+	.noterror a{float:left;margin-left:20px;}
+	.noterror i{font-size:36px;}
+	#paginado{color:#ccc;font-size:18px;margin-top:25px;}
+	
+	/*POPUPS*/
+	#popupDialog{width:400px;}
+	#popupUpdate{width:600px;}
+	#popupDialog a i,#popupUpdate a i,#popupPuntaje a i,#popupReporte a i,#popupConfirm a i{display:inline-block;font-size:20px;padding-right:10px;}
+	#popupDialog a span,#popupUpdate a span,#popupPuntaje a span,#popupReporte a span,#popupConfirm a span{display:inline-block;font-size:20px;}
+	#popupPuntaje{width:450px;}
+	#popupReporte{width:400px;}
+	#reporte{height:150px !important;}
+	#popupConfirm{width:400px;}
+
+	/*Page Scores*/
+	.ui-collapsible-inset{width:600px;}
+	.ui-collapsible-content .ui-listview{width:598px;}
+
+	/*PAGE RANKING*/
+	.contenedor{width:600px;margin:30px auto 0px auto !important;}
+	/*PAGE Consultas*/
+	#asunto,#consulta{font-size:18px;}
+	#consulta{margin-top:20px;height:300px !important;}
+	#consultar{width:200px;color:#666;}
+	#consultar i{font-size:32px; display:inline-block;vertical-align: middle;margin-right:10px;}
+	#consultar span{font-size:24px;display: inline-block;vertical-align: middle;}
   
 }
 /* Extra high density (320), xhdpi */
