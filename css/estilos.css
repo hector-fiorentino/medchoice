@@ -89,10 +89,19 @@ body {
 #mypanel .ui-listview{border:none;background:none;box-shadow: none;}
 #mypanel .ui-listview a{color:#333 !important;border:none;}
 .ui-listview{margin-left:auto !important; margin-right:auto !important;}
-#popupDialog,#popupUpdate{background:#fff !important;border:none;}
-#popupDialog .ui-header,#popupUpdate .ui-header{padding-top:0px !important;}
-#popupDialog .ui-title,#popupUpdate .ui-title{background:none;background-color:#0a4b81;height:auto !important;width:auto;color:#fff;text-shadow:none;font-size:18px;}
-#popupDialog .ui-content,#popupUpdate .ui-content{color:#666;font-size:14px;text-shadow:none;padding:30px;}
+#popupDialog,#popupUpdate,#popupPuntaje,#popupReporte,#popupConfirm{background:#fff !important;border:none;}
+#popupDialog .ui-header,#popupUpdate .ui-header,#popupPuntaje .ui-header,#popupReporte .ui-header,#popupConfirm .ui-header{padding-top:0px !important;}
+#popupDialog .ui-title,#popupUpdate .ui-title,#popupPuntaje .ui-title,#popupReporte .ui-title,#popupConfirm .ui-title{background:none;background-color:#0a4b81;height:auto !important;width:auto;color:#fff;text-shadow:none;font-size:18px;}
+#popupDialog .ui-content,#popupUpdate .ui-content,#popupPuntaje .ui-content,#popupReporte .ui-content,#popupConfirm .ui-content{color:#666;font-size:14px;text-shadow:none;padding:30px;}
+
+.ui-collapsible-inset{margin:0px auto 0px auto !important;margin-bottom:20px !important;}
+.titulodown{border-radius:8px !important;}
+.titulodown a{background:#0a4b81 !important;color:#fff !important;text-shadow:none !important;}
+.ui-collapsible-content{padding:0px !important;}
+.ui-collapsible-content a{font-weight:normal !important;}
+#infoexamen{overflow:hidden;background:#e7e7e7;}
+#selExamen-listbox .ui-title{background-image:none;height:auto;font-size:18px;padding-top:0px !important;margin-top:0px !important;}
+
 /*#pagemenuppal #centrador{text-align: center;height:100%;}
 #pagemenuppal #centrador:before {content: '';display: inline-block;height: 100%;vertical-align: middle;}
 
@@ -161,11 +170,50 @@ body {
 	/*PAGE EXAMENES*/
 	.ui-listview{width:600px;}
 
+	/*Page Examen*/
+	#infoexamen{width:728px;margin:20px auto 0px auto;}
+	#examen{color:#8b8b8a;float:left;background:#e7e7e7;padding:0px 20px 0px 0px;margin:5px 0px 0px 15px;}
+	#examen i{font-size:38px;display:inline-block;vertical-align:middle;margin-right:15px;}
+	#examen span{display:inline-block;vertical-align: middle}
+	#tiempo i{font-size:42px;display:inline-block;vertical-align: middle;margin-right:10px;}
+	#tiempo span{display:inline-block;vertical-align: middle;}
+	#tiempo{background:#ccc;font-size:20px;color:#fff;padding:5px;border-radius: 4px;width:200px;margin:0px auto 0px auto;float:right;}
+	#respuestas{width:600px;margin:60px auto 0px auto;}
+	#respuestas legend{margin:30px;}
+	.ui-controlgroup-vertical .ui-controlgroup-controls .ui-btn{border-bottom-width:1px !important}
+	#respuestas .ui-radio{margin-bottom:20px;border-radius:10px !important;}
+	#respuestas .ui-radio label{font-weight:normal !important;}
+	/*.ui-page-theme-a .ui-btn{}*/
+	.nextBtn{width:195px;background:#0a4b81 !important;color:#fff !important;text-shadow:none !important;font-size:20px !important;padding:5px !important;float:right !important;}
+	.nextBtn i{font-size:42px;color:#fff;vertical-align: middle;}
+	.nextBtn span{display:inline-block;vertical-align: middle;margin-right:10px;}
+	.noterror a{float:left;margin-left:20px;}
+	.noterror i{font-size:36px;}
+	#paginado{color:#ccc;font-size:18px;margin-top:25px;}
+	
 	/*POPUPS*/
 	#popupDialog{width:400px;}
 	#popupUpdate{width:600px;}
-	#popupDialog a i,#popupUpdate a i{display:inline-block;font-size:20px;padding-right:10px;}
-	#popupDialog a span,#popupUpdate a span{display:inline-block;font-size:20px;}
+	#popupDialog a i,#popupUpdate a i,#popupPuntaje a i,#popupReporte a i,#popupConfirm a i{display:inline-block;font-size:20px;padding-right:10px;}
+	#popupDialog a span,#popupUpdate a span,#popupPuntaje a span,#popupReporte a span,#popupConfirm a span{display:inline-block;font-size:20px;}
+	#popupPuntaje{width:450px;}
+	#popupReporte{width:400px;}
+	#reporte{height:150px !important;}
+	#popupConfirm{width:400px;}
+
+	/*Page Scores*/
+	.ui-collapsible-inset{width:600px;}
+	.ui-collapsible-content .ui-listview{width:598px;}
+
+	/*PAGE RANKING*/
+	.contenedor{width:600px;margin:30px auto 0px auto !important;}
+	/*PAGE Consultas*/
+	#asunto,#consulta{font-size:18px;}
+	#consulta{margin-top:20px;height:300px !important;}
+	#consultar{width:200px;color:#666;}
+	#consultar i{font-size:32px; display:inline-block;vertical-align: middle;margin-right:10px;}
+	#consultar span{font-size:24px;display: inline-block;vertical-align: middle;}
+
 }
 
 @media screen and (-webkit-device-pixel-ratio: 1) and (min-device-width : 775px) and (max-device-width : 805px){

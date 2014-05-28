@@ -1,9 +1,6 @@
 function main(){
-    //alert("OK");
-    //Arranque provisorio
-    $.mobile.changePage($("#pagemenuppal"));
 
-    /*if ((typeof cordova == 'undefined') && (typeof Cordova == 'undefined')) alert('Cordova variable does not exist. Check that you have included cordova.js correctly');
+    if ((typeof cordova == 'undefined') && (typeof Cordova == 'undefined')) alert('Cordova variable does not exist. Check that you have included cordova.js correctly');
             if (typeof CDV == 'undefined') alert('CDV variable does not exist. Check that you have included cdv-plugin-fb-connect.js correctly');
             if (typeof FB == 'undefined') alert('FB variable does not exist. Check that you have included the Facebook JS SDK file.');
             
@@ -24,7 +21,7 @@ function main(){
             FB.Event.subscribe('auth.statusChange', function(response) {
                                //alert('auth.statusChange event');
                                });
-    FB.init({ appId: "1537747696452721", nativeInterface: CDV.FB, useCachedDialogs: false });*/
+    FB.init({ appId: "1537747696452721", nativeInterface: CDV.FB, useCachedDialogs: false });
 
     var update;
     if(window.localStorage.getItem("lastUpdate")){
@@ -197,7 +194,7 @@ function main(){
                         }
                         evalu += '<div data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u">';
                         exp = exito[w].examen_id;
-                        evalu +='<h4>'+exito[w].nombre+'</h4>';
+                        evalu +='<h4 class="titulodown">'+exito[w].nombre+'</h4>';
                         evalu += '<ul data-role="listview" data-inset="false" class="registros">';
                     }
                     evalu += '<li id="s'+exito[w].ID+'"><a href="#">'+exito[w].fcreacion+' - '+exito[w].puntaje+' puntos.</a>'
@@ -520,8 +517,9 @@ function main(){
         })
     })
     $("#iniciar").click(function(){
+
         $.mobile.changePage($("#pageexamen"));
-        $('#examen').html(nameExamen);
+        $('#examen').html('<i class="pe-7s-note2"></i><span>'+nameExamen+'</span>');
         db.cantidadPreguntas(idExamen).done(function(exito){
             totalPreg = exito;
             console.log("TOTAL PREGUNTAS= " + totalPreg);
@@ -559,7 +557,7 @@ function main(){
                     pausa = false;
                     refreshIntervalId = setInterval(timerExamen,1000);
                     muestraPage=numPreg+1;
-                    $("#paginado").html(muestraPage+" de "+totalPreg);
+                    $("#paginado").html("Pregunta N°"+muestraPage+" de "+totalPreg);
                 })
             });
         });

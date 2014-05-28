@@ -211,86 +211,107 @@
 <!-- EXAMEN -->
 <div data-role="page" id="pageexamen" style="background-color:#fff">
 
-     <div data-role="header" data-theme="b">
+     <div data-role="header">
        <a href="#mypanel" class="ui-btn-left options"><span class="pe-7s-menu"></a>
        <h1></h1>
        <a href="#" class="ui-btn-right closeSession salir"><span class="pe-7s-delete-user"></span></a>
      </div>
 
      <div role="main" class="ui-content">
-         <h2 style="margin-top:20px" id="examen"><!--aquí va el titulo del examen --></h2>
-         <p id="tiempo"><span style="color:#999">Tiempo de exámen:</span> <span id="hora">00</span>:<span id="minuto">01</span>:<span id="segundo">30</span></p>
+        <div id="infoexamen">
+         <h2 id="examen"><i class="pe-7s-note2"></i><!--aquí va el titulo del examen --><span>Demo Hospital Británico</span></h2>
+         <p id="tiempo"><i class="pe-7s-stopwatch"></i><span id="hora">00</span>:<span id="minuto">01</span>:<span id="segundo">30</span></p>
+        </div>
          <form id="radioRespuestas">
             <fieldset data-role="controlgroup" id="respuestas">
-            
+            <legend>Una madre consulta porque su hija de 7 días de vida bajó de peso en un 5% con respecto al peso de nacimiento. La niña se alimenta con pecho exclusivo cada 3 horas y la madre siente que sus pechos se vacían parcialmente luego de cada mamada. El examen físico es normal. ¿Cuál es la conducta más adecuada?</legend>
+            <input type="radio" name="respuesta" id="respuesta-1" value="1">
+            <label for="respuesta-1">Tranquilizar a la madre y explicarle que recuperará su peso en una semana</label>
+            <input type="radio" name="respuesta" id="respuesta-2" value="0">
+            <label for="respuesta-2">Tranquilizar a la madre y explicarle que recuperará su peso en una semana</label>
+            <input type="radio" name="respuesta" id="respuesta-3" value="0">
+            <label for="respuesta-3">Tranquilizar a la madre y explicarle que recuperará su peso en una semana</label>
+            <input type="radio" name="respuesta" id="respuesta-4" value="0">
+            <label for="respuesta-4">Tranquilizar a la madre y explicarle que recuperará su peso en una semana</label>
             </fieldset>
         </form>
 
     </div><!-- /content -->
     <div data-role="popup" id="popupReporte" data-theme="a" class="ui-corner-all">
+      <div data-role="header">
+        <h1>Notificar Error</h1>
+      </div>
+      <div role="main" class="ui-content">
         <form>
             <div style="padding:10px 20px;">
                 <h3>Si considera que hay un error en esta pregunta, haganos saber cuál.</h3>
                 <label for="un" class="ui-hidden-accessible">Comente el error:</label>
-                <textarea name="reporte" id="reporte"></textarea>
+                <textarea name="reporte" id="reporte" cols="40" rows="8"></textarea>
                 <input type="hidden" name="pregid" id="pregid">
                 <p id="ernoti"></p>
-                 <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancelar</a>
-                 <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" id="notificar">Enviar</a>
+                 <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back"><i class="pe-7s-close pe-fw"></i><span>Cancelar</span></a>
+                 <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" id="notificar"><i class="pe-7s-paper-plane pe-fw"></i><span>Enviar</span></a>
             </div>
         </form>
+      </div>
     </div>
-    <div data-role="popup" id="popupPuntaje" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
-      <div data-role="header" data-theme="b">
+    <div data-role="popup" id="popupPuntaje" data-overlay-theme="b" data-theme="b" data-dismissible="false">
+      <div data-role="header">
       <h1>Exámen Finalizado</h1>
       </div>
       <div role="main" class="ui-content">
-          <h3 class="ui-title" id="msg">El exámen a finalizado, su score es:</h3>
+          <h3 id="msg">El exámen a finalizado, su score es:</h3>
           <h2 id="puntos">50</h2>
           <p id="masinfo">xxx preguntas correctas en xx tiempo.</p>
-          <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b share">Share</a>
-          <a href="#pagemenuppal" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b">Regresar al menú principal</a>
+          <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b share"><i class="pe-7s-like2 pe-fw"></i><span>Compartir</span></a>
+          <a href="#pagemenuppal" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b"><i class="pe-7s-back pe-fw"></i><span>Menú principal</span></a>
       </div>
     </div>
-    <div data-role="footer" data-theme="b" data-position="fixed">
-        <div class="ui-grid-d center">
-            <div class="ui-block-c"><a href="#popupReporte" class="ui-shadow ui-btn ui-corner-all ui-icon-comment ui-btn-icon-notext ui-btn-inline" data-rel="popup" data-position-to="window" data-transition="pop">Comment</a></div>
-            <div class="ui-block-d" id="paginado">1 de 100</div>
-            <div class="ui-block-e"><a class="ui-shadow ui-btn ui-corner-all ui-icon-arrow-r ui-btn-icon-notext ui-btn-inline nextBtn">Next</a></div>
-        </div>
+    <div data-role="footer" data-theme="a" data-position="fixed">
+      <div class="ui-grid-b ui-responsive">
+          <div class="ui-block-a"><div class="ui-body ui-body-d noterror"><a href="#popupReporte" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-rel="popup" data-position-to="window" data-transition="pop"><i class="pe-7s-comment"></i></a></div></div>
+          <div class="ui-block-b"><div class="ui-body ui-body-d" id="paginado">Pregunta N°1 de 100</div></div>
+          <div class="ui-block-c"><div class="ui-body ui-body-d"><a class="ui-shadow ui-btn ui-corner-all ui-btn-inline nextBtn"><span>SIGUIENTE</span><i class="pe-7s-right-arrow"></i></a></div></div>
+      </div><!-- /grid-b -->
     </div>
 </div><!-- /footer -->
 </div><!-- /page -->
 <div data-role="page" id="pagescores" style="background-color:#fff">
-      <div data-role="header" data-theme="b">
+      <div data-role="header">
        <a href="#mypanel" class="ui-btn-left options"><span class="pe-7s-menu"></a>
        <h1></h1>
        <a href="#" class="ui-btn-right closeSession salir"><span class="pe-7s-delete-user"></a>
      </div><!-- /header -->
 
      <div role="main" class="ui-content">
-      <h2 style="margin-top:20px">Scores</h2>
+      <h2>Mis Scores</h2>
       <div id="evaluaciones">
-          
+  
       </div>
         <div data-role="popup" id="popupConfirm" data-theme="b">
+         <div data-role="header">
+          <h1>Exportar a PDF</h1>
+          </div>
+         <div role="main" class="ui-content">
             <input type="hidden" id="evalua" value=""/>
             <input type="hidden" id="accion" value=""/>
             <input type="hidden" id="fechaApp" value=""/>
             <p class="texto">Se le enviará a su casilla de e-mail, registrada, un link de descarga de un documento PDF con el cuestionario completo con las respuestas correctas y seleccionadas por usted.</p>
-            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancelar</a>
-            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" id="acepto">Aceptar</a>
+            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back"><i class="pe-7s-close"></i><span>Cancelar</span></a>
+            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" id="acepto"><i class="pe-7s-paper-plane"></i><span>Enviar</span></a>
         </div>
+      </div>
       
 </div><!-- /content -->
 
 <div data-role="footer" data-theme="b" data-position="fixed">
+  <p align="right" class="firma">Powered by <img src="imagenes/logomedapps.png" width="100" align="top"></p>
 </div>
 </div>
 <!-- /page -->
 <div data-role="page" id="pageranking" style="background-color:#fff">
 
- <div data-role="header" data-theme="b">
+ <div data-role="header">
        <a href="#mypanel" class="ui-btn-left options"><span class="pe-7s-menu"></a>
        <h1></h1>
        <a href="#" class="ui-btn-right closeSession salir"><span class="pe-7s-delete-user"></a>
@@ -298,7 +319,11 @@
 
      <div role="main" class="ui-content">
       <h2 style="margin-top:20px">Ranking</h2>
+      <div class="contenedor">
       <select name="selExamen" id="selExamen" data-native-menu="false">
+        <option>Seleccione un examen:</option>
+        <option value="a">uno</option>
+        <option value="b">dos</option>
       </select>
       <table data-role="table" id="table-column-toggle" data-mode="columntoggle" class="ui-responsive table-stroke">
      <thead>
@@ -313,32 +338,38 @@
        
      </tbody>
    </table>
+ </div>
 </div><!-- /content -->
 
 <div data-role="footer" data-theme="b" data-position="fixed">
+  <p align="right" class="firma">Powered by <img src="imagenes/logomedapps.png" width="100" align="top"></p>
 </div>
 </div>
 <!-- /page -->
 <div data-role="page" id="pageconsultas" style="background-color:#fff">
 
-      <div data-role="header" data-theme="b">
+      <div data-role="header">
        <a href="#mypanel" class="ui-btn-left options"><span class="pe-7s-menu"></a>
        <h1></h1>
        <a href="#" class="ui-btn-right closeSession salir"><span class="pe-7s-delete-user"></a>
      </div><!-- /header -->
 
      <div role="main" class="ui-content">
-      <h2 style="margin-top:20px">Consultas<br>y sugerencias</h2>
+      <h2>Consultas y sugerencias</h2>
+      <div class="contenedor">
       <form>
        <input type="text" name="text-6" id="asunto" value="" placeholder="Asunto">
        <textarea cols="40" rows="16" name="textarea-8" id="consulta" placeholder="Consulta o sugerencia..."></textarea>
        <p id="erConsulta" class="error"></p>
        <p id="enviado" class="good"></p>
-       <input type="button" id="consultar" value="Enviar" data-theme="a">
+       <a href="#" id="consultar" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a"><i class="pe-7s-paper-plane pe-fw"></i><span>Enviar</span></a>
+    
    </form>
+ </div>
 </div><!-- /content -->
 
 <div data-role="footer" data-theme="b" data-position="fixed">
+  <p align="right" class="firma">Powered by <img src="imagenes/logomedapps.png" width="100" align="top"></p>
 </div>
 </div>
 <!-- /page -->
