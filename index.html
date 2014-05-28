@@ -64,13 +64,6 @@
 </head>
 <body>
   <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&appId=1536370399923784&version=v2.0";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
     <div data-role="page" id="pageadmin">
 
      <div data-role="header" data-theme="b"></div><!-- /header -->
@@ -86,8 +79,7 @@
           <p id="erlogin" class="error"></p>
         </form>
         <a href="#" id="login" class="ui-btn ui-corner-all">Ingresar</a>
-        <!--<a href="#" id="fconnect"><img src="imagenes/facebook.jpg" width="180"></a> -->
-        <div class="fb-login-button" id="fconnect" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false"></div>
+        <a href="#" id="fconnect" class="ui-btn ui-corner-all"><i class="fb"></i><span>Iniciar sesión con <strong>Facebook</strong></span></a>
         <a href="#pageregistrarse" class="registrobtn ui-btn ui-corner-all">Registrarse</a>
         
       </div>
@@ -306,7 +298,7 @@
             <input type="hidden" id="fechaApp" value=""/>
             <p class="texto">Se le enviará a su casilla de e-mail, registrada, un link de descarga de un documento PDF con el cuestionario completo con las respuestas correctas y seleccionadas por usted.</p>
             <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back"><i class="pe-7s-close"></i><span>Cancelar</span></a>
-            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" id="acepto"><i class="pe-7s-paper-plane"></i><span>Enviar</span></a>
+            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" id="acepto"><i class="pe-7s-check"></i><span>Aceptar</span></a>
         </div>
       </div>
       

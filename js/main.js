@@ -158,12 +158,12 @@ function main(){
                     datos.examen = idExamen;
                     db.verSiEstaInterrumpida(datos).done(function(exito){
                         if(exito.length > 0){
-                            $("#iniciar").html("Reiniciar");
+                            $("#iniciar span").html("Reiniciar");
                             $("#continuar").css("display","inline-block");
                             idEvaluacion = exito[0].ID;
                             $("#msg").html("Hay una evaluación inconclusa del examen "+nameExamen+". Seleccione la opción Continuar o Reiniciar.");      
                         }else{
-                            $("#iniciar").html("Iniciar");
+                            $("#iniciar span").html("Iniciar");
                             $("#continuar").css("display","none");
                             $("#msg").html('Usted comenzará el examen "'+nameExamen+'". Al realizar click en Iniciar, comenzará a correr el tiempo y su score. De lo contrario, presionar "Cancelar"');      
                         }
@@ -215,6 +215,7 @@ function main(){
                     $("#accion").val('borrar');
                     $("#fechaApp").val(f);
                     $("#evalua").val(id);
+                    $("#popupConfirm h1").html('Borrar evaluación');
                     $("#popupConfirm .texto").html('Desea borrar la evaluación seleccionada?');
                     $("#popupConfirm").popup('open');
         
@@ -226,6 +227,7 @@ function main(){
         $("#accion").val('exportar');
         $("#evalua").val(id);
         $("#fechaApp").val(f);
+        $("#popupConfirm h1").html('Exportar a PDF');
         $("#popupConfirm .texto").html('Se le enviará a su casilla de e-mail, registrada, un link de descarga de un documento PDF con el cuestionario completo con las respuestas correctas y seleccionadas por usted.');
         $("#popupConfirm").popup('open');
     })
@@ -557,7 +559,7 @@ function main(){
                     pausa = false;
                     refreshIntervalId = setInterval(timerExamen,1000);
                     muestraPage=numPreg+1;
-                    $("#paginado").html("Pregunta N°"+muestraPage+" de "+totalPreg);
+                    $(".paginado").html("Pregunta N°"+muestraPage+" de "+totalPreg);
                 })
             });
         });
