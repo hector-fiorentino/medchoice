@@ -544,8 +544,8 @@ function main(){
         })
     })
     $("#iniciar").click(function(){
-
         $.mobile.changePage($("#pageexamen"));
+        $("#tiempo").show('fast');
         $('#examen').html('<i class="pe-7s-note2"></i><span>'+nameExamen+'</span>');
         db.cantidadPreguntas(idExamen).done(function(exito){
             totalPreg = exito;
