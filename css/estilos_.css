@@ -103,11 +103,6 @@ body {
 #infoexamen{overflow:hidden;background:#e7e7e7;}
 #selExamen-listbox .ui-title{background-image:none;height:auto;font-size:18px;padding-top:0px !important;margin-top:0px !important;}
 
-
-#fconnect{width:230px;margin-left:auto;margin-right:auto;margin-bottom:30px;background-color:#3c5897 !important;color:#fff;border:none;text-shadow:none;}
-#fconnect span{display:inline-block;vertical-align: middle;font-size:12px;font-weight:normal;}
-#fconnect strong{font-size:14px;}
-#fconnect i{display:inline-block;background-image:url(../imagenes/facebook-32.png);width:32px;height:32px;margin-right:10px;vertical-align: middle;}
 /*#pagemenuppal #centrador{text-align: center;height:100%;}
 #pagemenuppal #centrador:before {content: '';display: inline-block;height: 100%;vertical-align: middle;}
 
@@ -136,10 +131,8 @@ body {
 	#logoBig{width:500px}
 	#login{width:200px;margin-left:auto;margin-right:auto;margin-bottom:30px;background-color:#034a80 !important;color:#fff;border:none;text-shadow:none;}
 	.registrobtn{width:150px;background-color:#f4f5f5 !important;padding-top:5px;padding-bottom:5px;border:none;text-shadow:none;color:#333;margin-bottom:20px;margin-left:auto;margin-right:auto;}
-	#fconnect{width:230px;margin-left:auto;margin-right:auto;margin-bottom:30px;background-color:#3c5897 !important;color:#fff;border:none;text-shadow:none;}
-	#fconnect span{display:inline-block;vertical-align: middle;font-size:12px;font-weight:normal;}
-	#fconnect strong{font-size:14px;}
-	#fconnect i{display:inline-block;background-image:url(../imagenes/facebook-32.png);width:32px;height:32px;margin-right:10px;vertical-align: middle;}	#pageadmin #centro{width: 500px; text-align:center;}
+	#fconnect{margin-bottom:10px;}
+	#pageadmin #centro{width: 500px; text-align:center;}
 
 	/*PAGE REGISTRO*/
 	#pageregistrarse form{width:500px !important;margin-left:auto;margin-right:auto;}
@@ -191,6 +184,7 @@ body {
 	.ui-controlgroup-vertical .ui-controlgroup-controls .ui-btn{border-bottom-width:1px !important}
 	#respuestas .ui-radio{margin-bottom:20px;border-radius:10px !important;}
 	#respuestas .ui-radio label{font-weight:normal !important;}
+	#pageexamen .ui-listview{margin-top:30px !important;}
 	/*.ui-page-theme-a .ui-btn{}*/
 	.nextBtn{width:195px;background:#0a4b81 !important;color:#fff !important;text-shadow:none !important;font-size:20px !important;padding:5px !important;float:right !important;}
 	.nextBtn i{font-size:42px;color:#fff;vertical-align: middle;}
