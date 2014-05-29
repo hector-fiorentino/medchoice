@@ -180,7 +180,7 @@ body {
 	#tiempo span{display:inline-block;vertical-align: middle;}
 	#tiempo{background:#ccc;font-size:20px;color:#fff;padding:5px;border-radius: 4px;width:200px;margin:0px auto 0px auto;float:right;}
 	#respuestas{width:600px;margin:60px auto 0px auto;}
-	#respuestas legend{margin:30px;}
+	#respuestas legend{margin:30px;font-size:24px;padding-bottom:30 !important;}
 	.ui-controlgroup-vertical .ui-controlgroup-controls .ui-btn{border-bottom-width:1px !important}
 	#respuestas .ui-radio{margin-bottom:20px;border-radius:10px !important;}
 	#respuestas .ui-radio label{font-weight:normal !important;}
