@@ -55,7 +55,7 @@
         <param name="APP_ID" value="1537747696452721" />
         <param name="APP_NAME" value="medchoicetest" />
     </gap:plugin>
-
+    <gap:plugin name="nl.x-services.plugins.socialsharing" version="4.0.8" />
     <!-- Define app icon for each platform. -->
     <icon src="icon.png" />
     <icon src="res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:density="ldpi" />

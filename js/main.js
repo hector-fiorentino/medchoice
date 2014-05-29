@@ -306,12 +306,7 @@ function main(){
     /* SHARE BUTTON */////////////////////////////////////////////
     $(".share").click(function(){
         var txt="Mi puntaje en MedChoice fue de "+Puntaje;
-        window.plugins.share.show({
-            subject: 'MedChoice',
-            text: txt},
-            function() {}, // Success function
-            function() {} // Failure function
-        );
+        window.plugins.socialsharing.share(txt);
     })
     ////////////////////////* FIN SHARE BUTTON */////////////////////////
     $("#fconnect").click(function(){
