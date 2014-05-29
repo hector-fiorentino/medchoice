@@ -338,9 +338,28 @@ function main(){
                             $.mobile.loading( 'hide');
                             $.mobile.changePage($("#pagemenuppal"));
                         }else{
-                            alert(exito);
-                            alert("No estaba");
-                            me();
+                            //alert(exito);
+                            //alert("No estaba");
+                            $.post('http://medchoice.com.ar/login/fbuser',{uid:response.authResponse.userId},function(exito){
+                                if(exito){
+                                    if(!exito.error){
+                                        var seudonimo = "";
+                                        seudonimo = exito.nombre;
+                                        var inicial = "";
+                                        inicial = " "+exito.apellido.charAt(0)+".";
+                                        seudonimo += inicial.toUpperCase();
+                                        window.localStorage.setItem("userID",exito.id);
+                                        window.localStorage.setItem("userName",seudonimo);
+                                        userID = exito.id;
+                                        userName = seudonimo;
+                                        $.mobile.loading( 'hide');
+                                        $.mobile.changePage($("#pagemenuppal"));
+                                    }else{
+                                        me();
+                                    }
+                                }
+                            },"json");
+                            //me();
                         } 
                      })
                     
