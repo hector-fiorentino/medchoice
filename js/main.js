@@ -310,7 +310,7 @@ function main(){
             subject: 'MedChoice',
             text: txt},
             function() {}, // Success function
-            function() {alert('Share failed')} // Failure function
+            function() {} // Failure function
         );
     })
     ////////////////////////* FIN SHARE BUTTON */////////////////////////
@@ -338,22 +338,33 @@ function main(){
                             $.mobile.loading( 'hide');
                             $.mobile.changePage($("#pagemenuppal"));
                         }else{
-                            //alert(exito);
-                            //alert("No estaba");
                             $.post('http://medchoice.com.ar/login/fbuser',{uid:response.authResponse.userId},function(exito){
                                 if(exito){
                                     if(!exito.error){
+                                        var datos = [];
+                                        datos.ID = exito.id;
+                                        window.localStorage.setItem("userID",exito.id);
+                                        userID = exito.id;
+                                        datos.nombre = exito.nombre;
+                                        datos.apellido = exito.apellido;
                                         var seudonimo = "";
                                         seudonimo = exito.nombre;
                                         var inicial = "";
                                         inicial = " "+exito.apellido.charAt(0)+".";
                                         seudonimo += inicial.toUpperCase();
-                                        window.localStorage.setItem("userID",exito.id);
+                                        datos.seudonimo = seudonimo;
                                         window.localStorage.setItem("userName",seudonimo);
-                                        userID = exito.id;
                                         userName = seudonimo;
-                                        $.mobile.loading( 'hide');
-                                        $.mobile.changePage($("#pagemenuppal"));
+                                        datos.email = exito.email;
+                                        datos.pass = exito.pass;
+                                        datos.estado = exito.estado;
+                                        datos.terminos = exito.terminos;
+                                        datos.fcreacion = exito.fcreacion;
+                                        db.guardarUsuario(datos).done(function(exito){
+                                            $.mobile.loading( 'hide');
+                                            $.mobile.changePage($("#pagemenuppal"))
+                                            console.log("ESA!");
+                                        });
                                     }else{
                                         me();
                                     }
@@ -364,7 +375,7 @@ function main(){
                      })
                     
                 } else {
-                    alert('not logged in');
+                    //alert('not logged in');
                 }
             },
             { scope: "email" }
@@ -375,7 +386,7 @@ function main(){
             function me() {
                 FB.api('/me', { fields:'name, email, first_name, last_name, gender' },  function(response) {
                        if (response.error) {
-                       alert(JSON.stringify(response.error));
+                      // alert(JSON.stringify(response.error));
                        } else {
                        var datos = [];
                        datos.seudonimo = response.name;
@@ -610,7 +621,7 @@ function main(){
         $(cual).animate({opacity:'.9'},1000,function(){
         numPreg=numPreg + 1;
         muestraPage=numPreg+1;
-        $("#paginado").html(muestraPage+" de "+totalPreg);
+        $(".paginado").html("Pregunta N°"+muestraPage+" de "+totalPreg);
         var datos = [];
         datos.id = idEvaluacion;
         datos.interrupcion = numPreg;
@@ -817,7 +828,7 @@ function main(){
 
             db.validarUsuario(datos).done(function(exito){
                 if(exito.ID){
-                    alert("Logeo offline");
+
                     idUsuario = exito.ID;
                     seudonimo = exito.nombre;
                     inicial = " "+exito.apellido.charAt(0)+".";
@@ -829,7 +840,7 @@ function main(){
                     $.mobile.changePage($("#pagemenuppal"));
                 }else{
                     /*CHECKEO ONLINE*//////////////////////////////
-                    alert("Logeo Online");
+
                     $.post("http://medchoice.com.ar/login",{enviar:1,email:Email,pass:Pass},function(exito){
                         if(exito){
                             console.log(exito);
@@ -865,6 +876,7 @@ function main(){
                                 datos.ID = idUsuario;
                                 datos.nombre = exito.nombre;
                                 datos.apellido = exito.apellido;
+                                datos.seudonimo = seudonimo;
                                 datos.email = exito.email;
                                 datos.pass = exito.pass;
                                 datos.estado = exito.estado;
@@ -894,7 +906,7 @@ function main(){
         window.localStorage.removeItem("userName");
         if(window.localStorage.getItem('fConnect')==true){
                 FB.logout(function(response) {
-                          alert('logged out');
+
                 });
                 window.localStorage.setItem('fConnect',false);
         }
