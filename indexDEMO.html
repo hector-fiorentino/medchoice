@@ -29,11 +29,7 @@
         <link rel="stylesheet" href="path/to/pe-icon-7-stroke/css/helper.css">
         <script src="js/jquery-1.10.0.js"></script>
         <script src="js/jquery.mobile-1.4.0.min.js"></script>
-        <script type="text/javascript" src="js/sha1.js"></script>
-        <script src="cdv-plugin-fb-connect.js"></script>
-        <script src="facebook-js-sdk.js"></script>
-        <script src="js/dbAdapter.js"></script>
-        <script src="js/main.js"></script>
+
 
         <title>MedChoice</title>
     </head>
@@ -196,7 +192,7 @@
   </div><!-- /header -->
 
 <div role="main" class="ui-content" >
-  <p id="bienvenido"></p>
+  <p id="bienvenido"><i class='pe-7s-user pe-fw'></i><span>Bienvenido Hector F.</span></p>
   <div class="ui-grid-a">
     <div class="ui-block-a"><div class="ui-bar ui-bar-a menup"><a href="#pageexamenes"><span class="pe-7s-note2 menuicon"></span></a><p>Realizar exámen</p></div></div>
     <div class="ui-block-b"><div class="ui-bar ui-bar-a menup"><a href="#pagescores"><span class="pe-7s-study menuicon"></span></a>
@@ -236,6 +232,10 @@
  <div role="main" class="ui-content">
     <h2>Seleccione el examen que desee realizar</h2>
     <ul data-role="listview" data-inset="true" id="examenes">    
+      <li><a href="#popupDialog" rel="1" data-rel="popup" data-position-to="window" data-transition="pop" aria-haspopup="true" aria-owns="purchase" aria-expanded="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r examen" title="Hacer el examen">Demo</a></li>
+      <li><a href="#popupDialog" rel="1" data-rel="popup" data-position-to="window" data-transition="pop" aria-haspopup="true" aria-owns="purchase" aria-expanded="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r examen" title="Hacer el examen">Examen de ingreso 2014</a></li>
+      <li><a href="#popupDialog" rel="1" data-rel="popup" data-position-to="window" data-transition="pop" aria-haspopup="true" aria-owns="purchase" aria-expanded="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r examen" title="Hacer el examen">Demo</a></li>
+      <li><a href="#popupDialog" rel="1" data-rel="popup" data-position-to="window" data-transition="pop" aria-haspopup="true" aria-owns="purchase" aria-expanded="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r examen" title="Hacer el examen">Examen de ingreso 2014</a></li>
     </ul>
 
 </div><!-- /content -->
@@ -272,7 +272,16 @@
         </div>
          <form id="radioRespuestas">
             <fieldset data-role="controlgroup" id="respuestas">
-            
+              <legend>Una madre consulta porque su hija de 7 días de vida bajó de peso en un 5% con respecto al peso de nacimiento. La niña se alimenta con pecho exclusivo cada 3 horas y la madre siente que sus pechos se vacían parcialmente luego de cada mamada. El examen físico es normal. ¿Cuál es la conducta más adecuada?</legend>
+
+              <input type="radio" name="respuesta" id="respuesta-1" value="1">
+              <label for="respuesta-1">Tranquilizar a la madre y explicarle que recuperará su peso en una semana</label>
+              <input type="radio" name="respuesta" id="respuesta-2" value="0">
+              <label for="respuesta-2">Indicar complemento con leche maternizada luego de cada toma del pecho</label>
+              <input type="radio" name="respuesta" id="respuesta-3" value="0">
+              <label for="respuesta-3">Indicar internación en neonatología para estudio y recuperación nutricional</label>
+              <input type="radio" name="respuesta" id="respuesta-4" value="0">
+              <label for="respuesta-4">Indicar realizar un análisis de orina para búsqueda de cuerpos reductores</label>
             </fieldset>
         </form>
 
@@ -326,7 +335,34 @@
      <div role="main" class="ui-content">
       <h2>Mis Scores</h2>
       <div id="evaluaciones">
-  
+          <div data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u">
+            <h4 class="titulodown">Examen Demo</h4>
+            <ul data-role="listview" data-inset="false" class="registros">
+              <li id="1"><a href="#">2014-02-22 - 64 puntos.</a>
+                <a href="#" rel="1" data-num="1" class="ui-btn ui-icon-delete ui-btn-icon-notext borrar">Delete</a>
+                <a href="#" rel="1" data-num="1" class="ui-btn ui-icon-mail ui-btn-icon-notext exportar" style="margin-right:40px">Mail</a></li>
+                <li id="1"><a href="#">2014-02-22 - 64 puntos.</a>
+                <a href="#" rel="1" data-num="1" class="ui-btn ui-icon-delete ui-btn-icon-notext borrar">Delete</a>
+                <a href="#" rel="1" data-num="1" class="ui-btn ui-icon-mail ui-btn-icon-notext exportar" style="margin-right:40px">Mail</a></li>
+                <li id="1"><a href="#">2014-02-22 - 64 puntos.</a>
+                <a href="#" rel="1" data-num="1" class="ui-btn ui-icon-delete ui-btn-icon-notext borrar">Delete</a>
+                <a href="#" rel="1" data-num="1" class="ui-btn ui-icon-mail ui-btn-icon-notext exportar" style="margin-right:40px">Mail</a></li>
+            </ul>
+          </div>
+          <div data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u">
+            <h4 class="titulodown">Examen Demo</h4>
+            <ul data-role="listview" data-inset="false" class="registros">
+              <li id="1"><a href="#">2014-02-22 - 64 puntos.</a>
+                <a href="#" rel="1" data-num="1" class="ui-btn ui-icon-delete ui-btn-icon-notext borrar">Delete</a>
+                <a href="#" rel="1" data-num="1" class="ui-btn ui-icon-mail ui-btn-icon-notext exportar" style="margin-right:40px">Mail</a></li>
+                <li id="1"><a href="#">2014-02-22 - 64 puntos.</a>
+                <a href="#" rel="1" data-num="1" class="ui-btn ui-icon-delete ui-btn-icon-notext borrar">Delete</a>
+                <a href="#" rel="1" data-num="1" class="ui-btn ui-icon-mail ui-btn-icon-notext exportar" style="margin-right:40px">Mail</a></li>
+                <li id="1"><a href="#">2014-02-22 - 64 puntos.</a>
+                <a href="#" rel="1" data-num="1" class="ui-btn ui-icon-delete ui-btn-icon-notext borrar">Delete</a>
+                <a href="#" rel="1" data-num="1" class="ui-btn ui-icon-mail ui-btn-icon-notext exportar" style="margin-right:40px">Mail</a></li>
+            </ul>
+          </div>
       </div>
         <div data-role="popup" id="popupConfirm" data-theme="b">
          <div data-role="header">
@@ -375,7 +411,12 @@
        </tr>
      </thead>
      <tbody id="resRanking">
-       
+       <tr><th>12</th><th>pepe p.</th><th>35</th><th>0:00:00</th></tr>
+       <tr><th>12</th><th>pepe p.</th><th>35</th><th>0:00:00</th></tr>
+       <tr><th>12</th><th>pepe p.</th><th>35</th><th>0:00:00</th></tr>
+       <tr><th>12</th><th>pepe p.</th><th>35</th><th>0:00:00</th></tr>
+       <tr><th>12</th><th>pepe p.</th><th>35</th><th>0:00:00</th></tr>
+       <tr><th>12</th><th>pepe p.</th><th>35</th><th>0:00:00</th></tr>
      </tbody>
    </table>
  </div>

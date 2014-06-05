@@ -1,5 +1,5 @@
 function main(){
-    $.mobile.changePage($("#pageregistrarse"));
+    //$.mobile.changePage($("#pageregistrarse"));
     if ((typeof cordova == 'undefined') && (typeof Cordova == 'undefined')) alert('Cordova variable does not exist. Check that you have included cordova.js correctly');
             if (typeof CDV == 'undefined') alert('CDV variable does not exist. Check that you have included cdv-plugin-fb-connect.js correctly');
             if (typeof FB == 'undefined') alert('FB variable does not exist. Check that you have included the Facebook JS SDK file.');
@@ -108,7 +108,7 @@ function main(){
 
     /*PAGINAS*////////////////////
     $("#pagemenuppal").on( "pageshow", function(event) { 
-        $("#bienvenido").html("<i class='pe-7s-user pe-fw'></i> Bienvenido "+userName);
+        $("#bienvenido").html("<i class='pe-7s-user pe-fw'></i><span>Bienvenido "+userName+"</span>");
          $.post("http://medchoice.com.ar/configuraciones/update",{},function(exito){
             if(exito){
                 console.log("Fecha recibida");
@@ -277,7 +277,7 @@ function main(){
                         pos++
                         var Tiempo = 0;
                         Tiempo = pasarATiempo(exito[f].tiempo);
-                        filas +="<tr><th>"+pos+"</th><td>"+seudonimo+"</td><td>"+exito[f].puntaje+"</td><td>"+Tiempo+"</td></tr>";
+                        filas +="<tr><th>"+pos+"</th><th>"+seudonimo+"</th><th>"+exito[f].puntaje+"</th><th>"+Tiempo+"</th></tr>";
                     }
                     console.log(filas);
                     $("#resRanking").html(filas);
