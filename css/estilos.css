@@ -86,7 +86,7 @@ body {
 #pageadmin #centro h1{margin:0px;padding:0px;text-align:center;}
 .volver{float:left; margin-left:20px;}
 .firma{float:right;margin-right:20px;}
-#mypanel{width:0px; }
+#mypanel{width:0px; display:none; }
 #mypanel .ui-listview{border:none;background:none;box-shadow: none;}
 #mypanel .ui-listview a{color:#333 !important;border:none;}
 .ui-listview{margin-left:auto !important; margin-right:auto !important;}
@@ -456,25 +456,31 @@ body {
 /* Extra high density (320), xhdpi */
 @media screen and (-webkit-device-pixel-ratio: 2) and (orientation:portrait) {
 	#pruebacss{display:none;}
+	.firma span{display:inline-block;vertical-align:middle;background-image:url(../imagenes/logoappchoicexhdpi.png);background-size:100px 22px;width:100px;height:22px;}
 	/*PAGE LOGIN*/
-	#email{font-size:24px;}
-	#pass{font-size:24px;}
-	#logoBig{width:400px;}
-	#login{font-size:30px; width:100%; padding:10px 0px 10px 0px !important;text-align:center;margin-bottom:30px;background-color:#034a80 !important;color:#fff;border:none;text-shadow:none;}
-	.registrobtn{font-size:24px; width:80%;background-color:#f4f5f5 !important;padding-top:10px;padding-bottom:10px;border:none;text-shadow:none;color:#333;margin-bottom:0px;margin-left:auto;margin-right:auto;}
-	#fconnect{margin-bottom:40px;}
+	#pageadmin{margin-top:0px;padding-top:0px;padding-bottom:0px !important;margin-bottom:0px !important;}
+	#pageadmin form{width:80%;margin-left:auto;margin-right:auto;border-top:dashed 1px #ccc;padding-top:20px;}
+	#email{font-size:18px;}
+	#pass{font-size:18px;}
+	#logoBig{width:300px;}
+	#login{font-size:18px; width:80%; padding:10px 0px 10px 0px !important;text-align:center;margin-bottom:10px;background-color:#034a80 !important;color:#fff;border:none;text-shadow:none;margin-left:auto;margin-right:auto;}
+	.registrobtn{font-size:18px; width:80%;background-color:#f4f5f5 !important;padding:10px 0px 10px 0px !important;border:none;text-shadow:none;color:#333;margin-bottom:0px;margin-left:auto;margin-right:auto;}
+	#fconnect{margin-bottom:20px;}
 	#pageadmin #centro{width: 90%; text-align:center;}
 
 	/*PAGE REGISTRO*/
 	#pageregistrarse .ui-content{padding-top:0px !important;}
 	#pageregistrarse p {margin-top:0px;padding-top:0px;}
 	#pageregistrarse form{width:90%;margin-left:auto;margin-right:auto;}
-	#pageregistrarse input{font-size:18px;}
-	#pageregistrarse p{font-size:18px;text-align:left;font-weight:bold;}
-	#pageregistrarse label {font-size:18px;text-align:left;margin-top:10px;}
-	#pageregistrarse #registrar{font-size:42px;padding:10px !important;position:relative;width:280px;margin-left:auto;margin-right:auto;margin-bottom:30px;background-color:#034a80 !important;color:#fff;border:none;text-shadow:none;}
-	#pageregistrarse #registrar i{position:absolute;font-size: 42px;top:15px;left:17px;}
-	.volver i{font-size:42px;}
+	#pageregistrarse input{font-size:14px;}
+	#pageregistrarse p{font-size:14px;text-align:left;font-weight:bold;}
+	#pageregistrarse label {font-size:14px;text-align:left;}
+	.leer{font-size:14px;margin-top:10px;display:block;}
+	#pageregistrarse .ui-select{margin-bottom:15px !important;}
+	#pageregistrarse .ui-controlgroup, fieldset.ui-controlgroup{margin:0px !important;}
+	#pageregistrarse #registrar{font-size:20px;padding:10px !important;position:relative;width:280px;margin-left:auto;margin-right:auto;margin-bottom:30px;background-color:#034a80 !important;color:#fff;border:none;text-shadow:none;font-weight:normal;}
+	#pageregistrarse #registrar i{position:absolute;font-size: 32px;top:8px;left:17px;}
+	.volver i{font-size:36px;}
 	.firma{display:block;margin-top:20px !important;}
 
 	/*PAGE MENUPRINCIPAL*/
