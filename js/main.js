@@ -1,5 +1,5 @@
 function main(){
-    $.mobile.changePage($("#pageexamenes"));
+    //$.mobile.changePage($("#pageexamenes"));
     if ((typeof cordova == 'undefined') && (typeof Cordova == 'undefined')) alert('Cordova variable does not exist. Check that you have included cordova.js correctly');
             if (typeof CDV == 'undefined') alert('CDV variable does not exist. Check that you have included cdv-plugin-fb-connect.js correctly');
             if (typeof FB == 'undefined') alert('FB variable does not exist. Check that you have included the Facebook JS SDK file.');
@@ -148,7 +148,7 @@ function main(){
                 li += '</li>';
                 $("#examenes").append(li);
             }
-            $("#popupDialog").popup("open");
+            //$("#popupDialog").popup("open");
             $(".examen").click(function(){
                 idExamen = $(this).attr("rel");
                 db.nombreExamen(idExamen).done(function(rs){
