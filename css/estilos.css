@@ -86,7 +86,7 @@ body {
 #pageadmin #centro h1{margin:0px;padding:0px;text-align:center;}
 .volver{float:left; margin-left:20px;}
 .firma{float:right;margin-right:20px;}
-#mypanel{width:0px; }
+#mypanel{width:0px;}
 #mypanel .ui-listview{border:none;background:none;box-shadow: none;}
 #mypanel .ui-listview a{color:#333 !important;border:none;}
 .ui-listview{margin-left:auto !important; margin-right:auto !important;}
@@ -115,7 +115,122 @@ body {
 }
 /* Medium density (160), mdpi */
 @media screen and (-webkit-device-pixel-ratio: 1) and (max-device-width : 380px){
-  
+   #pruebacss{display:none;}
+ 	#pageadmin{margin-bottom:0px !important;padding-bottom:0px !important;}
+	#email{font-size:14px;}
+	#pass{font-size:14px;}
+	#logoBig{width:266px;}
+	#login{font-size:18px; width:100%; padding:10px 0px 10px 0px !important;text-align:center;margin-bottom:20px;background-color:#034a80 !important;color:#fff;border:none;text-shadow:none;}
+	.registrobtn{font-size:18px; width:85%;background-color:#f4f5f5 !important;padding-top:10px;padding-bottom:10px;border:none;text-shadow:none;color:#333;margin-bottom:0px;margin-left:auto;margin-right:auto;}
+	#fconnect{width:212px;}
+	#fconnect span{font-size:10px;}
+	#fconnect strong{font-size:12px;}
+	#fconnect i{background-image:url(../imagenes/facebook-32.png);background-size:16px;width:16px;height:16px;}
+	#pageadmin form {border-top:dashed 1px #ccc; padding-top:32px;}
+	#pageadmin #centro{width: 266px; text-align:center;}
+
+	/*PAGE REGISTRO*/
+	#pageregistrarse .ui-content{padding-top:0px !important;}
+	#pageregistrarse p {margin-top:0px;padding-top:0px;}
+	#pageregistrarse form{width:90%;margin-left:auto;margin-right:auto;}
+	#pageregistrarse input{font-size:14px;}
+	#pageregistrarse p{font-size:14px;text-align:left;font-weight:bold;}
+	#pageregistrarse label {font-size:14px;text-align:left;margin-top:10px;}
+	#pageregistrarse #registrar{font-size:18px;font-weight:normal;padding:10px !important;position:relative;width:240px;margin-left:auto;margin-right:auto;margin-bottom:30px;background-color:#034a80 !important;color:#fff;border:none;text-shadow:none;}
+	#pageregistrarse #registrar i{position:absolute;font-size: 24px;top:10px;left:17px;}
+	.volver i{font-size:24px;}
+	.firma{display:inline-block;vertical-align:middle;margin-top:15px !important;font-size:10px;}
+	.firma span{display:inline-block;vertical-align:middle;background-image:url(../imagenes/logomedapps.png);background-size:100px 19px; width:100px;height:19px;}
+	.leer{font-size:14px;margin-top:20px;display:block;}
+	/*PAGE MENUPRINCIPAL*/
+	.menuicon{font-size:49px; color:#fff;}
+	.menup a{margin-left:auto;margin-right:auto;background-color:#034a80 !important;padding:25px !important;width:49px !important;border-radius:100px !important;}
+	.menup p{font-size:12px !important; color:#034a80 !important;}
+	#pagemenuppal .ui-grid-a{width:80%;margin-left:auto;margin-right:auto;margin-top:20px;}
+	.ui-bar-a{background:none !important;border:none !important;margin-bottom:20px;}
+	.actualizar{width:80%;margin-right: auto;margin-left: auto}
+	.ui-header{padding-top:0px !important;}
+	.ui-title{width:100%;background-image:url(../imagenes/logochicox1.png); background-size:167px 23px;background-position:center 23px;height:65px;background-repeat: no-repeat;margin:0px auto !important;}
+	#bienvenido{font-size:18px;padding:7px;margin:8px; margin-top:8px;color:#fff;background-color:#ccc;border-radius:5px;}
+	#bienvenido span{display:inline-block; vertical-align: middle;}
+	#bienvenido i{font-size:24px; display:inline-block; vertical-align: middle; margin-right:10px;}
+	.salir{top:12px;right:12px;display:block;}
+	.salir span,.options span{font-size:24px;}
+	.options{top:12px;left:12px;display:block;}
+	#pageterminos p{text-align:justify; padding-left:15px; padding-right:15px;}
+	#pageterminos h2{text-align:left;padding:15px;}
+
+	/*PANEL LATERAL*/
+	
+	#mypanel{width:120px;}
+	#mypanel{width:120px;background:#fff;height:100%;}
+	#mypanel .nave{font-size:18px;padding-top:20px;}
+	#mypanel .ui-listview{border:none;background:none;box-shadow: none;width:120px !important;margin:0px;padding:0px;}
+	#mypanel .ui-listview a{display:block; margin-left:10px;border:none; background-color:#034a80; padding:15px 20px 15px 20px; width:33px !important; border-radius:40px;margin-bottom:15px;}
+	#mypanel .ui-listview a i{color:#fff; font-size:40px;}
+	#mypanel a.cerrar{padding:10px;background:none;margin-left:20px;}
+	#mypanel a.cerrar span{color:#666;font-size:40px;}
+
+	/*PAGE EXAMENES*/
+	#pageexamenes h2{margin-top:0px;font-size:16px;margin-bottom:20px;}
+	.ui-listview{width:100%;}
+	.ui-listview li a{font-size:14px !important}
+
+	/*Page Examen*/
+	#examen{color:#8b8b8a;background:#e7e7e7;padding:0px 20px 5px 0px;margin:10px 0px 0px 0px;}
+	#examen i{font-size:18px;display:inline-block;vertical-align:middle;margin-right:15px;}
+	#examen span{display:inline-block;vertical-align: middle;font-size:16px;}
+	#tiempo i{font-size:24px;display:inline-block;vertical-align: middle;margin-right:10px;}
+	#tiempo span{display:inline-block;vertical-align: middle; font-size:24px;}
+	#tiempo{background:#ccc;font-size:24px;color:#fff;padding:0px;border-radius: 0px;width:100%;margin:0px auto 0px auto;position:fixed;left:0px;top:65px;z-index:1000000;}
+	#respuestas{width:100%;margin:20px auto 30px auto;}
+	#respuestas legend{margin:0px 10px 20px 10px;font-size:14px;}
+	.ui-controlgroup-vertical .ui-controlgroup-controls .ui-btn{border-bottom-width:1px !important}
+	#respuestas .ui-radio{margin-bottom:0px;border-radius:10px !important;}
+	#respuestas .ui-radio label{font-weight:normal !important;font-size:12px;}
+	/*.ui-page-theme-a .ui-btn{}*/
+	.nextBtn{background:#0a4b81 !important;margin:10px 0px 0px 0px !important;padding:10px 20px !important;border-radius:8px !important;}
+	.nextBtn i{font-size:24px;color:#fff;vertical-align: middle;}
+	.nextBtn span{display:none}
+	.noterror a{margin:10px 0px 0px 0px !important;padding:10px 20px !important;border-radius:8px !important;}
+	.noterror i{font-size:24px;}
+	#pageexamen .ui-footer{margin-bottom:0px !important;padding-bottom:0px !important;}
+	#pageexamen .ui-grid-b{background:#fff !important;margin-bottom:0px !important;padding-bottom:0px !important;}
+	#pageexamen .ui-grid-b .ui-block-a,#pageexamen .ui-grid-b .ui-block-c{width:25% !important}
+	#pageexamen .ui-grid-b .ui-bar{padding:0px !important;}
+	#pageexamen .ui-grid-b .ui-block-b{width:50% !important;}
+	.paginado{color:#666;font-weight:normal;font-size:14px;margin-top:20px;}
+	
+	/*POPUPS*/
+	#popupDialog{width:100%;}
+	#popupUpdate{width:100%;}
+	#popupDialog a i,#popupUpdate a i,#popupPuntaje a i,#popupReporte a i,#popupConfirm a i{display:inline-block;font-size:18px;padding-right:10px;}
+	#popupDialog a span,#popupUpdate a span,#popupPuntaje a span,#popupReporte a span,#popupConfirm a span{display:inline-block;font-size:14px;}
+	#popupPuntaje{width:100%;}
+	#popupReporte{width:100%;z-index:1000000}
+	#reporte{height:100px !important;}
+	#popupConfirm{width:100%;}
+	#popupDialog .ui-title,#popupUpdate .ui-title,#popupPuntaje .ui-title,#popupReporte .ui-title,#popupConfirm .ui-title{font-size:18px;}
+	#popupDialog .ui-content,#popupUpdate .ui-content,#popupPuntaje .ui-content,#popupReporte .ui-content,#popupConfirm .ui-content{font-size:14px;padding:20px !important;}
+
+
+	.ui-grid-b{background:#fff;}
+	/*Page Scores*/
+	.ui-collapsible-inset{width:100%;}
+	.ui-collapsible-content .ui-listview{width:100%;}
+	#popupDialog .ui-content,#popupUpdate .ui-content,#popupPuntaje .ui-content,#popupReporte .ui-content,#popupConfirm .ui-content{padding:20px !important;}
+
+	/*PAGE RANKING*/
+	.contenedor{width:100%;margin:20px auto 0px auto !important;}
+	#pageranking .ui-table th {font-size:12px !important;}
+	#pageranking .ui-table td {font-size:12px !important;}
+	/*PAGE Consultas*/
+	#asunto,#consulta{font-size:14px;}
+	#consulta{margin-top:20px;height:250px !important;}
+	#consultar{width:200px;color:#666;}
+	#consultar i{font-size:24px; display:inline-block;vertical-align: middle;margin-right:10px;}
+	#consultar span{font-size:18px;display: inline-block;vertical-align: middle;}
+	.error,.good{font-size:18px;}
 }
 
 @media screen and (-webkit-device-pixel-ratio: 1) and (min-device-width : 600px) and (max-device-width : 720px){
@@ -283,10 +398,10 @@ body {
 
 	/*PANEL LATERAL*/
 	
-	#mypanel{width:120px;}
-	#mypanel{width:120px;background:#fff;height:100%;}
+	#mypanel{width:160px;}
+	#mypanel{width:160px;background:#fff;height:100%;}
 	#mypanel .nave{font-size:18px;padding-top:20px;}
-	#mypanel .ui-listview{border:none;background:none;box-shadow: none;width:120px !important;margin:0px;padding:0px;}
+	#mypanel .ui-listview{border:none;background:none;box-shadow: none;width:160px !important;margin:0px;padding:0px;}
 	#mypanel .ui-listview a{display:block; margin-left:10px;border:none; background-color:#034a80; padding:20px 25px 20px 25px; width:50px !important; border-radius:60px;margin-bottom:20px;}
 	#mypanel .ui-listview a i{color:#fff; font-size:60px;}
 	#mypanel a.cerrar{padding:10px;background:none;margin-left:20px;}
