@@ -929,14 +929,17 @@ function main(){
                             case "ER101":
                                  $("#ernombre").html("Campo obligatorio");
                                  $.mobile.loading('hide');
+                                alert("Complete los campos obligatorios");
                             break;
                             case "ER102":
                                  $("#erapellido").html("Campo obligatorio");
                                  $.mobile.loading('hide');
+                                 alert("Complete los campos obligatorios");
                             break;
                             case "ER103":
                                  $("#eremail").html("El e-mail ya se encuentra registrado");
                                  $.mobile.loading('hide');
+                                 alert("El e-mail ya se encuentra registrado");
                             break;
                             default:
                             //console.log("USUARIO REGISTRADO CON EL ID "+exito);
