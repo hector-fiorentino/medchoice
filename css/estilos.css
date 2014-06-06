@@ -108,7 +108,7 @@ body {
 #fconnect span{display:inline-block;vertical-align: middle;font-size:12px;font-weight:normal;}
 #fconnect strong{font-size:14px;}
 #fconnect i{display:inline-block;background-image:url(../imagenes/facebook-32.png);width:32px;height:32px;margin-right:10px;vertical-align: middle;}
-
+.ui-loader-verbose h1{color:#fff !important;text-shadow:none; }
 /* Low density (120), mdpi */
 @media screen and (-webkit-device-pixel-ratio: 0.75) {
   
@@ -472,6 +472,7 @@ body {
 
 /* Extra high density (320), xhdpi */
 @media screen and (-webkit-device-pixel-ratio: 2) and (orientation:portrait) {
+	.ui-loader-verbose h1{font-size:24px !important;}
 	.ui-link{
 	font-size:24px;
 }
@@ -676,7 +677,7 @@ margin: 1px 0 0 -30px;
   
 }
 @media screen and (-webkit-device-pixel-ratio: 3) and (orientation:portrait) {
-
+.ui-loader-verbose h1{font-size:36px !important;}
 	.ui-link{
 	font-size:36px;
 }
