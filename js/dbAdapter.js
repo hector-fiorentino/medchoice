@@ -71,6 +71,9 @@ function dbAdapter(){
 	 	this.db.transaction(
 	 		function (tx){
 	 				//BORRAR
+	 				tx.executeSql("DELETE FROM respuestas",[]);
+	 				tx.executeSql("DELETE FROM preguntas",[]);
+	 				tx.executeSql("DELETE FROM examenes",[]);
 	 				/*for(datos.examenes as val){
 	 					var sql = "SELECT id FROM preguntas WHERE examen_id=".val[id];
 	 					tx.executeSql(sql,[],function (tx, results){
