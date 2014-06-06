@@ -52,8 +52,8 @@
         A list of available plugins are available at https://build.phonegap.com/docs/plugins
     -->
 	<gap:plugin name="com.phonegap.plugins.facebookconnect" version="0.4.0">
-        <param name="APP_ID" value="1537747696452721" />
-        <param name="APP_NAME" value="medchoicetest" />
+        <param name="APP_ID" value="1536370399923784" />
+        <param name="APP_NAME" value="medchoice" />
     </gap:plugin>
     <gap:plugin name="nl.x-services.plugins.socialsharing" version="4.0.8" />
     <!-- Define app icon for each platform. -->
