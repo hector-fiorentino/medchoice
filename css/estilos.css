@@ -86,7 +86,7 @@ body {
 #pageadmin #centro h1{margin:0px;padding:0px;text-align:center;}
 .volver{float:left; margin-left:20px;}
 .firma{float:right;margin-right:20px;}
-#mypanel{width:0px; display:none; }
+#mypanel{width:0px; }
 #mypanel .ui-listview{border:none;background:none;box-shadow: none;}
 #mypanel .ui-listview a{color:#333 !important;border:none;}
 .ui-listview{margin-left:auto !important; margin-right:auto !important;}
@@ -303,7 +303,7 @@ body {
 	#examen span{display:inline-block;vertical-align: middle;font-size:18px;}
 	#tiempo i{font-size:30px;display:inline-block;vertical-align: middle;margin-right:10px;}
 	#tiempo span{display:inline-block;vertical-align: middle; font-size:30px;}
-	#tiempo{background:#ccc;font-size:30px;color:#fff;padding:0px;border-radius: 0px;width:100%;margin:0px auto 0px auto;position:fixed;left:0px;top:80px;}
+	#tiempo{background:#ccc;font-size:30px;color:#fff;padding:0px;border-radius: 0px;width:100%;margin:0px auto 0px auto;position:fixed;left:0px;top:80px;z-index:1000000;}
 	#respuestas{width:100%;margin:30px auto 30px auto;}
 	#respuestas legend{margin:0px 20px 20px 20px;font-size:18px;}
 	.ui-controlgroup-vertical .ui-controlgroup-controls .ui-btn{border-bottom-width:1px !important}
@@ -328,7 +328,7 @@ body {
 	#popupDialog a i,#popupUpdate a i,#popupPuntaje a i,#popupReporte a i,#popupConfirm a i{display:inline-block;font-size:24px;padding-right:10px;}
 	#popupDialog a span,#popupUpdate a span,#popupPuntaje a span,#popupReporte a span,#popupConfirm a span{display:inline-block;font-size:18px;}
 	#popupPuntaje{width:100%;}
-	#popupReporte{width:100%;}
+	#popupReporte{width:100%;z-index:1000000}
 	#reporte{height:150px !important;}
 	#popupConfirm{width:100%;}
 	#popupDialog .ui-title,#popupUpdate .ui-title,#popupPuntaje .ui-title,#popupReporte .ui-title,#popupConfirm .ui-title{font-size:24px;}
@@ -344,12 +344,15 @@ body {
 	/*PAGE RANKING*/
 	.contenedor{width:90%;margin:20px auto 0px auto !important;}
 	#pageranking .ui-table th {font-size:16px !important;}
+	#pageranking .ui-table td {font-size:16px !important;}
 	/*PAGE Consultas*/
 	#asunto,#consulta{font-size:24px;}
 	#consulta{margin-top:20px;height:300px !important;}
 	#consultar{width:200px;color:#666;}
 	#consultar i{font-size:32px; display:inline-block;vertical-align: middle;margin-right:10px;}
 	#consultar span{font-size:24px;display: inline-block;vertical-align: middle;}
+	.error,.good{font-size:18px;}
+
 }
 
 /* Extra high density (320), xhdpi */

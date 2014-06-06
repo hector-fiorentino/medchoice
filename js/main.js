@@ -278,7 +278,7 @@ function main(){
                         pos++
                         var Tiempo = 0;
                         Tiempo = pasarATiempo(exito[f].tiempo);
-                        filas +="<tr><th>"+pos+"</th><th>"+seudonimo+"</th><th>"+exito[f].puntaje+"</th><th>"+Tiempo+"</th></tr>";
+                        filas +="<tr><th>"+pos+"</th><td>"+seudonimo+"</td><td>"+exito[f].puntaje+"</td><td>"+Tiempo+"</td></tr>";
                     }
                     console.log(filas);
                     $("#resRanking").html(filas);
