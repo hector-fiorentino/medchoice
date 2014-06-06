@@ -1,5 +1,5 @@
 function main(){
-    $.mobile.changePage($("#pageregistrarse"));
+    $.mobile.changePage($("#pageexamenes"));
     if ((typeof cordova == 'undefined') && (typeof Cordova == 'undefined')) alert('Cordova variable does not exist. Check that you have included cordova.js correctly');
             if (typeof CDV == 'undefined') alert('CDV variable does not exist. Check that you have included cdv-plugin-fb-connect.js correctly');
             if (typeof FB == 'undefined') alert('FB variable does not exist. Check that you have included the Facebook JS SDK file.');
@@ -142,12 +142,13 @@ function main(){
             for(var a = 0; a < l; a++ ){
                 li ="";
                 li += '<li>';
-                li += '<a href="#popupDialog" rel="'+exito[a].ID+'" data-rel="popup" data-position-to="window" data-transition="pop" aria-haspopup="true" aria-owns="purchase" aria-expanded="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r examen" title="Hacer el examen">';
+                li += '<a href="#popupDialog" rel="'+exito[a].ID+'" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-btn-icon-right ui-icon-carat-r examen" title="Hacer el examen">';
                 li += exito[a].nombre;
                 li += '</a>';
                 li += '</li>';
                 $("#examenes").append(li);
             }
+            $("#popupDialog").popup("open");
             $(".examen").click(function(){
                 idExamen = $(this).attr("rel");
                 db.nombreExamen(idExamen).done(function(rs){
