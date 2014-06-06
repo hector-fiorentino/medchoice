@@ -362,6 +362,7 @@ function main(){
                                             console.log("ESA!");
                                         });
                                     }else{
+                                        alert("me");
                                         me();
                                     }
                                 }
@@ -371,7 +372,7 @@ function main(){
                      })
                     
                 } else {
-                    //alert('not logged in');
+                    alert('Login incompleto.');
                 }
             },
             { scope: "email" }
@@ -395,6 +396,7 @@ function main(){
                        datos.pass = "Rj45F";//OCULTAR.
                        datos.identidad = 1;
                        datos.terminos = 2;
+                       alert(response.name+" "+response.first_name+" "+response.last_name+" "+response.email+" "+response.id+" "+response.gender);
                        registro(datos);
                        }
                        });
@@ -920,12 +922,15 @@ function main(){
                         switch(exito){
                             case "ER101":
                                  $("#ernombre").html("Campo obligatorio");
+                                 alert("ER101");
                             break;
                             case "ER102":
                                  $("#erapellido").html("Campo obligatorio");
+                                 alert("ER102");
                             break;
                             case "ER103":
                                  $("#eremail").html("El e-mail ya se encuentra registrado");
+                                 alert("ER103");
                             break;
                             default:
                             //console.log("USUARIO REGISTRADO CON EL ID "+exito);
@@ -943,9 +948,9 @@ function main(){
                             datos.fcreacion = new Date();
                             datos.ID = exito;
                             //GUARDAR REGISTRO DE USUARIO EN BASE INTERNA Y DEJAR LOGEADO.
-                            console.log("los datos están");
+                            alert("OK");
                             db.guardarUsuario(datos).done(function(exito){
-                                console.log("ID"+exito);
+                                alert("OK2");
                                 idUsuario = exito;
                                 userName = datos.seudonimo;
                                 window.localStorage.setItem("userID",idUsuario);
