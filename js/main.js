@@ -264,6 +264,7 @@ function main(){
                 $.post("http://medchoice.com.ar/evaluaciones/ranking",{examen:idExamen},function(exito){
                     if(exito && !exito.error){
                         $("#hay").hide();
+                        $("#tabrank").show();
                         console.log("OK! "+JSON.stringify(exito));
                         var tot = exito.length;
                         console.log("tot"+tot);
@@ -285,6 +286,8 @@ function main(){
                         $.mobile.changePage($("#pageranking"));
                     }else{
                         $("#hay").show();
+                        $("#tabrank").hide();
+                        $("#resRanking").html("");
                         $.mobile.changePage($("#pageranking"));
                     }
                 },"json")
@@ -1000,7 +1003,7 @@ function main(){
     function onBackKeyDown() {
         // Maneja el evento del botón atrás
         if(window.localStorage.getItem("userID")){
-            history.go(-1);
+            //history.go();
             navigator.app.backHistory();
         }  
 
