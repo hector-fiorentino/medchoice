@@ -263,6 +263,7 @@ function main(){
                 idExamen = $(this).attr("rel");
                 $.post("http://medchoice.com.ar/evaluaciones/ranking",{examen:idExamen},function(exito){
                     if(exito && !exito.error){
+                        $("#hay").hide();
                         console.log("OK! "+JSON.stringify(exito));
                         var tot = exito.length;
                         console.log("tot"+tot);
@@ -281,6 +282,9 @@ function main(){
                             filas +="<tr><th>"+pos+"</th><td>"+seudonimo+"</td><td>"+exito[f].puntaje+"</td><td>"+Tiempo+"</td></tr>";
                         }
                         $("#resRanking").html(filas);
+                        $.mobile.changePage($("#pageranking"));
+                    }else{
+                        $("#hay").show();
                         $.mobile.changePage($("#pageranking"));
                     }
                 },"json")
