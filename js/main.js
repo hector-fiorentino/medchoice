@@ -238,8 +238,8 @@ function main(){
         });
     }
 
-    $("#pageranking").on( "pageshow", function(event) { 
-        $.mobile.loading( 'show', {
+    $("#pageprerank").on("pageshow",function(event){
+       $.mobile.loading( 'show', {
             text: 'Cargando',
             textVisible: true,
             theme: 'a',
@@ -247,45 +247,58 @@ function main(){
         });
         db.traerExamenes().done(function(exito){
             var l = exito.length;
-            var li = "<option>Seleccione un examen:</option>";
-            $("#selExamen").empty();
+            var li = "";
+            $("#examenes").empty();
             for(var a = 0; a < l; a++ ){
-                //li ="";
-                li += '<option value="'+exito[a].ID+'">'+exito[a].nombre+'</option>';
+                li ="";
+                li += '<li>';
+                li += '<a href="#popupDialog" rel="'+exito[a].ID+'" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-btn-icon-right ui-icon-carat-r examen" title="Hacer el examen">';
+                li += exito[a].nombre;
+                li += '</a>';
+                li += '</li>';
+                $("#examenes").append(li);
             }
-            $("#selExamen").html(li);
-            $("#selExamen").selectmenu( "refresh" );
-            $.mobile.loading('hide');
-        });
-        $("#selExamen").change(function(){
-            console.log("cambio");
-            var Examen = this.value;
-            console.log(this.value);
-            $.post("http://medchoice.com.ar/evaluaciones/ranking",{examen:Examen},function(exito){
-                if(exito && !exito.error){
-                    console.log("OK! "+JSON.stringify(exito));
-                    var tot = exito.length;
-                    console.log("tot"+tot);
-                    var filas = "";
-                    var seudonimo = "";
-                    var inicial = "";
-                    var pos = 0;
+            //$("#popupDialog").popup("open");
+            $(".examen").click(function(){
+                idExamen = $(this).attr("rel");
+                $.post("http://medchoice.com.ar/evaluaciones/ranking",{examen:idExamen},function(exito){
+                    if(exito && !exito.error){
+                        console.log("OK! "+JSON.stringify(exito));
+                        var tot = exito.length;
+                        console.log("tot"+tot);
+                        var filas = "";
+                        var seudonimo = "";
+                        var inicial = "";
+                        var pos = 0;
 
-                    for(var f=0; f<tot;f++){
-                        seudonimo = exito[f].nombre;
-                        inicial = " "+exito[f].apellido.charAt(0)+".";
-                        seudonimo += inicial.toUpperCase();
-                        pos++
-                        var Tiempo = 0;
-                        Tiempo = pasarATiempo(exito[f].tiempo);
-                        filas +="<tr><th>"+pos+"</th><td>"+seudonimo+"</td><td>"+exito[f].puntaje+"</td><td>"+Tiempo+"</td></tr>";
+                        for(var f=0; f<tot;f++){
+                            seudonimo = exito[f].nombre;
+                            inicial = " "+exito[f].apellido.charAt(0)+".";
+                            seudonimo += inicial.toUpperCase();
+                            pos++
+                            var Tiempo = 0;
+                            Tiempo = pasarATiempo(exito[f].tiempo);
+                            filas +="<tr><th>"+pos+"</th><td>"+seudonimo+"</td><td>"+exito[f].puntaje+"</td><td>"+Tiempo+"</td></tr>";
+                        }
+                        $("#resRanking").html(filas);
+                        $.mobile.changePage($("#pageranking"));
                     }
-                    console.log(filas);
-                    $("#resRanking").html(filas);
-                }
-            },"json")
-        })
-    });
+                },"json")
+            });
+        });
+            $("#examenes").trigger("create");
+            $.mobile.loading( 'hide');
+    })
+
+    // $("#pageranking").on( "pageshow", function(event) { 
+    //     $.mobile.loading( 'show', {
+    //         text: 'Cargando',
+    //         textVisible: true,
+    //         theme: 'a',
+    //         html: ""
+    //     });
+
+    // });
     
     $("#pageexamen").on( "pagehide", function( event ) { 
         pausa = true;
