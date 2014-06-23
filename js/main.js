@@ -248,15 +248,15 @@ function main(){
         db.traerExamenes().done(function(exito){
             var l = exito.length;
             var li = "";
-            $("#examenes").empty();
+            $("#listarank").empty();
             for(var a = 0; a < l; a++ ){
                 li ="";
                 li += '<li>';
-                li += '<a href="#popupDialog" rel="'+exito[a].ID+'" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-btn-icon-right ui-icon-carat-r examen" title="Hacer el examen">';
+                li += '<a href="#popupDialog" rel="'+exito[a].ID+'" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-btn-icon-right ui-icon-carat-r examen" title="Ver Ranking">';
                 li += exito[a].nombre;
                 li += '</a>';
                 li += '</li>';
-                $("#examenes").append(li);
+                $("#listarank").append(li);
             }
             //$("#popupDialog").popup("open");
             $(".examen").click(function(){
