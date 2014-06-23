@@ -994,13 +994,21 @@ function main(){
                 }
             })
     }
+
+    document.addEventListener("backbutton", onBackKeyDown, false);
+
+    function onBackKeyDown() {
+        // Maneja el evento del botón atrás
+        if(window.localStorage.getItem("userID")){
+            history.go(-1);
+            navigator.app.backHistory();
+        }  
+
+    }
+
 }
 
-document.addEventListener("backbutton", onBackKeyDown, false);
 
-function onBackKeyDown() {
-    // Maneja el evento del botón atrás
-}
 
 
 function validar_email(valor){
