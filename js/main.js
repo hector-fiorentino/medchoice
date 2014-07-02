@@ -187,13 +187,14 @@ function main(){
         db.traerEvaluaciones(idUsuario).done(function(exito){
             var total = exito.length;
             if(total>0){
-                traerScores(exito);
+                traerScores(exito,'local');
             }else{
                 $.post("http://medchoice.com.ar/evaluaciones/misscores",{user:idUsuario},function(data){
                     if(data != "error"){
-                        traerScores(data);
+                        traerScores(data,'lan');
                     }else{
                         //NO HAY SCORES
+                        $.mobile.loading('hide');
                         $("#evaluaciones").html('<p>Aún no se registraron exámenes terminados</p>');
                     }
                 })
@@ -201,8 +202,14 @@ function main(){
         });
     })
 
-    function traerScores(exito){
-                var total = exito.length;
+    function traerScores(exito,origen){
+                var total = 0;
+                if(origen=="lan"){
+                    total = exito.scores.length;
+                    exito = exito.scores;
+                }else{
+                    total = exito.length;
+                }
                 var evalu = "";
                 var exp=0;
                 for(var w=0;w<total;w++){
