@@ -177,15 +177,32 @@ function main(){
     })
     
     $("#pagescores").on( "pageshow", function(event) { 
-        traerScores();
-    })
-
-    function traerScores(){
+        $.mobile.loading( 'show', {
+                    text: 'Cargando',
+                    textVisible: true,
+                    theme: 'a',
+                    html: ""
+        });
         $("#evaluaciones").empty();
         db.traerEvaluaciones(idUsuario).done(function(exito){
             var total = exito.length;
-            console.log("TOTAL EV "+total);
             if(total>0){
+                traerScores(exito);
+            }else{
+                $.post("http://medchoice.com.ar/evaluaciones/misscores",{user:idUsuario},function(data){
+                    if(data != "error"){
+                        traerScores(data);
+                    }else{
+                        //NO HAY SCORES
+                        $("#evaluaciones").html('<p>Aún no se registraron exámenes terminados</p>');
+                    }
+                })
+            }
+        });
+    })
+
+    function traerScores(exito){
+                var total = exito.length;
                 var evalu = "";
                 var exp=0;
                 for(var w=0;w<total;w++){
@@ -219,23 +236,19 @@ function main(){
                     $("#popupConfirm h1").html('Borrar evaluación');
                     $("#popupConfirm .texto").html('Desea borrar la evaluación seleccionada?');
                     $("#popupConfirm").popup('open');
-        
-    })
-    $(".exportar").click(function(e){
-         e.preventDefault();
-        var id = $(this).data('num');
-        var f = $(this).attr('rel');
-        $("#accion").val('exportar');
-        $("#evalua").val(id);
-        $("#fechaApp").val(f);
-        $("#popupConfirm h1").html('Exportar a PDF');
-        $("#popupConfirm .texto").html('Se le enviará a su casilla de e-mail, registrada, un link de descarga de un documento PDF con el cuestionario completo con las respuestas correctas y seleccionadas por usted.');
-        $("#popupConfirm").popup('open');
-    })
-            }else{
-                $("#evaluaciones").html('<p>Aún no se registraron exámenes terminados</p>');
-            }
-        });
+                })
+                $(".exportar").click(function(e){
+                     e.preventDefault();
+                    var id = $(this).data('num');
+                    var f = $(this).attr('rel');
+                    $("#accion").val('exportar');
+                    $("#evalua").val(id);
+                    $("#fechaApp").val(f);
+                    $("#popupConfirm h1").html('Exportar a PDF');
+                    $("#popupConfirm .texto").html('Se le enviará a su casilla de e-mail, registrada, un link de descarga de un documento PDF con el cuestionario completo con las respuestas correctas y seleccionadas por usted.');
+                    $("#popupConfirm").popup('open');
+                })
+                $.mobile.loading('hide');
     }
 
     $("#pageprerank").on("pageshow",function(event){
