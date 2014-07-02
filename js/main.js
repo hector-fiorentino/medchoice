@@ -197,7 +197,7 @@ function main(){
                         $.mobile.loading('hide');
                         $("#evaluaciones").html('<p>Aún no se registraron exámenes terminados</p>');
                     }
-                })
+                },"json")
             }
         });
     })
