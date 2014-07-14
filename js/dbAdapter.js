@@ -264,19 +264,14 @@ function dbAdapter(){
 
 	                var sql = "SELECT * FROM examenes WHERE parent ="+parent;
 
-	                tx.executeSql(sql, [], function (tx2, results) {
-	                    //var len = results.rows.length;
-	                        //examenes = [];
-	                      //  i = 0;
-	                    //for (; i < len; i = i + 1) {
-	                    	//alert("hasta aca vamos");
-            					
-	                        //	var conthijos = hijos.rows
-	                    	//	examenes['madres'][i] = {}
-	                        //examenes['madres'][i] = {ID:results.rows.item(i).ID,nombre:results.rows.item(i).nombre,contenido:hijos.rows};
-	                        examenes = results; 
-	                    //}
-	                    //deferred.resolve(examenes);
+	                tx.executeSql(sql, [], function (tx, results) {
+	                    var len = results.rows.length,
+	                        examenes = [],
+	                        i = 0;
+	                    for (; i < len; i = i + 1) {
+	                        examenes[i] = results.rows.item(i);
+	                    }
+	                    deferred.resolve(examenes);
 
 	                });
 	        },
@@ -284,18 +279,6 @@ function dbAdapter(){
 	                deferred.reject("Transaction Error: " + error.message);
 	        }
     	);
-    	var len = examenes.rows.length;
-		alert(len);
-		//for (; i<len;i=i+1){
-			//this.db.transaction{
-			//	function (tx){
-			//		var sql = "SELECT * FROM examenes WHERE parent ="+examenes.rows.item(i).ID;
-			//		tx.executeSql(sql, [], function (tx2, results){
-			//			alert("prueba="+results.rows.item(i).nombre);
-			//		})
-			//	}
-			//}
-		//}
     	return deferred.promise();
 	 }
 

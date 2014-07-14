@@ -150,21 +150,22 @@ function main(){
         });
         db.traerExamenes(0).done(function(exito){
             //alert(exito);
-             var l = exito.madres.length;
+             var l = exito.length;
             var li = "";
             $("#examenes").empty();
             
             for(var a = 0; a < l; a++ ){
                 li ='<div data-role="collapsible">';
-                li += '<h2>'+exito.madres[a].nombre+'</h2>';
+                li += '<h2>'+exito[a].nombre+'</h2>';
                 li +='<ul data-role="listview" data-divider-theme="z">';
-                var h = exito.madres[a].contenido.length;
-                var exam = exito.madres[a].contenido;
-                for(var b = 0; b < h; b++){
-                    li += '<a href="#popupDialog" rel="'+exam[b].id+'" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-btn-icon-right ui-icon-carat-r examen" title="Hacer el examen">';
-                    li += exam[b].nombre;
-                    li += '</a>';
-                }
+                db.traerExamenes(exito[a].ID).done(function(hijos){
+                    var h = hijos.length;
+                    for(var b = 0; b < h; b++){
+                        li += '<a href="#popupDialog" rel="'+hijos[b].ID+'" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-btn-icon-right ui-icon-carat-r examen" title="Hacer el examen">';
+                        li += hijos[b].nombre;
+                        li += '</a>';
+                    }
+                })
                 li += '</ul>';
                 li += '</div>';
                 $("#examenes").append(li);
