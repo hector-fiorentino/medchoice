@@ -269,12 +269,9 @@ function dbAdapter(){
 	                        i = 0;
 	                    for (; i < len; i = i + 1) {
 	                    	alert("hasta aca va");
-	                    	this.db.transaction(
-            				function (tx) {
             					tx.executeSql("SELECT * FROM examenes WHERE parent = 36",[], function (tx2, hijos){
             						alert(hijos);
             					});
-            				});
 	                        //	var conthijos = hijos.rows
 	                    	//	examenes['madres'][i] = {}
 	                        //examenes['madres'][i] = {ID:results.rows.item(i).ID,nombre:results.rows.item(i).nombre,contenido:hijos.rows};
