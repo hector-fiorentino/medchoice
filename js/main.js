@@ -148,21 +148,24 @@ function main(){
             theme: 'a',
             html: ""
         });
+        var principales = [];
+        var a = 0;
+        var li = "";
         db.traerExamenes(0).done(function(exito){
             //alert(exito);
              var l = exito.length;
-            var li = "";
-            $("#examenes").empty();
             
-            for(var a = 0; a < l; a++ ){
+            $("#examenes").empty();
+            principales = exito;
+            for(a; a < l; a++ ){
                 
                 db.traerExamenes(exito[a].ID).done(function(hijos){
                     //alert("CANT="+hijos.length);
                     //alert(hijos);
-                    alert(exito[a].nombre);
+                    alert(principales[a].nombre);
                     var h = hijos.length;
                     li +='<div data-role="collapsible">';
-                    li += '<h2>'+exito[a].nombre+'</h2>';
+                    li += '<h2>'+principales[a].nombre+'</h2>';
                     li +='<ul data-role="listview" data-divider-theme="z">';
                     for(var b = 0; b < h; b++){
                         alert(hijos[b].ID);
