@@ -26,6 +26,7 @@ function dbAdapter(){
 	 	tx.executeSql("CREATE TABLE IF NOT EXISTS "+
 	        "examenes(ID INTEGER PRIMARY KEY ASC,"+
 	        "nombre VARCHAR(50),"+
+	        "parent INTEGER,"+
 	        "fcreacion DATETIME"+
 	        ")", []);
 	    tx.executeSql("CREATE TABLE IF NOT EXISTS "+
@@ -254,19 +255,25 @@ function dbAdapter(){
 	 }
 	 //////////////*FIN GUARDAR USUARIO*////////////////////////////////////////
 	 /* EXAMENES */
-	 this.traerExamenes = function(){
+	 this.traerExamenes = function(parent){
 	 	var deferred = $.Deferred();
 	 	this.db.transaction(
 	        function (tx) {
 
-	                var sql = "SELECT * FROM examenes";
+	                var sql = "SELECT * FROM examenes WHERE parent ="+parent;
 
 	                tx.executeSql(sql, [], function (tx, results) {
-	                    var len = results.rows.length,
-	                        examenes = [],
+	                    var len = results.rows.length;
+	                        examenes = [];
 	                        i = 0;
 	                    for (; i < len; i = i + 1) {
-	                        examenes[i] = results.rows.item(i);
+	                    	var hijo = "SELECT * FROM examenes WHERE parent ="+results.rows.item(i).ID;
+	                    	tx.executeSql(hijo, [], function (tx2, hijos){
+	                    	//	var conthijos = hijos.rows
+	                    	//	examenes['madres'][i] = {}
+	                        examenes['madres'][i] = {ID:results.rows.item(i).ID,nombre:results.rows.item(i).nombre,contenido:hijos.rows.item};
+	                        })
+	                        //results.rows.item(i); 
 	                    }
 	                    deferred.resolve(examenes);
 
