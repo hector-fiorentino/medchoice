@@ -268,14 +268,16 @@ function dbAdapter(){
 	                        examenes = [];
 	                        i = 0;
 	                    for (; i < len; i = i + 1) {
-	                    	var hijo = "SELECT * FROM examenes WHERE parent ="+results.rows.item(i).ID;
 	                    	alert("hasta aca va");
-	                    	tx.executeSql(hijo, [], function (tx2, hijos){
-	                    		alert(hijos);
-	                    	//	var conthijos = hijos.rows
+	                    	this.db.transaction(
+            				function (tx) {
+            					tx.executeSql("SELECT * FROM examenes WHERE parent ="+results.rows.item(i).ID,[], function (tx2, hijos){
+            						alert(hijos);
+            					});
+            				});
+	                        //	var conthijos = hijos.rows
 	                    	//	examenes['madres'][i] = {}
-	                        examenes['madres'][i] = {ID:results.rows.item(i).ID,nombre:results.rows.item(i).nombre,contenido:hijos.rows};
-	                        })
+	                        //examenes['madres'][i] = {ID:results.rows.item(i).ID,nombre:results.rows.item(i).nombre,contenido:hijos.rows};
 	                        //results.rows.item(i); 
 	                    }
 	                    deferred.resolve(examenes);
@@ -288,6 +290,7 @@ function dbAdapter(){
     	);
     	return deferred.promise();
 	 }
+
 	 this.nombreExamen = function(id){
 	 	var deferred = $.Deferred();
 	 	this.db.transaction(
