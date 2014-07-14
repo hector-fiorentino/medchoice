@@ -149,7 +149,7 @@ function main(){
             html: ""
         });
         db.traerExamenes(0).done(function(exito){
-            alert(exito);
+            //alert(exito);
              var l = exito.madres.length;
             var li = "";
             $("#examenes").empty();
@@ -192,7 +192,7 @@ function main(){
                     });
                 });
             });
-            alert(exito);
+            //alert(exito);
             $("#examenes").trigger("create");
             $.mobile.loading( 'hide');
         })

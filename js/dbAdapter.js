@@ -258,26 +258,25 @@ function dbAdapter(){
 	 /* EXAMENES */
 	 this.traerExamenes = function(parent){
 	 	var deferred = $.Deferred();
+	 	var examenes = [];
 	 	this.db.transaction(
 	        function (tx) {
 
 	                var sql = "SELECT * FROM examenes WHERE parent ="+parent;
 
 	                tx.executeSql(sql, [], function (tx2, results) {
-	                    var len = results.rows.length;
-	                        examenes = [];
-	                        i = 0;
-	                    for (; i < len; i = i + 1) {
-	                    	alert("hasta aca vamos");
-            					tx.executeSql("SELECT * FROM examenes WHERE parent = 36",[], function (tx3, hijos){
-            						alert("cant="+hijos.rows.length);
-            					});
+	                    //var len = results.rows.length;
+	                        //examenes = [];
+	                      //  i = 0;
+	                    //for (; i < len; i = i + 1) {
+	                    	//alert("hasta aca vamos");
+            					
 	                        //	var conthijos = hijos.rows
 	                    	//	examenes['madres'][i] = {}
 	                        //examenes['madres'][i] = {ID:results.rows.item(i).ID,nombre:results.rows.item(i).nombre,contenido:hijos.rows};
-	                        //results.rows.item(i); 
-	                    }
-	                    deferred.resolve(examenes);
+	                        examenes = results; 
+	                    //}
+	                    //deferred.resolve(examenes);
 
 	                });
 	        },
@@ -285,6 +284,17 @@ function dbAdapter(){
 	                deferred.reject("Transaction Error: " + error.message);
 	        }
     	);
+    	van len = examenes.rows.length;
+		for (; i<len;i=i+1){
+			this.db.transaction{
+				function (tx){
+					var sql = "SELECT * FROM examenes WHERE parent ="+examenes.rows.item(i).ID;
+					tx.executeSql(sql, [], function(tx2, results){
+						alert("prueba="+results.rows.item(i).nombre);
+					})
+				}
+			}
+		}
     	return deferred.promise();
 	 }
 
