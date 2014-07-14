@@ -49,6 +49,12 @@ function main(){
 
     var db = new dbAdapter();
     db.iniciar().done(function () {
+        $.mobile.loading( 'show', {
+            text: 'Cargando',
+            textVisible: true,
+            theme: 'a',
+            html: ""
+        });
         console.log(update);
         if(update == "2014-05-10 00:00:00"){
             $.ajax({
@@ -63,7 +69,8 @@ function main(){
                 var datos = ok;
                 db.addFirstData(datos).done(function(){ 
                     //idUsuario=7;
-                    //$.mobile.changePage($("#pagemenuppal"));
+                    $.mobile.loading('hide');
+                    $.mobile.changePage($("#pageadmin"));
                 });
             }
             function errorCallback(e){
@@ -71,6 +78,8 @@ function main(){
             }
         }else{
             //FUNCION UPDATE;
+            $.mobile.loading('hide');
+            $.mobile.changePage($("#pageadmin"));
         }
     });
     $( "body>[data-role='panel']" ).panel(); //activo panel único
