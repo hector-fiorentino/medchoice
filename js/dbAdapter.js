@@ -262,8 +262,8 @@ function dbAdapter(){
 	 	this.db.transaction(
 	        function (tx) {
 	        	var sql = "";
-	        		if(parent==-1){
-	        			sql = "SELECT * FROM examenes WHERE parent != 0";
+	        		if(parent=="-1"){
+	        			sql = "SELECT * FROM examenes WHERE parent > 0";
 	        		}else{}
 	                	sql = "SELECT * FROM examenes WHERE parent ="+parent;
 	                }
