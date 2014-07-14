@@ -1,6 +1,5 @@
 function main(){
-    //$.mobile.changePage($("#pageregistr"));
-    /*if ((typeof cordova == 'undefined') && (typeof Cordova == 'undefined')) alert('Cordova variable does not exist. Check that you have included cordova.js correctly');
+    if ((typeof cordova == 'undefined') && (typeof Cordova == 'undefined')) alert('Cordova variable does not exist. Check that you have included cordova.js correctly');
             if (typeof CDV == 'undefined') alert('CDV variable does not exist. Check that you have included cdv-plugin-fb-connect.js correctly');
             if (typeof FB == 'undefined') alert('FB variable does not exist. Check that you have included the Facebook JS SDK file.');
             
@@ -21,7 +20,7 @@ function main(){
             FB.Event.subscribe('auth.statusChange', function(response) {
                                //alert('auth.statusChange event');
                                });
-    FB.init({ appId: "1536370399923784", nativeInterface: CDV.FB, useCachedDialogs: false });*/
+    FB.init({ appId: "1536370399923784", nativeInterface: CDV.FB, useCachedDialogs: false });
 
     var update;
     if(window.localStorage.getItem("lastUpdate")){
@@ -150,6 +149,7 @@ function main(){
             html: ""
         });
         db.traerExamenes(0).done(function(exito){
+            alert(exito);
              var l = exito.madres.length;
             var li = "";
             $("#examenes").empty();
