@@ -89,12 +89,12 @@ function dbAdapter(){
 
 			 		var total = datos.examenes.length;
 			 		var sql = "INSERT OR REPLACE INTO examenes " +
-		            "(ID, nombre, fcreacion) " +
-		            "VALUES (?, ?, ?)";
+		            "(ID, nombre, parent, fcreacion) " +
+		            "VALUES (?, ?, ?,?)";
 		            var e;
 			 		for(var a = 0; a < total; a++){
 			 			e = datos.examenes[a];
-		            	tx.executeSql(sql, [e.id, e.nombre, e.fcreacion],
+		            	tx.executeSql(sql, [e.id, e.nombre, e.parent, e.fcreacion],
 		                function () {
 		                    //console.log('INSERT success');
 		                },
