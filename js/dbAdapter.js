@@ -53,6 +53,7 @@ function dbAdapter(){
 	        "terminos INTEGER,"+
 	        "recupero TEXT,"+
 	        "fcreacion DATETIME)", []);
+	    tx.executeSql("INSERT INTO examenes (ID, nombre, parent, fcreacion) VALUES (1,'Prueba',36,'2014-07-14')");
 	    //tx.executeSql("INSERT INTO usuarios (ID, username, nombre,apellido,email,pass,nivel,estado,terminos,recupero,fcreacion) VALUES (1,'pepe B.','Pepe','Alonso','alon@gfss.com','axcadsdfwecvx23scx','usuario',1,2,'','2013-12-12')");
 	    tx.executeSql("CREATE TABLE IF NOT EXISTS "+
 	        "evaluaciones(ID INTEGER PRIMARY KEY ASC,"+
