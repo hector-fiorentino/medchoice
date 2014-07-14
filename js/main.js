@@ -171,39 +171,6 @@ function main(){
             $.mobile.loading( 'hide');
         })
         alert("Hasta acá voy bien");
-        db.traerExamenes("-1").done(function(hijos){
-            var h = hijos.length
-            var li = "";
-            for(var b = 0; b < h; b++){
-                li = '<a href="#popupDialog" rel="'+hijos[b].ID+'" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-btn-icon-right ui-icon-carat-r examen" title="Hacer el examen">';
-                li += hijos[b].nombre;
-                li += '</a>';
-                $("#sub-"+hijos[b].parent).html(li);
-                $("#sub-"+hijos[b].parent).trigger("create");
-            }
-            $(".examen").click(function(){
-                idExamen = $(this).attr("rel");
-                db.nombreExamen(idExamen).done(function(rs){
-                    nameExamen = rs;
-                                //Reviso si hay evaluaciones interrumpidas para dicho examen.
-                    var datos = [];
-                    datos.usuario=idUsuario;
-                    datos.examen = idExamen;
-                    db.verSiEstaInterrumpida(datos).done(function(exito){
-                        if(exito.length > 0){
-                            $("#iniciar span").html("Reiniciar");
-                            $("#continuar").css("display","inline-block");
-                            idEvaluacion = exito[0].ID;
-                            $("#msg").html("Hay una evaluación inconclusa del examen "+nameExamen+". Seleccione la opción Continuar o Reiniciar.");      
-                        }else{
-                            $("#iniciar span").html("Iniciar");
-                            $("#continuar").css("display","none");
-                            $("#msg").html('Usted comenzará el examen "'+nameExamen+'". Al realizar click en Iniciar, comenzará a correr el tiempo y su score. De lo contrario, presionar "Cancelar"');      
-                        }
-                    });
-                });
-            });
-        })
     })
     
     $("#pagescores").on( "pageshow", function(event) { 
