@@ -159,19 +159,21 @@ function main(){
                 db.traerExamenes(exito[a].ID).done(function(hijos){
                     //alert("CANT="+hijos.length);
                     //alert(hijos);
+                    alert(exito[a].nombre);
                     var h = hijos.length;
                     li +='<div data-role="collapsible">';
                     li += '<h2>'+exito[a].nombre+'</h2>';
                     li +='<ul data-role="listview" data-divider-theme="z">';
                     for(var b = 0; b < h; b++){
+                        alert(hijos[b].ID);
                         li += '<a href="#popupDialog" rel="'+hijos[b].ID+'" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-btn-icon-right ui-icon-carat-r examen" title="Hacer el examen">';
                         li += hijos[b].nombre;
                         li += '</a>';
                     }
                      li += '</ul>';
                      li += '</div>';
+                     alert(li);
                     $("#examenes").append(li);
-                    alert(li);
                 })
             }
             //$("#popupDialog").popup("open");
