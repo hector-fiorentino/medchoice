@@ -58,7 +58,7 @@ function main(){
         });
         alert("Iniciando");
         if(update == "2014-05-10 00:00:00"){
-            /*$.ajax({
+            $.ajax({
                 type: "POST",
                 url: "contenido.json",
                 dataType: "json",
@@ -68,16 +68,17 @@ function main(){
             });
             function successCallback(ok){
                 var datos = ok;
-                db.addFirstData(datos).done(function(){ 
+                alert(datos);
+                //db.addFirstData(datos).done(function(){ 
                     //idUsuario=7;
               //      $.mobile.loading('hide');
                 //    $.mobile.changePage($("#pageadmin"));
-                });
+                //});
             }
             function errorCallback(e){
                 alert("error");
-            }*/
-            
+            }
+
         }else{
             //FUNCION UPDATE;
             //$.mobile.loading('hide');
