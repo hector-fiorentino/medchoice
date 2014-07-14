@@ -82,7 +82,9 @@ function main(){
         }else{
             //FUNCION UPDATE;
             $.mobile.loading('hide');
+            if(idUsuario <= 0){
             $.mobile.changePage($("#pageadmin"));
+            }
         }
     });
     $( "body>[data-role='panel']" ).panel(); //activo panel único
