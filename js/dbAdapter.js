@@ -263,14 +263,14 @@ function dbAdapter(){
 
 	                var sql = "SELECT * FROM examenes WHERE parent ="+parent;
 
-	                tx.executeSql(sql, [], function (tx, results) {
+	                tx.executeSql(sql, [], function (tx2, results) {
 	                    var len = results.rows.length;
 	                        examenes = [];
 	                        i = 0;
 	                    for (; i < len; i = i + 1) {
 	                    	alert("hasta aca va");
-            					tx.executeSql("SELECT * FROM examenes WHERE parent = 36",[], function (tx2, hijos){
-            						alert(hijos);
+            					tx.executeSql("SELECT * FROM examenes WHERE parent = 36",[], function (tx3, hijos){
+            						alert(hijos.rows.length);
             					});
 	                        //	var conthijos = hijos.rows
 	                    	//	examenes['madres'][i] = {}
