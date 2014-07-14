@@ -30,7 +30,7 @@ function main(){
         update = "2014-05-10 00:00:00"; //fecha de lanzamiento de la app. O ultimo update al store.
         window.localStorage.setItem("lastUpdate",update);
     }
-    alert(update);
+    //alert(update);
     var idExamen = 0; 
     var numPreg = 0;
     var eleccion; // Selección de la respuesta del usuario.
@@ -56,9 +56,9 @@ function main(){
             theme: 'a',
             html: ""
         });
-        alert("Iniciando");
+        //alert("Iniciando");
         if(update == "2014-05-10 00:00:00"){
-            /*$.ajax({
+            $.ajax({
                 type: "POST",
                 url: "contenido.json",
                 dataType: "json",
@@ -68,21 +68,21 @@ function main(){
             });
             function successCallback(ok){
                 var datos = ok;
-                alert(datos);
-                //db.addFirstData(datos).done(function(){ 
+                //alert(datos);
+                db.addFirstData(datos).done(function(){ 
                     //idUsuario=7;
-              //      $.mobile.loading('hide');
-                //    $.mobile.changePage($("#pageadmin"));
-                //});
+                    $.mobile.loading('hide');
+                    $.mobile.changePage($("#pageadmin"));
+                });
             }
             function errorCallback(e){
                 alert("error");
-            }*/
+            }
 
         }else{
             //FUNCION UPDATE;
-            //$.mobile.loading('hide');
-            //$.mobile.changePage($("#pageadmin"));
+            $.mobile.loading('hide');
+            $.mobile.changePage($("#pageadmin"));
         }
     });
     $( "body>[data-role='panel']" ).panel(); //activo panel único
