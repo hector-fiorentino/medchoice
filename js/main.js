@@ -153,23 +153,14 @@ function main(){
             //alert(exito);
              var a = 0;
             var li = "";
-             var l = exito.length;   
+             var l = exito.length;
+
             $("#examenes").empty();
             for(a; a < l; a++ ){
                 li ='<div data-role="collapsible">';
                 li += '<h2>'+exito[a].nombre+'</h2>';
                 li +='<ul data-role="listview" data-divider-theme="z" id="sub-'+exito[a].ID+'">';
-                li += '</ul>';
-                li += '</div>';
-                $("#examenes").append(li);
-            }
-
-            //$("#popupDialog").popup("open");
-            //alert(exito);
-            $("#examenes").trigger("create");
-            $.mobile.loading( 'hide');
-        })
-        db.traerExamenes(exito[a].ID).done(function(hijos){
+                db.traerExamenes(exito[a].ID).done(function(hijos){
             var h = hijos.length
             var li = "";
             for(var b = 0; b < h; b++){
@@ -202,6 +193,17 @@ function main(){
                 });
             });
         })
+                li += '</ul>';
+                li += '</div>';
+                $("#examenes").append(li);
+            }
+
+            //$("#popupDialog").popup("open");
+            //alert(exito);
+            $("#examenes").trigger("create");
+            $.mobile.loading( 'hide');
+        })
+        
     })
     
     $("#pagescores").on( "pageshow", function(event) { 
