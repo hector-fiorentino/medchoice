@@ -261,8 +261,12 @@ function dbAdapter(){
 	 	var examenes = [];
 	 	this.db.transaction(
 	        function (tx) {
-
-	                var sql = "SELECT * FROM examenes WHERE parent ="+parent;
+	        	var sql = "";
+	        		if(parent==-1){
+	        			sql = "SELECT * FROM examenes WHERE parent != 0";
+	        		}else{}
+	                	sql = "SELECT * FROM examenes WHERE parent ="+parent;
+	                }
 
 	                tx.executeSql(sql, [], function (tx, results) {
 	                    var len = results.rows.length,

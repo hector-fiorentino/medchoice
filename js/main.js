@@ -160,7 +160,17 @@ function main(){
                 li ='<div data-role="collapsible">';
                 li += '<h2>'+exito[a].nombre+'</h2>';
                 li +='<ul data-role="listview" data-divider-theme="z" id="sub-'+exito[a].ID+'">';
-                db.traerExamenes(exito[a].ID).done(function(hijos){
+                li += '</ul>';
+                li += '</div>';
+                $("#examenes").append(li);
+            }
+
+            //$("#popupDialog").popup("open");
+            //alert(exito);
+            $("#examenes").trigger("create");
+            $.mobile.loading( 'hide');
+        })
+        db.traerExamenes(-1).done(function(hijos){
             var h = hijos.length
             var li = "";
             for(var b = 0; b < h; b++){
@@ -193,17 +203,6 @@ function main(){
                 });
             });
         })
-                li += '</ul>';
-                li += '</div>';
-                $("#examenes").append(li);
-            }
-
-            //$("#popupDialog").popup("open");
-            //alert(exito);
-            $("#examenes").trigger("create");
-            $.mobile.loading( 'hide');
-        })
-        
     })
     
     $("#pagescores").on( "pageshow", function(event) { 
