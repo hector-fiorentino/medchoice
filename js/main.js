@@ -159,6 +159,8 @@ function main(){
                 li += '<h2>'+exito[a].nombre+'</h2>';
                 li +='<ul data-role="listview" data-divider-theme="z">';
                 db.traerExamenes(exito[a].ID).done(function(hijos){
+                    alert("CANT="+hijos.length);
+                    alert(hijos);
                     var h = hijos.length;
                     for(var b = 0; b < h; b++){
                         li += '<a href="#popupDialog" rel="'+hijos[b].ID+'" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-btn-icon-right ui-icon-carat-r examen" title="Hacer el examen">';
