@@ -177,7 +177,7 @@ function main(){
                 li = '<a href="#popupDialog" rel="'+hijos[b].ID+'" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-btn-icon-right ui-icon-carat-r examen" title="Hacer el examen">';
                 li += hijos[b].nombre;
                 li += '</a>';
-                $("#sub-"+hijos[b].parent).html(li);
+                $("#sub-"+hijos[b].parent).append(li);
                 $("#sub-"+hijos[b].parent).trigger("create");
             }
             $(".examen").click(function(){
