@@ -147,7 +147,7 @@ function main(){
             theme: 'a',
             html: ""
         });
-        db.traerExamenes().done(function(exito){
+        db.traerExamenes(0).done(function(exito){
              var l = exito.madres.length;
             var li = "";
             $("#examenes").empty();
