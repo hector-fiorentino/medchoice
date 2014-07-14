@@ -148,41 +148,37 @@ function main(){
             theme: 'a',
             html: ""
         });
-        var principales = [];
-        var a = 0;
-        var li = "";
+        
         db.traerExamenes(0).done(function(exito){
             //alert(exito);
-             var l = exito.length;
-            
+             var a = 0;
+            var li = "";
+             var l = exito.length;   
             $("#examenes").empty();
-            principales = exito;
             for(a; a < l; a++ ){
-                
-                db.traerExamenes(exito[a].ID).done(function(hijos){
-                    //alert("CANT="+hijos.length);
-                    //alert(hijos);
-                    //alert(JSON.stringify(principales));
-                    //alert(JSON.stringify(hijos));
-                    var h = hijos.length;
-                    alert("cant="+h);
-                    alert(a);
-                    li +='<div data-role="collapsible">';
-                    li += '<h2>'+principales[a].nombre+'</h2>';
-                    li +='<ul data-role="listview" data-divider-theme="z">';
-                    for(var b = 0; b < h; b++){
-                        alert(hijos[b].ID);
-                        li += '<a href="#popupDialog" rel="'+hijos[b].ID+'" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-btn-icon-right ui-icon-carat-r examen" title="Hacer el examen">';
-                        li += hijos[b].nombre;
-                        li += '</a>';
-                    }
-                     li += '</ul>';
-                     li += '</div>';
-                     alert(li);
-                    $("#examenes").append(li);
-                })
+                li ='<div data-role="collapsible">';
+                li += '<h2>'+exito[a].nombre+'</h2>';
+                li +='<ul data-role="listview" data-divider-theme="z" id="sub-'+exito[a].ID+'">';
+                li += '</ul>';
+                li += '</div>';
+                $("#examenes").append(li);
             }
+
             //$("#popupDialog").popup("open");
+            //alert(exito);
+            $("#examenes").trigger("create");
+            $.mobile.loading( 'hide');
+        })
+        db.traerExamenes(exito[a].ID).done(function(hijos){
+            var h = hijos.length
+            var li = "";
+            for(var b = 0; b < h; b++){
+                li = '<a href="#popupDialog" rel="'+hijos[b].ID+'" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-btn-icon-right ui-icon-carat-r examen" title="Hacer el examen">';
+                li += hijos[b].nombre;
+                li += '</a>';
+                $("#sub-"+hijos[b].parent).html(li);
+                $("#sub-"+hijos[b].parent).trigger("create");
+            }
             $(".examen").click(function(){
                 idExamen = $(this).attr("rel");
                 db.nombreExamen(idExamen).done(function(rs){
@@ -205,9 +201,6 @@ function main(){
                     });
                 });
             });
-            //alert(exito);
-            $("#examenes").trigger("create");
-            $.mobile.loading( 'hide');
         })
     })
     
