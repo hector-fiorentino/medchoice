@@ -263,6 +263,9 @@ function dbAdapter(){
 	        function (tx) {
 
 	                var sql = "SELECT * FROM examenes WHERE parent ="+parent;
+	                if(parent < 0){
+	                	sql = "SELECT * FROM examenes WHERE parent > 0";
+	                }
 
 	                tx.executeSql(sql, [], function (tx, results) {
 	                    var len = results.rows.length,
