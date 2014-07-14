@@ -271,7 +271,7 @@ function dbAdapter(){
 	                    	alert("hasta aca va");
 	                    	this.db.transaction(
             				function (tx) {
-            					tx.executeSql("SELECT * FROM examenes WHERE parent ="+results.rows.item(i).ID,[], function (tx2, hijos){
+            					tx.executeSql("SELECT * FROM examenes WHERE parent = 36",[], function (tx2, hijos){
             						alert(hijos);
             					});
             				});
