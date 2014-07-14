@@ -155,22 +155,23 @@ function main(){
             $("#examenes").empty();
             
             for(var a = 0; a < l; a++ ){
-                li ='<div data-role="collapsible">';
-                li += '<h2>'+exito[a].nombre+'</h2>';
-                li +='<ul data-role="listview" data-divider-theme="z">';
+                
                 db.traerExamenes(exito[a].ID).done(function(hijos){
                     alert("CANT="+hijos.length);
                     alert(hijos);
                     var h = hijos.length;
+                    li +='<div data-role="collapsible">';
+                    li += '<h2>'+exito[a].nombre+'</h2>';
+                    li +='<ul data-role="listview" data-divider-theme="z">';
                     for(var b = 0; b < h; b++){
                         li += '<a href="#popupDialog" rel="'+hijos[b].ID+'" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-btn-icon-right ui-icon-carat-r examen" title="Hacer el examen">';
                         li += hijos[b].nombre;
                         li += '</a>';
                     }
+                     li += '</ul>';
+                     li += '</div>';
+                    $("#examenes").append(li);
                 })
-                li += '</ul>';
-                li += '</div>';
-                $("#examenes").append(li);
             }
             //$("#popupDialog").popup("open");
             $(".examen").click(function(){
