@@ -30,6 +30,7 @@ function main(){
         update = "2014-05-10 00:00:00"; //fecha de lanzamiento de la app. O ultimo update al store.
         window.localStorage.setItem("lastUpdate",update);
     }
+    alert(update);
     var idExamen = 0; 
     var numPreg = 0;
     var eleccion; // Selección de la respuesta del usuario.
@@ -55,7 +56,7 @@ function main(){
             theme: 'a',
             html: ""
         });
-        console.log(update);
+        alert("Iniciando");
         if(update == "2014-05-10 00:00:00"){
             $.ajax({
                 type: "POST",
@@ -74,7 +75,7 @@ function main(){
                 });
             }
             function errorCallback(e){
-                console.log("error");
+                alert("error");
             }
         }else{
             //FUNCION UPDATE;
