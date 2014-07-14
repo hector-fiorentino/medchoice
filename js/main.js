@@ -157,8 +157,8 @@ function main(){
             for(var a = 0; a < l; a++ ){
                 
                 db.traerExamenes(exito[a].ID).done(function(hijos){
-                    alert("CANT="+hijos.length);
-                    alert(hijos);
+                    //alert("CANT="+hijos.length);
+                    //alert(hijos);
                     var h = hijos.length;
                     li +='<div data-role="collapsible">';
                     li += '<h2>'+exito[a].nombre+'</h2>';
@@ -171,6 +171,7 @@ function main(){
                      li += '</ul>';
                      li += '</div>';
                     $("#examenes").append(li);
+                    alert(li);
                 })
             }
             //$("#popupDialog").popup("open");
