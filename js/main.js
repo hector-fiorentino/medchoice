@@ -58,7 +58,7 @@ function main(){
         });
         alert("Iniciando");
         if(update == "2014-05-10 00:00:00"){
-            $.ajax({
+            /*$.ajax({
                 type: "POST",
                 url: "contenido.json",
                 dataType: "json",
@@ -77,7 +77,7 @@ function main(){
             }
             function errorCallback(e){
                 alert("error");
-            }
+            }*/
 
         }else{
             //FUNCION UPDATE;
