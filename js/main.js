@@ -170,6 +170,7 @@ function main(){
             $("#examenes").trigger("create");
             $.mobile.loading( 'hide');
         })
+        alert("Hasta acá voy bien");
         db.traerExamenes("-1").done(function(hijos){
             var h = hijos.length
             var li = "";
