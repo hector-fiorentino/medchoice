@@ -285,16 +285,17 @@ function dbAdapter(){
 	        }
     	);
     	var len = examenes.rows.length;
-		for (; i<len;i=i+1){
-			this.db.transaction{
-				function (tx){
-					var sql = "SELECT * FROM examenes WHERE parent ="+examenes.rows.item(i).ID;
-					tx.executeSql(sql, [], function (tx2, results){
-						alert("prueba="+results.rows.item(i).nombre);
-					})
-				}
-			}
-		}
+		alert(len);
+		//for (; i<len;i=i+1){
+			//this.db.transaction{
+			//	function (tx){
+			//		var sql = "SELECT * FROM examenes WHERE parent ="+examenes.rows.item(i).ID;
+			//		tx.executeSql(sql, [], function (tx2, results){
+			//			alert("prueba="+results.rows.item(i).nombre);
+			//		})
+			//	}
+			//}
+		//}
     	return deferred.promise();
 	 }
 
