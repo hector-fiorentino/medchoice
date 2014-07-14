@@ -268,7 +268,7 @@ function dbAdapter(){
 	                        examenes = [];
 	                        i = 0;
 	                    for (; i < len; i = i + 1) {
-	                    	alert("hasta aca va");
+	                    	alert("hasta aca vamos");
             					tx.executeSql("SELECT * FROM examenes WHERE parent = 36",[], function (tx3, hijos){
             						alert("cant="+hijos.rows.length);
             					});
