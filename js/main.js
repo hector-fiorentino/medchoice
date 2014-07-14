@@ -162,7 +162,8 @@ function main(){
                 db.traerExamenes(exito[a].ID).done(function(hijos){
                     //alert("CANT="+hijos.length);
                     //alert(hijos);
-                    alert(principales[a].nombre);
+                    alert(JSON.stringify(principales));
+                    alert(JSON.stringify(hijos));
                     var h = hijos.length;
                     li +='<div data-role="collapsible">';
                     li += '<h2>'+principales[a].nombre+'</h2>';
