@@ -719,7 +719,7 @@ function main(){
         elecciones = elecciones + eleccion +",";
         eleccion = "";
         if(numPreg == totalPreg){
-            Puntaje = correctas * 0.5;
+            Puntaje = correctas;
             datos.puntaje= Puntaje;
             datos.accion = "finalizar";
         }
