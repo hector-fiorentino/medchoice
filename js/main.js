@@ -26,7 +26,7 @@ function main(){
     if(window.localStorage.getItem("lastUpdate")){
         update = window.localStorage.getItem("lastUpdate");
     }else{
-        update = "2014-05-10 00:00:00"; //fecha de lanzamiento de la app. O ultimo update al store.
+        update = "2014-07-07 08:02:51"; //fecha de lanzamiento de la app. O ultimo update al store.
         window.localStorage.setItem("lastUpdate",update);
     }
     //alert(update);
@@ -56,7 +56,7 @@ function main(){
             html: ""
         });
         //alert("Iniciando");
-        if(update == "2014-05-10 00:00:00"){
+        if(update == "2014-07-07 08:02:51"){
             $.ajax({
                 type: "POST",
                 url: "contenido.json",
@@ -71,6 +71,8 @@ function main(){
                 //alert(datos);
                 db.addFirstData(datos).done(function(){ 
                     //idUsuario=7;
+                    update = "2014-07-07 08:02:52"
+                    window.localStorage.setItem("lastUpdate",update);
                     $.mobile.loading('hide');
                     $.mobile.changePage($("#pageadmin"));
                 });
@@ -160,7 +162,7 @@ function main(){
             $("#examenes").empty();
             for(a; a < l; a++ ){
                 li ='<div data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u">';
-                li += '<h4>'+exito[a].nombre+'</h4>';
+                li += '<h4 class="titulodown">'+exito[a].nombre+'</h4>';
                 li +='<ul data-role="listview" data-divider-theme="z" id="sub-'+exito[a].ID+'">';
                 li += '</ul>';
                 li += '</div>';
@@ -176,9 +178,9 @@ function main(){
             var h = hijos.length
             var li = "";
             for(var b = 0; b < h; b++){
-                li = '<a href="#popupDialog" rel="'+hijos[b].ID+'" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-btn-icon-right ui-icon-carat-r examen" title="Hacer el examen">';
+                li = '<li><a href="#popupDialog" rel="'+hijos[b].ID+'" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-btn-icon-right ui-icon-carat-r examen" title="Hacer el examen">';
                 li += hijos[b].nombre;
-                li += '</a>';
+                li += '</a></li>';
                 $("#sub-"+hijos[b].parent).append(li);
                 $("#sub-"+hijos[b].parent).trigger("create");
             }
@@ -305,8 +307,8 @@ function main(){
             $("#rank").empty();
             for(a; a < l; a++ ){
                 li ='<div data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u">';
-                li += '<h4>'+exito[a].nombre+'</h4>';
-                li +='<ul data-role="listview" data-divider-theme="z" id="sub-'+exito[a].ID+'">';
+                li += '<h4 class="titulodown">'+exito[a].nombre+'</h4>';
+                li +='<ul data-role="listview" data-divider-theme="z" id="sub2-'+exito[a].ID+'">';
                 li += '</ul>';
                 li += '</div>';
                 $("#rank").append(li);
@@ -321,9 +323,9 @@ function main(){
             var h = hijos.length
             var li = "";
             for(var b = 0; b < h; b++){
-                li = '<a href="#popupDialog" rel="'+hijos[b].ID+'" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-btn-icon-right ui-icon-carat-r examen" title="Hacer el examen">';
+                li = '<li><a href="#popupDialog" rel="'+hijos[b].ID+'" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-btn-icon-right ui-icon-carat-r examen" title="Hacer el examen">';
                 li += hijos[b].nombre;
-                li += '</a>';
+                li += '</a><li>';
                 $("#sub2-"+hijos[b].parent).append(li);
                 $("#sub2-"+hijos[b].parent).trigger("create");
             }
