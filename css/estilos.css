@@ -816,8 +816,8 @@ margin: 1px 0 0 -54px;
 	.firma span{display:inline-block;vertical-align:middle;background-image:url(../imagenes/logoappchoicexxhdpi.png);width:300px;height:66px;}
 
 	/*PAGE MENUPRINCIPAL*/
-	.menuicon{font-size:148px; color:#fff;}
-	.menup a{margin-left:auto;margin-right:auto;background-color:#034a80 !important;padding:60px !important;width:148px !important;border-radius:200px !important;}
+	.menuicon{font-size:138px; color:#fff;}
+	.menup a{margin-left:auto;margin-right:auto;background-color:#034a80 !important;padding:60px !important;width:138px !important;border-radius:200px !important;}
 	.menup p{font-size:32px !important; color:#034a80 !important;}
 	#pagemenuppal .ui-grid-a{width:80%;margin-left:auto;margin-right:auto;margin-top:40px;}
 	.ui-bar-a{background:none !important;border:none !important;margin-bottom:40px;}
