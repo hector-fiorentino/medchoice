@@ -103,7 +103,7 @@ function main(){
         });
         
                     //hago UPDATE
-                    $.post("http://192.168.0.3/medchoice/export/exportar",{},function(data){
+                    $.post("http://medchoice.com.ar/export/exportar",{},function(data){
                         if(data){
                             db.addFirstData(data).done(function(){
                                 $.mobile.loading('hide'); 
@@ -126,7 +126,7 @@ function main(){
     /*PAGINAS*////////////////////
     $("#pagemenuppal").on( "pageshow", function(event) { 
         $("#bienvenido").html("<i class='pe-7s-user pe-fw'></i><span>Bienvenido "+userName+"</span>");
-         $.post("http://192.168.0.3/medchoice/configuraciones/update",{},function(exito){
+         $.post("http://medchoice.com.ar/configuraciones/update",{},function(exito){
             if(exito){
                 console.log("Fecha recibida");
                 if(exito > update){
@@ -222,7 +222,7 @@ function main(){
             if(total>0){
                 traerScores(exito,'local');
             }else{
-                $.post("http://192.168.0.3/medchoice/evaluaciones/misscores",{user:idUsuario},function(data){
+                $.post("http://medchoice.com.ar/evaluaciones/misscores",{user:idUsuario},function(data){
                     if(data != "error"){
                         traerScores(data,'lan');
                     }else{
@@ -331,7 +331,7 @@ function main(){
             }
             $(".examen").click(function(){
                 idExamen = $(this).attr("rel");
-                $.post("http://192.168.0.3/medchoice/evaluaciones/ranking",{examen:idExamen},function(exito){
+                $.post("http://medchoice.com.ar/evaluaciones/ranking",{examen:idExamen},function(exito){
                     if(exito && !exito.error){
                         $("#hay").hide();
                         $("#tabrank").show();
@@ -424,7 +424,7 @@ function main(){
                             $.mobile.loading( 'hide');
                             $.mobile.changePage($("#pagemenuppal"));
                         }else{
-                            $.post('http://192.168.0.3/medchoice/login/fbuser',{uid:response.authResponse.userId},function(exito){
+                            $.post('http://medchoice.com.ar/login/fbuser',{uid:response.authResponse.userId},function(exito){
                                 if(exito){
                                     if(!exito.error){
                                         var datos = [];
@@ -508,7 +508,7 @@ function main(){
                 if(exito){
                     $.mobile.loading('hide');
                     $("#s"+Id).remove();
-                    $.post('http://192.168.0.3/medchoice/evaluaciones/borrar',{fecha:fApp,user:idUsuario},function(exito){
+                    $.post('http://medchoice.com.ar/evaluaciones/borrar',{fecha:fApp,user:idUsuario},function(exito){
 
                     })
                     $("#popupConfirm").popup("close");
@@ -523,7 +523,7 @@ function main(){
                 html: ""
                 });
                 console.log(fApp+" - "+idUsuario);
-                $.post('http://192.168.0.3/medchoice/pdf/pdf1',{fecha:fApp,user:idUsuario},function(exito){
+                $.post('http://medchoice.com.ar/pdf/pdf1',{fecha:fApp,user:idUsuario},function(exito){
                     
                     if(exito=="OK"){
                         $.mobile.loading('hide');
@@ -556,7 +556,7 @@ function main(){
             theme: 'a',
             html: ""
         });
-        $.post("http://192.168.0.3/medchoice/consultas/nueva",{enviar:1,usuario:idUsuario,asunto:Asunto,mensaje:Mensaje,fcreacion:fecha},function(exito){
+        $.post("http://medchoice.com.ar/consultas/nueva",{enviar:1,usuario:idUsuario,asunto:Asunto,mensaje:Mensaje,fcreacion:fecha},function(exito){
             if(exito){
                 console.log(exito);
                 switch(exito){
@@ -591,7 +591,7 @@ function main(){
             theme: 'a',
             html: ""
         });
-        $.post("http://192.168.0.3/medchoice/errores/nuevo",{enviar:1,pregunta:pregId,error:mensaje,usuario:idUsuario},function(exito){
+        $.post("http://medchoice.com.ar/errores/nuevo",{enviar:1,pregunta:pregId,error:mensaje,usuario:idUsuario},function(exito){
             if(exito == "ok"){
                 //enviado
                 $.mobile.loading('hide');
@@ -774,7 +774,7 @@ function main(){
                     $("#masinfo").html("Respondiste "+correctas+" preguntas correctamente en "+Tiempo)
                     $("#popupPuntaje").popup("open");
                     Tiempo = parseInt(Tiempo);
-                    $.post("http://192.168.0.3/medchoice/evaluaciones/nuevo",{usuario:idUsuario,examen:idExamen,tiempo:fullTiempo,puntaje:Puntaje,respuestas:elecciones,fcreacion:fecha},function(res){
+                    $.post("http://medchoice.com.ar/evaluaciones/nuevo",{usuario:idUsuario,examen:idExamen,tiempo:fullTiempo,puntaje:Puntaje,respuestas:elecciones,fcreacion:fecha},function(res){
                         console.log("AQUI"+res);
                         if(res=="ok"){
                             console.log("guardo en la nube");
@@ -929,7 +929,7 @@ function main(){
                 }else{
                     /*CHECKEO ONLINE*//////////////////////////////
 
-                    $.post("http://192.168.0.3/medchoice/login",{enviar:1,email:Email,pass:Pass},function(exito){
+                    $.post("http://medchoice.com.ar/login",{enviar:1,email:Email,pass:Pass},function(exito){
                         if(exito){
                             console.log(exito);
                             if(exito.error){
@@ -1012,7 +1012,7 @@ function main(){
                 html: ""
                 });
     //alert("username:"+datos.seudonimo+",nombre:"+datos.nombre+",apellido:"+datos.apellido+",emailreg:"+datos.email+",uid:"+datos.uid+",token:"+datos.token+",sexo:"+datos.sexo+",passReg:"+datos.pass+",identidad:"+datos.identidad+",terminos:"+datos.terminos);
-        $.post("http://192.168.0.3/medchoice/registro/nuevo",{guardar:1,username:datos.seudonimo,nombre:datos.nombre,apellido:datos.apellido,emailreg:datos.email,uid:datos.uid,token:datos.token,sexo:datos.sexo,passReg:datos.pass,identidad:datos.identidad,terminos:datos.terminos},function(exito){
+        $.post("http://medchoice.com.ar/registro/nuevo",{guardar:1,username:datos.seudonimo,nombre:datos.nombre,apellido:datos.apellido,emailreg:datos.email,uid:datos.uid,token:datos.token,sexo:datos.sexo,passReg:datos.pass,identidad:datos.identidad,terminos:datos.terminos},function(exito){
                 if(exito){
                     if(exito!=""){ 
                         switch(exito){
