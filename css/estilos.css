@@ -176,6 +176,8 @@ body {
 	.ui-listview{width:100%;}
 	.ui-listview li a{font-size:14px !important}
 
+	
+
 	/*Page Examen*/
 	#examen{color:#8b8b8a;background:#e7e7e7;padding:0px 20px 5px 0px;margin:10px 0px 0px 0px;}
 	#examen i{font-size:18px;display:inline-block;vertical-align:middle;margin-right:15px;}
@@ -231,6 +233,11 @@ body {
 	#consultar i{font-size:24px; display:inline-block;vertical-align: middle;margin-right:10px;}
 	#consultar span{font-size:18px;display: inline-block;vertical-align: middle;}
 	.error,.good{font-size:18px;}
+
+	/*PAGE PRERANKING*/
+	#pageprerank h2{margin-top:0px;font-size:16px;margin-bottom:20px;}
+	.ui-listview{width:100%;}
+	.ui-listview li a{font-size:14px !important}
 }
 
 @media screen and (-webkit-device-pixel-ratio: 1) and (min-device-width : 600px) and (max-device-width : 720px){
@@ -334,6 +341,10 @@ body {
 	#consultar{width:200px;color:#666;}
 	#consultar i{font-size:32px; display:inline-block;vertical-align: middle;margin-right:10px;}
 	#consultar span{font-size:24px;display: inline-block;vertical-align: middle;}
+	/*PAGE PRERANKING*/
+	#pageprerank h2{margin-top:0px;font-size:16px;margin-bottom:20px;}
+	.ui-listview{width:100%;}
+	.ui-listview li a{font-size:14px !important}
 
 }
 
@@ -411,6 +422,7 @@ body {
 	#pageexamenes h2{margin-top:0px;font-size:20px;margin-bottom:20px;}
 	.ui-listview{width:90%;}
 	.ui-listview li a{font-size:16px !important}
+	
 
 	/*Page Examen*/
 	#examen{color:#8b8b8a;background:#e7e7e7;padding:0px 20px 5px 0px;margin:20px 0px 0px 0px;}
@@ -468,6 +480,10 @@ body {
 	#consultar span{font-size:24px;display: inline-block;vertical-align: middle;}
 	.error,.good{font-size:18px;}
 
+/*PAGE PRERANKING*/
+	#pageprerank h2{margin-top:0px;font-size:20px;margin-bottom:20px;}
+	.ui-listview{width:90%;}
+	.ui-listview li a{font-size:16px !important}
 }
 
 /* Extra high density (320), xhdpi */
@@ -664,6 +680,7 @@ margin: 1px 0 0 -30px;
 	#selExamen-listbox .ui-title{font-size:24px;padding:13px;}
 	.contenedor{width:90%;margin:26px auto 0px auto !important;}
 	#pageranking .ui-table th {font-size:24px !important;}
+	#pageranking .ui-table td {font-size:24px !important;}
 	#pageranking .ui-controlgroup-vertical .ui-controlgroup-controls .ui-btn{ font-size:24px;}
 	/*PAGE Consultas*/
 	#pageconsultas h2{font-size:26px;}
@@ -674,6 +691,12 @@ margin: 1px 0 0 -30px;
 	#consultar span{font-size:32px;display: inline-block;vertical-align: middle;}
 	.error{font-size:24px;}
 	.good{font-size:24px;}
+
+	/*PAGE PRERANKING*/
+	#pageprerank h2{margin-top:0px;font-size:26px;margin-bottom:26px;}
+	.ui-listview{width:90%;}
+	.ui-listview li a{font-size:26px !important}
+	.ui-icon-carat-r:after{background-size:16px;}
   
 }
 @media screen and (-webkit-device-pixel-ratio: 3) and (orientation:portrait) {
@@ -734,6 +757,9 @@ margin: 1px 0 0 -54px;
 .ui-icon-carat-d:after{
 	background-size:50px 50px;
 }
+.ui-btn-icon-left:after, .ui-btn-icon-right:after, .ui-btn-icon-top:after, .ui-btn-icon-bottom:after, .ui-btn-icon-notext:after{
+	background-size:30px;
+}
 	#footlogo{width:200px;height:auto;}
 	#pruebacss{display:none;}
 	/*PAGE TERMINOS*/
@@ -763,6 +789,18 @@ margin: 1px 0 0 -54px;
 	#fconnect i{background-image:url(../imagenes/facebook-64.png);width:64px;height:64px;}
 	#pageadmin form {border-top:dashed 4px #ccc; padding-top:50px;}
 	#pageadmin #centro{width: 900px; text-align:center;}
+	#pageadmin .ui-btn-icon-notext:after, #pageadmin .ui-btn-icon-left:after, #pageadmin .ui-btn-icon-right:after{
+	margin-top:-30px;
+	}
+	.ui-loader-verbose {width:25em !important;}
+	#pageadmin .ui-btn-icon-right:after, #pageadmin .ui-btn-icon-top:after, #pageadmin .ui-btn-icon-bottom:after, #pageadmin .ui-btn-icon-notext:after{
+		width:60px;height:60px;
+	}
+	#pageadmin .ui-btn-icon-left:after, #pageadmin .ui-btn-icon-right:after, #pageadmin .ui-btn-icon-top:after, #pageadmin .ui-btn-icon-bottom:after, #pageadmin .ui-btn-icon-notext:after{
+		background-size:30px !important;
+	}
+	#pageadmin .ui-btn-icon-notext:after, #pageadmin .ui-btn-icon-top:after, #pageadmin .ui-btn-icon-bottom:after{margin-left:-28px !important;}
+	#pageadmin .ui-input-text.ui-input-has-clear #pageadmin .ui-btn.ui-input-clear{ margin:-30px 1em 0 !important;}
 
 	/*PAGE REGISTRO*/
 	#pageregistrarse .ui-content{padding-top:0px !important;}
@@ -778,9 +816,9 @@ margin: 1px 0 0 -54px;
 	.firma span{display:inline-block;vertical-align:middle;background-image:url(../imagenes/logoappchoicexxhdpi.png);width:300px;height:66px;}
 
 	/*PAGE MENUPRINCIPAL*/
-	.menuicon{font-size:168px; color:#fff;}
-	.menup a{margin-left:auto;margin-right:auto;background-color:#034a80 !important;padding:50px !important;width:168px !important;border-radius:200px !important;}
-	.menup p{font-size:40px !important; color:#034a80 !important;}
+	.menuicon{font-size:148px; color:#fff;}
+	.menup a{margin-left:auto;margin-right:auto;background-color:#034a80 !important;padding:60px !important;width:148px !important;border-radius:200px !important;}
+	.menup p{font-size:32px !important; color:#034a80 !important;}
 	#pagemenuppal .ui-grid-a{width:80%;margin-left:auto;margin-right:auto;margin-top:40px;}
 	.ui-bar-a{background:none !important;border:none !important;margin-bottom:40px;}
 	.actualizar{width:80%;margin-right: auto;margin-left: auto}
@@ -858,11 +896,10 @@ margin: 1px 0 0 -54px;
 	.ui-collapsible-inset{width:100%;}
 	.ui-collapsible-content .ui-listview{width:100%;}
 	#popupDialog .ui-content,#popupUpdate .ui-content,#popupPuntaje .ui-content,#popupReporte .ui-content,#popupConfirm .ui-content{padding:40px !important;}
-	#pagescores .ui-icon-carat-r:after{background-size:50px;}
 	#pagescores .ui-icon-delete:after{background-size:36px;}
+
 	#pagescores .ui-listview>li.ui-li-has-alt>.ui-btn+.ui-btn{width:150px;}
 	#pagescores .ui-btn-icon-notext:after, .ui-btn-icon-top:after, .ui-btn-icon-bottom:after{margin-left:-37px;}
-	#pagescores .ui-icon-carat-u:after{background-size:50px;}
 	.exportar{margin-right:150px !important;}
 	.borrar{}
 	/*PAGE RANKING*/
@@ -880,6 +917,15 @@ margin: 1px 0 0 -54px;
 	#consultar span{font-size:48px;display: inline-block;vertical-align: middle;}
 	.error{font-size:36px;}
 	.good{font-size:36px;}
+
+	/*PAGE PRERANKING*/
+	#pageprerank h2{margin-top:0px;font-size:40px;margin-bottom:40px;}
+	.ui-listview{width:90%;}
+	.ui-listview li a{font-size:40px !important}
+	#pagescores .ui-icon-carat-r:after{background-size:44px;}
+	.ui-icon-carat-r:after{background-size:24px;}
+	#resRanking td {font-size: 36px;}
+
   
 }
 @media screen and (min-device-width: 750px) and (-webkit-min-device-pixel-ratio: 1.1) and (-webkit-max-device-pixel-ratio: 1.5) {

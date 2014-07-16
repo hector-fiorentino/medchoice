@@ -62,6 +62,7 @@ function main(){
                 url: "contenido.json",
                 dataType: "json",
                 data: "id=5",
+                timeout: 600000,
                 success: successCallback,
                 error: errorCallback
             });
@@ -295,20 +296,37 @@ function main(){
             theme: 'a',
             html: ""
         });
-        db.traerExamenes().done(function(exito){
-            var l = exito.length;
+       db.traerExamenes(0).done(function(exito){
+            //alert(exito);
+             var a = 0;
             var li = "";
-            $("#listarank").empty();
-            for(var a = 0; a < l; a++ ){
-                li ="";
-                li += '<li>';
-                li += '<a href="#popupDialog" rel="'+exito[a].ID+'" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-btn-icon-right ui-icon-carat-r examen" title="Ver Ranking">';
-                li += exito[a].nombre;
-                li += '</a>';
-                li += '</li>';
-                $("#listarank").append(li);
+             var l = exito.length;
+
+            $("#rank").empty();
+            for(a; a < l; a++ ){
+                li ='<div data-role="collapsible">';
+                li += '<h2>'+exito[a].nombre+'</h2>';
+                li +='<ul data-role="listview" data-divider-theme="z" id="sub2-'+exito[a].ID+'">';
+                li += '</ul>';
+                li += '</div>';
+                $("#rank").append(li);
             }
+
             //$("#popupDialog").popup("open");
+            //alert(exito);
+            $("#rank").trigger("create");
+            $.mobile.loading( 'hide');
+        })
+        db.traerExamenes(-1).done(function(hijos){
+            var h = hijos.length
+            var li = "";
+            for(var b = 0; b < h; b++){
+                li = '<a href="#popupDialog" rel="'+hijos[b].ID+'" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-btn-icon-right ui-icon-carat-r examen" title="Hacer el examen">';
+                li += hijos[b].nombre;
+                li += '</a>';
+                $("#sub2-"+hijos[b].parent).append(li);
+                $("#sub2-"+hijos[b].parent).trigger("create");
+            }
             $(".examen").click(function(){
                 idExamen = $(this).attr("rel");
                 $.post("http://192.168.0.3/medchoice/evaluaciones/ranking",{examen:idExamen},function(exito){
@@ -342,8 +360,8 @@ function main(){
                     }
                 },"json")
             });
-        });
-            $("#examenes").trigger("create");
+        })
+            $("#rank").trigger("create");
             $.mobile.loading( 'hide');
     })
 
