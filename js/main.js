@@ -159,8 +159,8 @@ function main(){
 
             $("#examenes").empty();
             for(a; a < l; a++ ){
-                li ='<div data-role="collapsible">';
-                li += '<h2>'+exito[a].nombre+'</h2>';
+                li ='<div data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u">';
+                li += '<h4>'+exito[a].nombre+'</h4>';
                 li +='<ul data-role="listview" data-divider-theme="z" id="sub-'+exito[a].ID+'">';
                 li += '</ul>';
                 li += '</div>';
@@ -304,9 +304,9 @@ function main(){
 
             $("#rank").empty();
             for(a; a < l; a++ ){
-                li ='<div data-role="collapsible">';
-                li += '<h2>'+exito[a].nombre+'</h2>';
-                li +='<ul data-role="listview" data-divider-theme="z" id="sub2-'+exito[a].ID+'">';
+                li ='<div data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u">';
+                li += '<h4>'+exito[a].nombre+'</h4>';
+                li +='<ul data-role="listview" data-divider-theme="z" id="sub-'+exito[a].ID+'">';
                 li += '</ul>';
                 li += '</div>';
                 $("#rank").append(li);
