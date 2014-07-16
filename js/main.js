@@ -1081,7 +1081,7 @@ function main(){
     $(".recuperar").click(function(){
         var mail = $("#email").val();
         if(validar_email(mail)){
-            $.post('http://localhost/medchoice/registro/recuperarPass',{email:mail},function(exito){
+            $.post('http://medchoice.com.ar/registro/recuperarPass',{email:mail},function(exito){
                 if(exito=="no"){
                     $("#erlogin").html("El e-mail no posee un formato adecuado.");
                 }else{
