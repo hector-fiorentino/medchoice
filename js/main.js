@@ -495,7 +495,7 @@ function main(){
     $("#acepto").click(function(){
         var Id = $("#evalua").val();
         var fApp = $("#fechaApp").val();
-        fApp = darVueltaFecha(fApp);
+        //fApp = darVueltaFecha(fApp);
         switch($("#accion").val()){
             case "borrar":
             $.mobile.loading( 'show', {
