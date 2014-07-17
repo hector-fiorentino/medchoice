@@ -231,9 +231,7 @@ function dbAdapter(){
 	 	var deferred = $.Deferred();
 	 	this.db.transaction(
 	 		function (tx){
-			 		var sql = "UPDATE usuarios " +
-		            "SET pass=" + password
-		            "WHERE ID = "+id;
+			 		var sql = "UPDATE usuarios SET pass='" + password +"' WHERE ID = "+id;
 		            tx.executeSql(sql, [],
 		            function (tx, results) {
 		            		//alert("OK");
