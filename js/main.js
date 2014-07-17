@@ -913,9 +913,24 @@ function main(){
             var inicial = "";
             datos.email = Email;
             datos.pass = convertirSha1(Pass);
-            if(window.localStorage.getItem("recupero")==true){
-                $.post("http://medchoice.com.ar/login",{enviar:1,email:Email,pass:Pass},function(exito){
-                    if(exito){
+
+            db.validarUsuario(datos).done(function(exito){
+                if(exito.ID){
+
+                    idUsuario = exito.ID;
+                    seudonimo = exito.nombre;
+                    inicial = " "+exito.apellido.charAt(0)+".";
+                    seudonimo += inicial.toUpperCase();
+                    userName = seudonimo;
+                    window.localStorage.setItem("userID",idUsuario);
+                    window.localStorage.setItem("userName",seudonimo);
+                    $.mobile.loading( 'hide');
+                    $.mobile.changePage($("#pagemenuppal"));
+                }else{
+                    /*CHECKEO ONLINE*//////////////////////////////
+
+                    $.post("http://medchoice.com.ar/login",{enviar:1,email:Email,pass:Pass},function(exito){
+                        if(exito){
                             console.log(exito);
                             if(exito.error){
                                 switch(exito.error){
@@ -937,6 +952,7 @@ function main(){
                                     break;
                                 }
                             }else{
+                                console.log("#ID "+exito.nombre);
                                 idUsuario = exito.id;
                                 seudonimo = exito.nombre;
                                 inicial = " "+exito.apellido.charAt(0)+".";
@@ -944,84 +960,26 @@ function main(){
                                 userName = seudonimo;
                                 window.localStorage.setItem("userID",idUsuario);
                                 window.localStorage.setItem("userName",seudonimo);
-                                var passw = exito.pass;
-                                db.guardarNewPass(passw,idUsuario).done(function(exito){
-                                    window.localStorage.removeItem("recupero");
+                                var datos = [];
+                                datos.ID = idUsuario;
+                                datos.nombre = exito.nombre;
+                                datos.apellido = exito.apellido;
+                                datos.seudonimo = seudonimo;
+                                datos.email = exito.email;
+                                datos.pass = exito.pass;
+                                datos.estado = exito.estado;
+                                datos.terminos = exito.terminos;
+                                datos.fcreacion = exito.fcreacion;
+                                db.guardarUsuario(datos).done(function(exito){
                                     $.mobile.loading( 'hide');
                                     $.mobile.changePage($("#pagemenuppal"))
                                     console.log("ESA!");
                                 });
                             }
                         }
-                },"json");
-            }esle{
-                db.validarUsuario(datos).done(function(exito){
-                    if(exito.ID){
-
-                        idUsuario = exito.ID;
-                        seudonimo = exito.nombre;
-                        inicial = " "+exito.apellido.charAt(0)+".";
-                        seudonimo += inicial.toUpperCase();
-                        userName = seudonimo;
-                        window.localStorage.setItem("userID",idUsuario);
-                        window.localStorage.setItem("userName",seudonimo);
-                        $.mobile.loading( 'hide');
-                        $.mobile.changePage($("#pagemenuppal"));
-                    }else{
-                        /*CHECKEO ONLINE*//////////////////////////////
-
-                        $.post("http://medchoice.com.ar/login",{enviar:1,email:Email,pass:Pass},function(exito){
-                            if(exito){
-                                console.log(exito);
-                                if(exito.error){
-                                    switch(exito.error){
-                                        case "ER101":
-                                            $("#erlogin").html("Ingrese el E-mail");
-                                            $.mobile.loading('hide');
-                                        break;
-                                        case "ER102":
-                                            $("#erlogin").html("Ingrese la contraseña");
-                                            $.mobile.loading('hide');
-                                        break;
-                                        case "ER103":
-                                            $("#erlogin").html("Error. Compruebe que el e-mail y la contraseña sean los correctos.");
-                                            $.mobile.loading( 'hide');
-                                        break;
-                                        case "ER104":
-                                            $("#erlogin").html("El e-mail no se encuentra registrado");
-                                            $.mobile.loading('hide');
-                                        break;
-                                    }
-                                }else{
-                                    console.log("#ID "+exito.nombre);
-                                    idUsuario = exito.id;
-                                    seudonimo = exito.nombre;
-                                    inicial = " "+exito.apellido.charAt(0)+".";
-                                    seudonimo += inicial.toUpperCase();
-                                    userName = seudonimo;
-                                    window.localStorage.setItem("userID",idUsuario);
-                                    window.localStorage.setItem("userName",seudonimo);
-                                    var datos = [];
-                                    datos.ID = idUsuario;
-                                    datos.nombre = exito.nombre;
-                                    datos.apellido = exito.apellido;
-                                    datos.seudonimo = seudonimo;
-                                    datos.email = exito.email;
-                                    datos.pass = exito.pass;
-                                    datos.estado = exito.estado;
-                                    datos.terminos = exito.terminos;
-                                    datos.fcreacion = exito.fcreacion;
-                                    db.guardarUsuario(datos).done(function(exito){
-                                        $.mobile.loading( 'hide');
-                                        $.mobile.changePage($("#pagemenuppal"))
-                                        console.log("ESA!");
-                                    });
-                                }
-                            }
-                        },"json");
-                    }
-                })
-            }
+                    },"json");
+                }
+            })
         }
     }else{
         $("#erlogin").html("Complete los datos de login");
@@ -1128,7 +1086,7 @@ function main(){
                 }else{
                     $("#erlogin").empty();
                     $("#glogin").html('Le hemos enviado un enlace de recupero a su email');
-                    window.localStorage.setItem("recupero",true);
+                    //window.localStorage.setItem("recupero")
                     $("#glogin").show();
                 }
             });
