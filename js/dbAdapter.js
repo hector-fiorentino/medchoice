@@ -226,6 +226,36 @@ function dbAdapter(){
 	 }
 	 /////////*FIN VALIDAR USUARIO*//////////////////////////////
 
+	 /*Guardar nuevo usuario *///////////////////////////
+	 this.guardarNewPass = function(password,id){
+	 	var deferred = $.Deferred();
+	 	this.db.transaction(
+	 		function (tx){
+			 		var sql = "UPDATE usuarios " +
+		            "SET pass=" + password
+		            "WHERE ID = "+id;
+		            tx.executeSql(sql, [],
+		            function (tx, results) {
+		            		//alert("OK");
+		                    console.log('UPDATE success');
+		                    deferred.resolve("ok");
+		            },
+		            function (tx, error) {
+		            	//alert(error.message);
+		                deferred.resolve(error.message);
+		                console.log('INSERT error: ' + error.message);
+		            });	
+	 		},
+	        function (error) {
+	        	//alert(error.message);
+	                console.log("Transaction Error: " + error.message);
+	        }
+
+	 	)
+		return deferred.promise();
+	 }
+
+
 	 /*Guardar USUARIO*//////////////////////////////
 	 this.guardarUsuario = function(datos){
 	 	var deferred = $.Deferred();
