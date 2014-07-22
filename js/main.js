@@ -301,6 +301,7 @@ function main(){
                     }
                     if(origen == "lan"){
                         var datos = [];
+                        datos.prueba="hola parola";
                         datos.id = exito[w].ID;
                         datos.interrupcion = exito[w].interrupcion;
                         datos.tiempo = exito[w].tiempo;
@@ -309,7 +310,8 @@ function main(){
                         datos.fecha = exito[w].fecha;
                         datos.puntaje= exito[w].puntaje;
                         datos.accion = "finalizar";
-                        alert("DATOS="+datos);
+                        alert("DATOS="+JSON.stringify(datos);
+                            alert("DATOS2="+datos.id);
                         db.guardarEvaluacion(datos);
                     }
                 }
