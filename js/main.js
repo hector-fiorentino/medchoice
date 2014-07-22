@@ -531,8 +531,8 @@ function main(){
                     }else if(exito=="vacio"){
                         db.traerEvaluacion(Id).done(function(datos){
                             var row = datos[0];
-                            alert("usuario:"+row.usuario_id+",examen:"+row.examen_id+",tiempo:"+row.tiempo+",puntaje:"+row.puntaje+",respuestas:"+row.respuestas+",fcreacion:"+row.fecha);
-                            $.post("http://medchoice.com.ar/evaluaciones/nuevo",{usuario:row.usuario_id,examen:row.examen_id,tiempo:row.tiempo,puntaje:row.puntaje,respuestas:row.respuestas,fcreacion:row.fecha},function(res){
+                            alert("usuario:"+row.usuario_id+",examen:"+row.examen_id+",tiempo:"+row.tiempo+",puntaje:"+row.puntaje+",respuestas:"+row.respuestas+",fcreacion:"+row.fcreacion);
+                            $.post("http://medchoice.com.ar/evaluaciones/nuevo",{usuario:row.usuario_id,examen:row.examen_id,tiempo:row.tiempo,puntaje:row.puntaje,respuestas:row.respuestas,fcreacion:row.fcreacion},function(res){
                                 if(res=="ok"){
                                     var jqxhr2 = $.post('http://medchoice.com.ar/pdf/pdf1',{fecha:fApp,user:idUsuario},function(exito){
                                     if(exito=="OK"){
