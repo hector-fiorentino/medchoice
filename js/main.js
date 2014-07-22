@@ -309,7 +309,7 @@ function main(){
                         datos.fecha = exito[w].fecha;
                         datos.puntaje= exito[w].puntaje;
                         datos.accion = "finalizar";
-                        alert("DATOS="+JSON.stringify(datos));
+                        alert("DATOS="+datos);
                         db.guardarEvaluacion(datos);
                     }
                 }
