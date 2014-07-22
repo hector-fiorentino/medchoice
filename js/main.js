@@ -524,18 +524,19 @@ function main(){
                 html: ""
                 });
                 console.log(fApp+" - "+idUsuario);
-                alert("EXPORTAR="+fApp+" - "+idUsuario);
-                $.post('http://medchoice.com.ar/pdf/pdf1',{fecha:fApp,user:idUsuario},function(exito){
-                    
+                var jqxhr = $.post('http://medchoicereq.com.ar/pdf/pdf1',{fecha:fApp,user:idUsuario},function(exito){
                     if(exito=="OK"){
                         alert("EXPORT RES="+exito);
                         $.mobile.loading('hide');
                         $("#popupConfirm").popup('close');
-                    }else{
+                    }else if(exito=="vacio"){
                         $.mobile.loading('hide');
                         $("#popupConfirm").popup('close');
                         alert("EXPORT RES="+exito);
                     }
+                })
+                jqxhr.fail(function() {
+                    alert( "Error de conexión. Revise su conexión." );
                 })
             break;
             case "compartir":
@@ -548,7 +549,7 @@ function main(){
     $("#consultar").click(function(){
         var Asunto = $("#asunto").val();
         var Mensaje = $("#consulta").val();
-        var fecha = js_yyyy_mm_dd_hh_mm_ss ();
+        var fecha = js_yyyy_mm_dd_hh_mm_ss();
         console.log("us:"+idUsuario+", asunto:"+Asunto+", mensaje:"+Mensaje+", fcreacion:"+fecha);
         $.mobile.loading( 'show', {
             text: 'Enviando',
@@ -668,7 +669,7 @@ function main(){
                         var datos = [];
                         datos.usuario = idUsuario;
                         datos.examen = idExamen;
-                        datos.fecha = js_yyyy_mm_dd_hh_mm_ss ();
+                        datos.fecha = js_yyyy_mm_dd_hh_mm_ss();
                         db.guardarEvaluacion(datos).done(function(exito){
                             idEvaluacion = exito;
                         });
@@ -717,7 +718,7 @@ function main(){
         datos.tiempo = fullTiempo;
         datos.correctas = correctas;
         datos.eleccion = elecciones + eleccion;
-        datos.fecha = js_yyyy_mm_dd_hh_mm_ss ();
+        datos.fecha = js_yyyy_mm_dd_hh_mm_ss();
         elecciones = elecciones + eleccion +",";
         eleccion = "";
         if(numPreg == totalPreg){
@@ -767,7 +768,7 @@ function main(){
                     $("#puntos").html(Puntaje+" puntos");
                     var Tiempo = 0;
                     Tiempo = pasarATiempo(fullTiempo);
-                    var fecha = js_yyyy_mm_dd_hh_mm_ss ();
+                    var fecha = js_yyyy_mm_dd_hh_mm_ss();
                     $("#masinfo").html("Respondiste "+correctas+" preguntas correctamente en "+Tiempo)
                     $("#popupPuntaje").popup("open");
                     Tiempo = parseInt(Tiempo);
@@ -1132,7 +1133,7 @@ function darVueltaFecha(valor){
     return tres;
 }
 
-function js_yyyy_mm_dd_hh_mm_ss () {
+function js_yyyy_mm_dd_hh_mm_ss() {
   now = new Date();
   year = "" + now.getFullYear();
   month = "" + (now.getMonth() + 1); if (month.length == 1) { month = "0" + month; }
