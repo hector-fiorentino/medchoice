@@ -303,6 +303,9 @@ function main(){
                         var datos = [];
                         datos.prueba="hola parola";
                         datos.id = exito[w].ID;
+                        datos.usuario=exito[w].usuario_id;
+                        datos.examen = exito[w].examen_id;
+                        datos.estado = exito[w].estado;
                         datos.interrupcion = exito[w].interrupcion;
                         datos.tiempo = exito[w].tiempo;
                         datos.correctas = exito[w].correctas;
