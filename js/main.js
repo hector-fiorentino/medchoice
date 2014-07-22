@@ -526,13 +526,34 @@ function main(){
                 console.log(fApp+" - "+idUsuario);
                 var jqxhr = $.post('http://medchoice.com.ar/pdf/pdf1',{fecha:fApp,user:idUsuario},function(exito){
                     if(exito=="OK"){
-                        alert("EXPORT RES="+exito);
                         $.mobile.loading('hide');
                         $("#popupConfirm").popup('close');
                     }else if(exito=="vacio"){
-                        $.mobile.loading('hide');
-                        $("#popupConfirm").popup('close');
-                        alert("EXPORT RES="+exito);
+                        db.traerEvaluacion(Id).done(function(datos){
+                            var row = datos[0];
+                            $.post("http://medchoice.com.ar/evaluaciones/nuevo",{usuario:row.usuario_id,examen:row.examen_id,tiempo:row.tiempo,puntaje:row.puntaje,respuestas:row.respuestas,fcreacion:row.fecha},function(res){
+                                if(res=="ok"){
+                                    var jqxhr2 = $.post('http://medchoice.com.ar/pdf/pdf1',{fecha:fApp,user:idUsuario},function(exito){
+                                    if(exito=="OK"){
+                                        $.mobile.loading('hide');
+                                        $("#popupConfirm").popup('close');
+                                    }else if(exito=="vacio"){
+                                        alert("Lamentablemente este examen no se ha podido exportar.");
+                                        $.mobile.loading('hide');
+                                         $("#popupConfirm").popup('close');
+                                    }});
+                                    jqxhr2.fail(function(){
+                                         alert( "Error de conexión. Revise su conexión." );
+                                         $.mobile.loading('hide');
+                                         $("#popupConfirm").popup('close');
+                                    })
+                                }else{
+                                    alert( "Error de conexión. Revise su conexión." );
+                                    $.mobile.loading('hide');
+                                    $("#popupConfirm").popup('close');
+                                }
+                            })
+                        })
                     }
                 })
                 jqxhr.fail(function() {
