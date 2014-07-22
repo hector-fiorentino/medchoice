@@ -281,6 +281,7 @@ function main(){
                      e.preventDefault();
                     var id = $(this).data('num');
                     var f = $(this).attr('rel');
+                    alert(id+" : "+f);
                     $("#accion").val('exportar');
                     $("#evalua").val(id);
                     $("#fechaApp").val(f);
@@ -523,20 +524,24 @@ function main(){
                 html: ""
                 });
                 console.log(fApp+" - "+idUsuario);
+                alert("EXPORTAR="+fApp+" - "+idUsuario);
                 $.post('http://medchoice.com.ar/pdf/pdf1',{fecha:fApp,user:idUsuario},function(exito){
                     
                     if(exito=="OK"){
+                        alert("EXPORT RES="+exito);
                         $.mobile.loading('hide');
                         $("#popupConfirm").popup('close');
                     }else{
                         $.mobile.loading('hide');
                         $("#popupConfirm").popup('close');
+                        alert("EXPORT RES="+exito);
                     }
                 })
             break;
             case "compartir":
             break;
         }
+        alert("ACCION=" + $("#accion").val());
     })
 
 
