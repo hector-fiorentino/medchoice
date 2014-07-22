@@ -262,18 +262,18 @@ function main(){
                 for(var w=0;w<total;w++){
                     if(exp!=exito[w].examen_id){
                         if(exp!=0){
-                            if (!$("#drop"+examen_id)){
+                            if (!$("#drop"+exito[w].examen_id)){
                                 evalu += '</ul></div>';
                             }
                         }
-                        if (!$("#drop"+examen_id)){
-                        evalu += '<div data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" id="drop'+examen_id+'">';
+                        if (!$("#drop"+exito[w].examen_id)){
+                        evalu += '<div data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" id="drop'+exito[w].examen_id+'">';
                         exp = exito[w].examen_id;
                         evalu +='<h4 class="titulodown">'+exito[w].nombre+'</h4>';
                         evalu += '<ul data-role="listview" data-inset="false" class="registros">';
                         }
                     }
-                    if (!$("#drop"+examen_id)){
+                    if (!$("#drop"+exito[w].examen_id)){
                     evalu += '<li id="s'+exito[w].ID+'"><a href="#">'+exito[w].fcreacion+' - '+exito[w].puntaje+' puntos.</a>'
                     +'<a href="#" rel="'+exito[w].fcreacion+'" data-num="'+exito[w].ID+'" class="ui-btn ui-icon-delete ui-btn-icon-notext borrar">Delete</a>'
                     +'<a href="#" rel="'+exito[w].fcreacion+'" data-num="'+exito[w].ID+'" class="ui-btn ui-icon-mail ui-btn-icon-notext exportar" style="margin-right:40px">Mail</a>'
@@ -283,10 +283,10 @@ function main(){
                     +'<a href="#" rel="'+exito[w].fcreacion+'" data-num="'+exito[w].ID+'" class="ui-btn ui-icon-delete ui-btn-icon-notext borrar">Delete</a>'
                     +'<a href="#" rel="'+exito[w].fcreacion+'" data-num="'+exito[w].ID+'" class="ui-btn ui-icon-mail ui-btn-icon-notext exportar" style="margin-right:40px">Mail</a>'
                     +'</li>';
-                    $("#drop"+examen_id).append(renglon);
+                    $("#drop"+exito[w].examen_id).append(renglon);
                     }
                     if(w+1==total){
-                        if (!$("#drop"+examen_id)){
+                        if (!$("#drop"+exito[w].examen_id)){
                             evalu += '</ul></div>';
                         }
                         if(origen=="local"){
