@@ -220,9 +220,17 @@ function main(){
         db.traerEvaluaciones(idUsuario).done(function(exito){
             var total = exito.length;
             if(total>0){
-                traerScores(exito,'local');
+                var skip = traerScores(exito,'local');
+               var jqxhr = $.post("http://medchoice.com.ar/evaluaciones/misscores",{user:idUsuario,omitir:skip},function(data){
+                    if(!data.error){
+                        traerScores(data,'lan');
+                    }
+                })
+               jqxhr.fail(function(){
+                    alert("Error en la comunicación. Revise su conexión a internet e intente nuevamente");
+                })
             }else{
-                $.post("http://medchoice.com.ar/evaluaciones/misscores",{user:idUsuario},function(data){
+                var jqxhr = $.post("http://medchoice.com.ar/evaluaciones/misscores",{user:idUsuario,omitir:""},function(data){
                     if(!data.error){
                         traerScores(data,'lan');
                     }else{
@@ -231,12 +239,16 @@ function main(){
                         $("#evaluaciones").html('<p>Aún no se registraron exámenes terminados</p>');
                     }
                 },"json")
+                jqxhr.fail(function(){
+                    alert("Error en la comunicación. Revise su conexión a internet e intente nuevamente");
+                })
             }
         });
     })
 
     function traerScores(exito,origen){
                 var total = 0;
+                var omitir = " AND ";
                 if(origen=="lan"){
                     total = exito.scores.length;
                     exito = exito.scores;
@@ -261,6 +273,25 @@ function main(){
                     +'</li>';
                     if(w+1==total){
                         evalu += '</ul></div>';
+                        if(origen=="local"){
+                            omitir += "ev.fcreacion != '"+exito[w].fcreacion+"'";
+                        }
+                    }else{
+                        if(origen=="local"){
+                            omitir += "ev.fcreacion != '"+exito[w].fcreacion+"' AND ";
+                        }
+                    }
+                    if(origen == "lan"){
+                        var datos = [];
+                        datos.id = exito[w].ID;
+                        datos.interrupcion = exito[w].interrupcion;
+                        datos.tiempo = exito[w].tiempo;
+                        datos.correctas = exito[w].correctas;
+                        datos.eleccion = exito[w].eleccion;
+                        datos.fecha = exito[w].fecha;
+                        datos.puntaje= exito[w].puntaje;
+                        datos.accion = "finalizar";
+                        db.guardarEvaluacion(datos);
                     }
                 }
                 $("#evaluaciones").html(evalu);
@@ -288,7 +319,11 @@ function main(){
                     $("#popupConfirm .texto").html('Se le enviará a su casilla de e-mail, registrada, un link de descarga de un documento PDF con el cuestionario completo con las respuestas correctas y seleccionadas por usted.');
                     $("#popupConfirm").popup('open');
                 })
+
                 $.mobile.loading('hide');
+                if(origen == "local"){
+                    return omitir;
+                }
     }
 
     $("#pageprerank").on("pageshow",function(event){
