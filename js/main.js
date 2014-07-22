@@ -346,6 +346,7 @@ function main(){
 
                 $.mobile.loading('hide');
                 if(origen == "local"){
+                    alert(omitir);
                     return omitir;
                 }
     }
