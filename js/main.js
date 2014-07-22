@@ -309,7 +309,7 @@ function main(){
                         datos.eleccion = exito[w].respuestas;
                         datos.fecha = exito[w].fcreacion;
                         datos.puntaje= exito[w].puntaje;
-                        datos.accion = "finalizar";
+                        datos.accion = "lan";
                             alert("DATOS2="+datos.id+", "+datos.interrupcion+", "+datos.correctas+", "+datos.eleccion+", "+datos.fecha+", "+datos.puntaje+", "+datos.accion);
                         db.guardarEvaluacion(datos).done(function(){alert("ok")});
                     }

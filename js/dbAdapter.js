@@ -400,7 +400,7 @@ function dbAdapter(){
 	 	var deferred = $.Deferred();
 		this.db.transaction(
 	 		function (tx){
-	 			if(datos.accion){
+	 			if(datos.accion=="finalizar"){
 	 				sql = "UPDATE evaluaciones SET interrupcion=?, tiempo=?, correctas=?, puntaje=?, estado=1, respuestas=?, fcreacion=? WHERE id=?";
 			 		tx.executeSql(sql, [datos.interrupcion, datos.tiempo, datos.correctas, datos.puntaje, datos.eleccion, datos.fecha, datos.id],
 				    function () {
@@ -411,6 +411,19 @@ function dbAdapter(){
 				    function (tx, error) {
 				        console.log('INSERT error: ' + error.message);
 				    });
+	 			}else if(datos.accion=="lan"){
+	 					sql = "INSERT INTO evaluaciones " +
+					            "(usuario_id, examen_id, estado, interrupcion, tiempo, correctas, puntaje, respuestas, fcreacion)" +
+					            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+					    tx.executeSql(sql, [datos.usuario, datos.examen, datos.estado, datos.interrupcion, datos.tiempo, datos.correctas, datos.puntaje, datos.eleccion, datos.fecha],
+					    function (tx, results) {
+					    	console.log('guardo Evaluacion')
+					        console.log('INSERT success evaluaciones'+results.insertId);
+							deferred.resolve(results.insertId);
+					    },
+					    function (tx, error) {
+					        console.log('INSERT error: ' + error.message);
+			            });	
 	 			}else{
 			 		if(datos.id  > 0){
 				 		sql = "UPDATE evaluaciones SET interrupcion=?, tiempo=?, correctas=?, respuestas=?, fcreacion=? WHERE id=?";
