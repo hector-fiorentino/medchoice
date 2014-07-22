@@ -524,7 +524,7 @@ function main(){
                 html: ""
                 });
                 console.log(fApp+" - "+idUsuario);
-                var jqxhr = $.post('http://medchoicereq.com.ar/pdf/pdf1',{fecha:fApp,user:idUsuario},function(exito){
+                var jqxhr = $.post('http://medchoice.com.ar/pdf/pdf1',{fecha:fApp,user:idUsuario},function(exito){
                     if(exito=="OK"){
                         alert("EXPORT RES="+exito);
                         $.mobile.loading('hide');
@@ -537,6 +537,7 @@ function main(){
                 })
                 jqxhr.fail(function() {
                     alert( "Error de conexión. Revise su conexión." );
+                    $.mobile.loading('hide');
                 })
             break;
             case "compartir":
