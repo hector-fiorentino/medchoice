@@ -223,6 +223,7 @@ function main(){
                 var skip = traerScores(exito,'local');
                var jqxhr = $.post("http://medchoice.com.ar/evaluaciones/misscores",{user:idUsuario,omitir:skip},function(data){
                     if(!data.error){
+                        alert(JSON.stringify(data));
                         traerScores(data,'lan');
                     }
                 },"json")
