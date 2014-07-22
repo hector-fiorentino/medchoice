@@ -281,7 +281,6 @@ function main(){
                      e.preventDefault();
                     var id = $(this).data('num');
                     var f = $(this).attr('rel');
-                    alert(id+" : "+f);
                     $("#accion").val('exportar');
                     $("#evalua").val(id);
                     $("#fechaApp").val(f);
@@ -506,12 +505,19 @@ function main(){
             html: ""
             }); 
             db.borrarEvSelect(Id).done(function(exito){
-                if(exito){
-                    $.mobile.loading('hide');
+                if(exito=="ok"){
                     $("#s"+Id).remove();
-                    $.post('http://medchoice.com.ar/evaluaciones/borrar',{fecha:fApp,user:idUsuario},function(exito){
-
+                    var jqxhr = $.post('http://medchoice.com.ar/evaluaciones/borrar',{fecha:fApp,user:idUsuario},function(exito){
+                            $.mobile.loading('hide');
                     })
+                    jqxhr.fail(function(){
+                        $.mobile.loading('hide');
+                    })
+                    $.mobile.loading('hide');
+                    $("#popupConfirm").popup("close");
+                }else{
+                    alert("Error al borrar. Inténtelo nuevamente");
+                    $.mobile.loading('hide');
                     $("#popupConfirm").popup("close");
                 }
             });
@@ -531,7 +537,6 @@ function main(){
                     }else if(exito=="vacio"){
                         db.traerEvaluacion(Id).done(function(datos){
                             var row = datos[0];
-                            alert("usuario:"+row.usuario_id+",examen:"+row.examen_id+",tiempo:"+row.tiempo+",puntaje:"+row.puntaje+",respuestas:"+row.respuestas+",fcreacion:"+row.fcreacion);
                             $.post("http://medchoice.com.ar/evaluaciones/nuevo",{usuario:row.usuario_id,examen:row.examen_id,tiempo:row.tiempo,puntaje:row.puntaje,respuestas:row.respuestas,fcreacion:row.fcreacion},function(res){
                                 if(res=="ok"){
                                     var jqxhr2 = $.post('http://medchoice.com.ar/pdf/pdf1',{fecha:fApp,user:idUsuario},function(exito){
@@ -565,7 +570,6 @@ function main(){
             case "compartir":
             break;
         }
-        alert("ACCION=" + $("#accion").val());
     })
 
 
