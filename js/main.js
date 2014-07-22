@@ -223,7 +223,6 @@ function main(){
                 var skip = traerScores(exito,'local');
                var jqxhr = $.post("http://medchoice.com.ar/evaluaciones/misscores",{user:idUsuario,omitir:skip},function(data){
                     if(!data.error){
-                        alert(JSON.stringify(data));
                         traerScores(data,'lan');
                     }
                 },"json")
@@ -302,7 +301,6 @@ function main(){
                     }
                     if(origen == "lan"){
                         var datos = [];
-                        datos.prueba="hola parola";
                         datos.id = exito[w].ID;
                         datos.usuario=exito[w].usuario_id;
                         datos.examen = exito[w].examen_id;
@@ -314,11 +312,11 @@ function main(){
                         datos.fecha = exito[w].fcreacion;
                         datos.puntaje= exito[w].puntaje;
                         datos.accion = "lan";
-                            alert("DATOS2="+datos.id+", "+datos.interrupcion+", "+datos.correctas+", "+datos.eleccion+", "+datos.fecha+", "+datos.puntaje+", "+datos.accion);
+                            //alert("DATOS2="+datos.id+", "+datos.interrupcion+", "+datos.correctas+", "+datos.eleccion+", "+datos.fecha+", "+datos.puntaje+", "+datos.accion);
                         db.guardarEvaluacion(datos).done(function(){alert("ok")});
                     }
                 }
-                alert(evalu);
+                //alert(evalu);
                 $("#evaluaciones").append(evalu);
                 $("#evaluaciones").trigger("create");
                 $(".registros").listview( "refresh" );
@@ -347,7 +345,7 @@ function main(){
 
                 $.mobile.loading('hide');
                 if(origen == "local"){
-                    alert(omitir);
+                    //alert(omitir);
                     return omitir;
                 }
     }
