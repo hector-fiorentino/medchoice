@@ -548,12 +548,7 @@ function main(){
     $("#consultar").click(function(){
         var Asunto = $("#asunto").val();
         var Mensaje = $("#consulta").val();
-        var fecha = new Date;
-        fecha = fecha.getFullYear() + "-" + (fecha.getMonth() +1) + "-" + fecha.getDate();
-        var momento = new Date;
-        momento.setTime(momento.getTime());
-        momento = momento.getHours()+":"+momento.getMinutes()+":"+momento.getSeconds();
-        fecha = fecha+" "+momento;
+        var fecha = js_yyyy_mm_dd_hh_mm_ss ();
         console.log("us:"+idUsuario+", asunto:"+Asunto+", mensaje:"+Mensaje+", fcreacion:"+fecha);
         $.mobile.loading( 'show', {
             text: 'Enviando',
@@ -673,6 +668,7 @@ function main(){
                         var datos = [];
                         datos.usuario = idUsuario;
                         datos.examen = idExamen;
+                        datos.fecha = js_yyyy_mm_dd_hh_mm_ss ();
                         db.guardarEvaluacion(datos).done(function(exito){
                             idEvaluacion = exito;
                         });
@@ -721,6 +717,7 @@ function main(){
         datos.tiempo = fullTiempo;
         datos.correctas = correctas;
         datos.eleccion = elecciones + eleccion;
+        datos.fecha = js_yyyy_mm_dd_hh_mm_ss ();
         elecciones = elecciones + eleccion +",";
         eleccion = "";
         if(numPreg == totalPreg){
@@ -770,12 +767,7 @@ function main(){
                     $("#puntos").html(Puntaje+" puntos");
                     var Tiempo = 0;
                     Tiempo = pasarATiempo(fullTiempo);
-                    var fecha = new Date;
-                    fecha = fecha.getFullYear() + "-" + (fecha.getMonth() +1) + "-" + fecha.getDate();
-                    var momento = new Date;
-                    momento.setTime(momento.getTime());
-                    momento = momento.getHours()+":"+momento.getMinutes()+":"+momento.getSeconds();
-                    fecha = fecha+" "+momento;
+                    var fecha = js_yyyy_mm_dd_hh_mm_ss ();
                     $("#masinfo").html("Respondiste "+correctas+" preguntas correctamente en "+Tiempo)
                     $("#popupPuntaje").popup("open");
                     Tiempo = parseInt(Tiempo);
@@ -1138,6 +1130,17 @@ function darVueltaFecha(valor){
     }
     tres = tres + uno[1];
     return tres;
+}
+
+function js_yyyy_mm_dd_hh_mm_ss () {
+  now = new Date();
+  year = "" + now.getFullYear();
+  month = "" + (now.getMonth() + 1); if (month.length == 1) { month = "0" + month; }
+  day = "" + now.getDate(); if (day.length == 1) { day = "0" + day; }
+  hour = "" + now.getHours(); if (hour.length == 1) { hour = "0" + hour; }
+  minute = "" + now.getMinutes(); if (minute.length == 1) { minute = "0" + minute; }
+  second = "" + now.getSeconds(); if (second.length == 1) { second = "0" + second; }
+  return year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
 }
 
 function pasarATiempo(valor){
