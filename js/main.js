@@ -306,8 +306,8 @@ function main(){
                         datos.interrupcion = exito[w].interrupcion;
                         datos.tiempo = exito[w].tiempo;
                         datos.correctas = exito[w].correctas;
-                        datos.eleccion = exito[w].eleccion;
-                        datos.fecha = exito[w].fecha;
+                        datos.eleccion = exito[w].respuestas;
+                        datos.fecha = exito[w].fcreacion;
                         datos.puntaje= exito[w].puntaje;
                         datos.accion = "finalizar";
                             alert("DATOS2="+datos.id+", "+datos.interrupcion+", "+datos.correctas+", "+datos.eleccion+", "+datos.fecha+", "+datos.puntaje+", "+datos.accion);
