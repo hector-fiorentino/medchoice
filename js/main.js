@@ -221,13 +221,11 @@ function main(){
             var total = exito.length;
             if(total>0){
                 var skip = traerScores(exito,'local');
-                alert(skip);
                var jqxhr = $.post("http://medchoice.com.ar/evaluaciones/misscores",{user:idUsuario,omitir:skip},function(data){
                     if(!data.error){
-                        alert(JSON.stringify(data));
                         traerScores(data,'lan');
                     }
-                })
+                },"json")
                jqxhr.fail(function(){
                     alert("Error en la comunicación. Revise su conexión a internet e intente nuevamente. De lo contrario sus evaluaciones estarán desincronizadas");
                     $.mobile.loading('hide');
