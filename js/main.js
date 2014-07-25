@@ -234,7 +234,8 @@ function main(){
             }else{
                 var jqxhr = $.post("http://medchoice.com.ar/evaluaciones/misscores",{user:idUsuario,omitir:""},function(data){
                     if(!data.error){
-                        traerScores(data,'lan');
+                        alert(JSON.stringify(data));
+                        //traerScores(data,'lan');
                     }else{
                         //NO HAY SCORES
                         $.mobile.loading('hide');
@@ -250,105 +251,14 @@ function main(){
     })
 
     function traerScores(exito,origen){
-                var total = 0;
-                var omitir = " AND ";
-                if(origen=="lan"){
-                    total = exito.scores.length;
-                    exito = exito.scores;
-                }else{
-                    total = exito.length;
-                }
-                var evalu = "";
-                var exp=0;
-                for(var w=0;w<total;w++){
-                    if(exp!=exito[w].examen_id){
-                        if(exp!=0){
-                            if($("#drop"+exito[w].examen_id).length==0){
-                                evalu += '</ul></div>';
-                            }
-                        }
-                        if ($("#drop"+exito[w].examen_id).length==0){
-                            alert("No existe");
-                        evalu += '<div data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" id="drop'+exito[w].examen_id+'">';
-                        exp = exito[w].examen_id;
-                        evalu +='<h4 class="titulodown">'+exito[w].nombre+'</h4>';
-                        evalu += '<ul data-role="listview" data-inset="false" class="registros">';
-                        }
-                    }
-                    if ($("#drop"+exito[w].examen_id).length==0){
-                    evalu += '<li id="s'+exito[w].ID+'"><a href="#">'+exito[w].fcreacion+' - '+exito[w].puntaje+' puntos.</a>'
-                    +'<a href="#" rel="'+exito[w].fcreacion+'" data-num="'+exito[w].ID+'" class="ui-btn ui-icon-delete ui-btn-icon-notext borrar">Delete</a>'
-                    +'<a href="#" rel="'+exito[w].fcreacion+'" data-num="'+exito[w].ID+'" class="ui-btn ui-icon-mail ui-btn-icon-notext exportar" style="margin-right:40px">Mail</a>'
-                    +'</li>';
-                    }else{
-                        alert("Existe");
-                        var renglon = '<li id="s'+exito[w].ID+'"><a href="#">'+exito[w].fcreacion+' - '+exito[w].puntaje+' puntos.</a>'
-                    +'<a href="#" rel="'+exito[w].fcreacion+'" data-num="'+exito[w].ID+'" class="ui-btn ui-icon-delete ui-btn-icon-notext borrar">Delete</a>'
-                    +'<a href="#" rel="'+exito[w].fcreacion+'" data-num="'+exito[w].ID+'" class="ui-btn ui-icon-mail ui-btn-icon-notext exportar" style="margin-right:40px">Mail</a>'
-                    +'</li>';
-                    $("#drop"+exito[w].examen_id).find('ul').append(renglon);
-                    }
-                    if(w+1==total){
-                        if ($("#drop"+exito[w].examen_id).length==0){
-                            evalu += '</ul></div>';
-                        }
-                        if(origen=="local"){
-                            omitir += "ev.fcreacion != '"+exito[w].fcreacion+"'";
-                        }
-                    }else{
-                        if(origen=="local"){
-                            omitir += "ev.fcreacion != '"+exito[w].fcreacion+"' AND ";
-                        }
-                    }
-                    if(origen == "lan"){
-                        var datos = [];
-                        datos.id = exito[w].ID;
-                        datos.usuario=exito[w].usuario_id;
-                        datos.examen = exito[w].examen_id;
-                        datos.estado = exito[w].estado;
-                        datos.interrupcion = exito[w].interrupcion;
-                        datos.tiempo = exito[w].tiempo;
-                        datos.correctas = exito[w].correctas;
-                        datos.eleccion = exito[w].respuestas;
-                        datos.fecha = exito[w].fcreacion;
-                        datos.puntaje= exito[w].puntaje;
-                        datos.accion = "lan";
-                            //alert("DATOS2="+datos.id+", "+datos.interrupcion+", "+datos.correctas+", "+datos.eleccion+", "+datos.fecha+", "+datos.puntaje+", "+datos.accion);
-                        //db.guardarEvaluacion(datos).done(function(){alert("ok")});
-                    }
-                }
-                //alert(evalu);
-                $("#evaluaciones").append(evalu);
-                $("#evaluaciones").trigger("create");
-                $(".registros").listview( "refresh" );
-
-                $(".borrar").click(function(e){
-                    var f = $(this).attr('rel');
-                    var id = $(this).data('num');
-                    $("#accion").val('borrar');
-                    $("#fechaApp").val(f);
-                    $("#evalua").val(id);
-                    $("#popupConfirm h1").html('Borrar evaluación');
-                    $("#popupConfirm .texto").html('Desea borrar la evaluación seleccionada?');
-                    $("#popupConfirm").popup('open');
-                })
-                $(".exportar").click(function(e){
-                     e.preventDefault();
-                    var id = $(this).data('num');
-                    var f = $(this).attr('rel');
-                    $("#accion").val('exportar');
-                    $("#evalua").val(id);
-                    $("#fechaApp").val(f);
-                    $("#popupConfirm h1").html('Exportar a PDF');
-                    $("#popupConfirm .texto").html('Se le enviará a su casilla de e-mail, registrada, un link de descarga de un documento PDF con el cuestionario completo con las respuestas correctas y seleccionadas por usted.');
-                    $("#popupConfirm").popup('open');
-                })
-
-                $.mobile.loading('hide');
-                if(origen == "local"){
-                    //alert(omitir);
-                    return omitir;
-                }
+        var total = 0;
+        var omitir = " AND ";
+        if(origen=="lan"){
+            total = exito.scores.length;
+            exito = exito.scores;
+        }else{
+            total = exito.length;
+        }
     }
 
     $("#pageprerank").on("pageshow",function(event){
