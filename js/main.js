@@ -500,7 +500,7 @@ function main(){
                         var seudonimo = "";
                         var inicial = "";
                         var pos = 0;
-
+                        var mipos="";
                         for(var f=0; f<tot;f++){
                             seudonimo = exito[f].nombre;
                             inicial = " "+exito[f].apellido.charAt(0)+".";
@@ -508,7 +508,15 @@ function main(){
                             pos++
                             var Tiempo = 0;
                             Tiempo = pasarATiempo(exito[f].tiempo);
-                            filas +="<tr><th>"+pos+"</th><td>"+seudonimo+"</td><td>"+exito[f].puntaje+"</td><td>"+Tiempo+"</td></tr>";
+                            if(exito[f].usuario_id==idUsuario){
+                                mipos = "class='yo'";
+                            }else{
+                                mipos = "";
+                            }
+                            if(f<10 || exito[f].usuario_id==idUsuario){
+                                filas +="<tr "+mipos+"><th>"+pos+"</th><td>"+seudonimo+"</td><td>"+exito[f].puntaje+"</td><td>"+Tiempo+"</td></tr>";
+                            }
+                            //filas +="<tr><th>"+pos+"</th><td>"+seudonimo+"</td><td>"+exito[f].puntaje+"</td><td>"+Tiempo+"</td></tr>";
                         }
                         $("#resRanking").html(filas);
                         $.mobile.changePage($("#pageranking"));
