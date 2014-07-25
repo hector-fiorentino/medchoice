@@ -1,7 +1,7 @@
 function main(){
-    if ((typeof cordova == 'undefined') && (typeof Cordova == 'undefined')) alert('Cordova variable does not exist. Check that you have included cordova.js correctly');
-            if (typeof CDV == 'undefined') alert('CDV variable does not exist. Check that you have included cdv-plugin-fb-connect.js correctly');
-            if (typeof FB == 'undefined') alert('FB variable does not exist. Check that you have included the Facebook JS SDK file.');
+    if ((typeof cordova == 'undefined') && (typeof Cordova == 'undefined')) alert('Error. Vuelva a intentarlo');
+            if (typeof CDV == 'undefined') alert('Error. Vuelva a intentarlo');
+            if (typeof FB == 'undefined') alert('Error. Vuelva a intentarlo');
             
             FB.Event.subscribe('auth.login', function(response) {
                                //alert('auth.login event');
@@ -221,7 +221,7 @@ function main(){
             var total = exito.length;
             if(total>0){
                var skip = traerScores(exito,'local');
-               alert("SKIP="+skip);
+               //alert("SKIP="+skip);
                var jqxhr = $.post("http://medchoice.com.ar/evaluaciones/misscores",{user:idUsuario,omitir:skip},function(data){
                     if(!data.error){
                         traerScores(data,'lan');
@@ -268,7 +268,7 @@ function main(){
                             }
                         }
                         if ($("#drop"+exito[w].examen_id).length==0){
-                            alert("No existe");
+                            //alert("No existe");
                         evalu += '<div data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" id="drop'+exito[w].examen_id+'">';
                         exp = exito[w].examen_id;
                         evalu +='<h4 class="titulodown">'+exito[w].nombre+'</h4>';
@@ -281,7 +281,7 @@ function main(){
                     +'<a href="#" rel="'+exito[w].fcreacion+'" data-num="'+exito[w].ID+'" class="ui-btn ui-icon-mail ui-btn-icon-notext exportar" style="margin-right:40px">Mail</a>'
                     +'</li>';
                     }else{
-                        alert("Existe");
+                        //alert("Existe");
                         var renglon = '<li id="s'+exito[w].ID+'"><a href="#">'+exito[w].fcreacion+' - '+exito[w].puntaje+' puntos.</a>'
                     +'<a href="#" rel="'+exito[w].fcreacion+'" data-num="'+exito[w].ID+'" class="ui-btn ui-icon-delete ui-btn-icon-notext borrar">Delete</a>'
                     +'<a href="#" rel="'+exito[w].fcreacion+'" data-num="'+exito[w].ID+'" class="ui-btn ui-icon-mail ui-btn-icon-notext exportar" style="margin-right:40px">Mail</a>'
@@ -314,7 +314,7 @@ function main(){
                         datos.puntaje= exito[w].puntaje;
                         datos.accion = "lan";
                             //alert("DATOS2="+datos.id+", "+datos.interrupcion+", "+datos.correctas+", "+datos.eleccion+", "+datos.fecha+", "+datos.puntaje+", "+datos.accion);
-                        db.guardarEvaluacion(datos).done(function(){alert("ok")});
+                        db.guardarEvaluacion(datos).done(function(){//alert("ok")});
                     }
                 }
                 //alert(evalu);
@@ -366,7 +366,7 @@ function main(){
                             }
                         }
                         if ($("#drop"+exito[w].examen_id).length==0){
-                            alert("No existe");
+                            //alert("No existe");
                         evalu += '<div data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" id="drop'+exito[w].examen_id+'">';
                         exp = exito[w].examen_id;
                         evalu +='<h4 class="titulodown">'+exito[w].nombre+'</h4>';
@@ -379,7 +379,7 @@ function main(){
                     +'<a href="#" rel="'+exito[w].fcreacion+'" data-num="'+exito[w].ID+'" class="ui-btn ui-icon-mail ui-btn-icon-notext exportar" style="margin-right:40px">Mail</a>'
                     +'</li>';
                     }else{
-                        alert("Existe");
+                        //alert("Existe");
                         var renglon = '<li id="s'+exito[w].ID+'"><a href="#">'+exito[w].fcreacion+' - '+exito[w].puntaje+' puntos.</a>'
                     +'<a href="#" rel="'+exito[w].fcreacion+'" data-num="'+exito[w].ID+'" class="ui-btn ui-icon-delete ui-btn-icon-notext borrar">Delete</a>'
                     +'<a href="#" rel="'+exito[w].fcreacion+'" data-num="'+exito[w].ID+'" class="ui-btn ui-icon-mail ui-btn-icon-notext exportar" style="margin-right:40px">Mail</a>'
@@ -1120,7 +1120,7 @@ function main(){
                 }else{
                     /*CHECKEO ONLINE*//////////////////////////////
 
-                    $.post("http://medchoice.com.ar/login",{enviar:1,email:Email,pass:Pass},function(exito){
+                   var logon = $.post("http://medchoice.com.ar/login",{enviar:1,email:Email,pass:Pass},function(exito){
                         if(exito){
                             console.log(exito);
                             if(exito.error){
@@ -1169,6 +1169,9 @@ function main(){
                             }
                         }
                     },"json");
+                logon.fail(function(){
+                    alert("Error. Verifique su conexión a internet.");
+                })
                 }
             })
         }
