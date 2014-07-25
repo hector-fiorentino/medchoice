@@ -314,7 +314,7 @@ function main(){
                         datos.puntaje= exito[w].puntaje;
                         datos.accion = "lan";
                             //alert("DATOS2="+datos.id+", "+datos.interrupcion+", "+datos.correctas+", "+datos.eleccion+", "+datos.fecha+", "+datos.puntaje+", "+datos.accion);
-                        db.guardarEvaluacion(datos).done(function(){alert("ok")});
+                        //db.guardarEvaluacion(datos).done(function(){alert("ok")});
                     }
                 }
                 //alert(evalu);
