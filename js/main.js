@@ -220,7 +220,8 @@ function main(){
         db.traerEvaluaciones(idUsuario).done(function(exito){
             var total = exito.length;
             if(total>0){
-                var skip = traerScores(exito,'local');
+               var skip = traerScores(exito,'local');
+               alert("SKIP="+skip);
                var jqxhr = $.post("http://medchoice.com.ar/evaluaciones/misscores",{user:idUsuario,omitir:skip},function(data){
                     if(!data.error){
                         traerScores(data,'lan');
