@@ -10,12 +10,15 @@ h2{font-size:1em;margin-top:20px;}
 .ui-listview>li a{ font-size:.9em;}
 .yo th{background:#5882FA !important;font-weight:bold; color:#fff;text-shadow:none;}
 .yo td{background:#5882FA !important;font-weight:bold; color:#fff;text-shadow:none;}
+#pageranking .ui-table th {font-size:.813em !important;}
+#pageranking .ui-table td {font-size:.813em !important;}
 
 /*////////////////POPUPs/////////////////////////*/
 .ui-page .ui-popup .ui-title{background-image:none;background:#0a4b81 !important;color:#fff;font-size:1em;text-shadow:none;height:auto;padding:10px 0px 10px 0px !important;}
 .ui-popup h3{font-size:.9em;padding-top:10px;}
 .ui-popup a i{display:inline-block;font-size:1.5em;padding-right:10px;vertical-align: middle}
 .ui-popup a span{display:inline-block;font-size:1em;vertical-align: middle}
+.ui-popup{background:#fff !important;}
 
 /*////////////////HEADER/////////////////////////*/
 .ui-page .ui-title {background-size:167px 23px;background-position:center center;height:50px;background-repeat: no-repeat;margin:0px 0px !important;padding:0px !important;}
