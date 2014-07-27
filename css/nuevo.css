@@ -1,0 +1,114 @@
+@charset "utf-8";
+
+/*////////////////ELEMENTOS GENERALES/////////////*/
+.error{color:#FF0000;font-size:.8em}
+.good{color:#04B404;font-size:.8em}
+.ui-content{padding-top:0px;}
+.leer{display:block;margin-top:.6em;}
+h2{font-size:1em;margin-top:20px;}
+.titulodown a{background:#0a4b81 !important;color:#fff !important;text-shadow:none !important;font-size:.8em;}
+.ui-listview>li a{ font-size:.9em;}
+.yo th{background:#5882FA !important;font-weight:bold; color:#fff;text-shadow:none;}
+.yo td{background:#5882FA !important;font-weight:bold; color:#fff;text-shadow:none;}
+
+/*////////////////POPUPs/////////////////////////*/
+.ui-page .ui-popup .ui-title{background-image:none;background:#0a4b81 !important;color:#fff;font-size:1em;text-shadow:none;height:auto;padding:10px 0px 10px 0px !important;}
+.ui-popup h3{font-size:.9em;padding-top:10px;}
+.ui-popup a i{display:inline-block;font-size:1.5em;padding-right:10px;vertical-align: middle}
+.ui-popup a span{display:inline-block;font-size:1em;vertical-align: middle}
+
+/*////////////////HEADER/////////////////////////*/
+.ui-page .ui-title {background-size:167px 23px;background-position:center center;height:50px;background-repeat: no-repeat;margin:0px 0px !important;padding:0px !important;}
+.salir span,.options span{font-size:2em !important;}
+/*.salir span,.options span{font-size:24px;}*/
+
+/*/////////////LOGIN ELEMENTS //////////////////*/
+/*estructura centrado vertical*/
+#pageadmin{height:100% !important;}
+#pageadmin .ui-content {position:relative;padding:0px !important;height:90%;}
+#pageadmin #centrador{text-align: center;height:100%;}
+#pageadmin #centrador:before {content: '';display: inline-block;height: 100%;vertical-align: middle;}
+#pageadmin #centro{display: inline-block;vertical-align: middle;width: 260px;}
+#pageadmin #centro h1{margin:0px;padding:0px;text-align:center;}
+#pageadmin{margin-bottom:0px !important;padding-bottom:0px !important;}
+/*logo inicial*/
+#logoBig{width:260px;}
+/*formulario*/
+#email{font-size:1em;}
+#pass{font-size:1em;}
+#pruebacss{display:none;}
+#login{font-size:1em; padding:.6em 0em .6em 0em !important;text-align:center;margin-bottom:0px;background-color:#034a80 !important;color:#fff;border:none;text-shadow:none;}
+.registrobtn{font-size:1em; background-color:#f4f5f5 !important;padding-top:.6em;padding-bottom:.6em;border:none;text-shadow:none;color:#333;margin-bottom:0em;margin-left:auto;margin-right:auto;}
+#pageadmin form {border-top:dashed .1em #ccc; padding-top:1.1em;}
+/*facebook connect made*/
+#fconnect{margin-bottom:1.4em;background-color:#3c5897 !important;color:#fff;border:none;text-shadow:none;}
+#fconnect span{font-size:.8em;display:inline-block;vertical-align: middle;font-weight:normal;}
+#fconnect strong{font-size:1em;}
+#fconnect i{display:inline-block;background-image:url(../imagenes/facebook-32.png);background-size:16px; width:16px;height:16px;margin-right:.6em;vertical-align: middle;}
+
+/*//////////////////REGISTRO////////////////////*/
+#registrar{font-size:18px;font-weight:normal;padding:10px !important;position:relative;width:240px;margin-left:auto;margin-right:auto;margin-bottom:30px;background-color:#034a80 !important;color:#fff;border:none;text-shadow:none;}
+#registrar i{position:absolute;font-size: 24px;top:10px;left:17px;}
+
+/*//////////////////TERMINOS////////////////////*/
+#pageterminos p {text-align:justify;font-size:.8em;margin:.2em 0em .2em 0em;}
+
+/*/////////////////MENU PRINCIPAL////////////////*/
+#bienvenido{color:#999;font-size:1em;padding:7px;margin-top:15px;color:#fff;background-color:#ccc;border-radius:5px;text-shadow:none;}
+#bienvenido span{display:inline-block; vertical-align: middle;}
+#bienvenido i{font-size:2em; display:inline-block; vertical-align: middle; margin-right:10px;}
+#pagemenuppal .ui-bar-a{background:none !important;border:none !important;margin-bottom:20px;}
+.menuicon{font-size:49px; color:#fff;}
+.menup a{margin-left:auto;margin-right:auto;background-color:#034a80 !important;padding:25px !important;width:49px !important;border-radius:100px !important;}
+.menup p{font-size:12px !important; color:#034a80 !important;}
+	
+/*//////////////////EXAMEN//////////////////////*/
+#examen{color:#8b8b8a;background:#e7e7e7;padding:5px 0px 5px 0px;margin:50px 0em 0em 0em;border-bottom-right-radius:10px;border-bottom-left-radius:10px}
+#examen i{display:none;}
+#examen span{display:inline-block;vertical-align: middle;font-size:1em;}
+#tiempo i{font-size:1.2em;display:inline-block;vertical-align: middle;margin-right:.6em;}
+#tiempo span{display:inline-block;vertical-align: middle; font-size:1em;}
+#tiempo{background:#ccc;font-size:1.5em;color:#fff;padding:5px;border-radius: 0px;width:100%;margin:0px auto 0px auto;position:fixed;left:0px;top:60px;}
+#pageexamen .ui-bar{padding:0px !important;}
+.nextBtn span {display:none;}
+.nextBtn{background-color:#0a4b81 !important;margin-right:10px;}
+.nextBtn i{color:#fff;vertical-align: middle;}
+.noterror i,.nextBtn i{font-size:2em;}
+.noterror{margin-left:10px;}
+.noterror,.nextBtn{border-radius:10px;}
+#pageexamen .ui-block-a{width:20%;background-color:#fff !important;}
+#pageexamen .ui-block-b{width:60%;background-color:#fff !important;text-align:center;}
+#pageexamen .ui-block-c{width:20%;text-align:right;background-color:#fff !important;}
+#pageexamen .ui-grid-b,#pageexamen .ui-bar-a{background-color:#fff !important;border:none;}
+.paginado{color:#666;font-weight:normal;font-size:0.875em;margin-top:20px;}
+		
+/*//////////////////MENU LATERAL////////////////*/
+#mypanel{width:140px;}
+#mypanel{width:140px;background:#fff;height:100%;}
+#mypanel .nave{font-size:1.25em;padding-top:20px;}
+#mypanel .ui-listview{border:none;background:none;box-shadow: none;margin:0px;padding:0px;}
+#mypanel .ui-listview a{display:block; margin-left:10px;border:none; background-color:#034a80; padding:20px; width:35px !important; text-align:center; border-radius:40px;margin-bottom:15px;}
+#mypanel .ui-listview a i{color:#fff; font-size:2.5em;}
+#mypanel a.cerrar{padding:10px;background:none;margin-left:20px;}
+#mypanel a.cerrar span{color:#666;font-size:2em;}
+
+
+/*//////////////////FOOTER GENERAL//////////////*/
+.firma{float:right;margin-right:1.25em;font-size:.6em;margin-top:2em;}
+.firma span{display:inline-block;vertical-align:middle;background-image:url(../imagenes/logomedapps.png);background-size:100px 19px; width:100px;height:19px;}
+.volver{float:left; margin-left:1.25em;}
+.volver i{font-size:2.5em;}
+
+/*IMAGENES SEGUN DPIs*/
+@media screen and (-webkit-device-pixel-ratio: 1){
+.ui-page .ui-title {background-image:url(../imagenes/logochicox1.png);}
+}
+@media screen and (-webkit-device-pixel-ratio: 1.5){
+.ui-page .ui-title {background-image:url(../imagenes/logochicox2.png);}
+}
+@media screen and (-webkit-device-pixel-ratio: 2){
+.ui-page .ui-title {background-image:url(../imagenes/logochicox2.png);}
+}
+@media screen and (-webkit-device-pixel-ratio: 3){
+.ui-page .ui-title {background-image:url(../imagenes/logochicox3.png);}
+}

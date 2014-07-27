@@ -22,9 +22,9 @@
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/jquery.mobile-1.4.0.min.css" />
-        <link rel="stylesheet" type="text/css" href="css/estilos.css" />
+        <link rel="stylesheet" type="text/css" href="css/nuevo.css" />
         <link rel="stylesheet" href="pe-icon-7-stroke/css/pe-icon-7-stroke.css">
         <link rel="stylesheet" href="path/to/pe-icon-7-stroke/css/helper.css">
         <script src="js/jquery-1.10.0.js"></script>
@@ -38,29 +38,6 @@
         <title>MedChoice</title>
     </head>
     <body>
-        <style>
-    body,td,th {
-       color: #999;
-       font-family: Arial, Helvetica, sans-serif;
-       font-size: 12px;
-       background-color: #FFF !important;
-       text-align: center;
-   }
-   #custom-border-radius .ui-btn-icon-notext.ui-corner-all {
-     margin-left:15px;
-     -webkit-border-radius: .3125em;
-     border-radius: .3125em;
- }
- .ui-li-count{background: #FF0000 !important; color:#fff !important; text-shadow:none !important;}
- .ui-header{ background: #fff !important;border:none !important;padding-top:15px;text-align:center !important;}
- .time{display:block;font-size:11px;text-align:right;}
- #menu{margin-left:20px;margin-top:20px;}
- .conta{display:block;position:absolute;top:-10px;left:35%;z-index:5000;background-color:#509be8;padding:8px 8px; border-radius:20px;}
- #pagemenuppal .ui-content table tr td p {
-   color: #0A4B81;
-   font-weight: bold;
-}
-</style>
 </head>
 <body>
   <div id="fb-root"></div>
@@ -164,7 +141,7 @@
 <p>&nbsp;</p>
 <p><strong>1. Objeto</strong></p>
 <p> MedChoice es una APP, que permite la realización de exámenes de carácter médico, generando un puntaje y un ranking. Estos exámenes son de uso público, en su mayoría exámenes utilizados en años previos. El objetivo principal de esta aplicación es que el usuario pueda practicar, simulando la vida real, para llegar al examen en cuestión más preparado.</p>
-<p> </p>
+<p>&nbsp;</p>
 <p><strong>2. Licencia de Software</strong></p>
 <p>Los Servicios que provee MedChoice así como todos los derechos de propiedad intelectual inherentes al Software son propiedad exclusiva de AppChoice. AppChoice se reserva todos los derechos sobre el Software que no se le otorgan expresamente al Usuario por el presente.</p>
 <p>Medchoice otorga al Usuario una licencia limitada, revocable, no exclusiva e intransferible de acceso y uso remoto del Software, únicamente a los fines de realizar los exámenes provistos, realizar sugerencias, enviar exámenes y/o preguntas que puedan nutrir al software. Sin la posibilidad de reclamar por derechos intelectuales sobre los mismos.</p>
@@ -203,9 +180,9 @@
 
 <div data-role="page" id="pagemenuppal">
 
- <div data-role="header">
+ <div data-role="header" data-theme="b">
     <h1></h1>
-    <a href="#" class="ui-btn-right closeSession salir"><span class="pe-7s-delete-user"></a>
+    <a href="#" class="ui-btn-right closeSession salir" data-theme="a"><span class="pe-7s-delete-user"></span></a>
   </div><!-- /header -->
 
 <div role="main" class="ui-content" >
@@ -241,10 +218,10 @@
 </div><!-- /page -->
 
 <div data-role="page" id="pageexamenes" style="background-color:#fff">
- <div data-role="header" data-theme="a">
-     <a href="#mypanel" class="ui-btn-left options"><span class="pe-7s-menu"></span></a>
+ <div data-role="header" data-theme="b">
+     <a href="#mypanel" class="ui-btn-left options" data-theme="a"><span class="pe-7s-menu"></span></a>
      <h1></h1>
-     <a href="#" class="ui-btn-right closeSession salir"><span class="pe-7s-delete-user"></span></a>
+     <a href="#" class="ui-btn-right closeSession salir" data-theme="a"><span class="pe-7s-delete-user"></span></a>
  </div><!-- /header -->
 
  <div role="main" class="ui-content">
@@ -274,10 +251,10 @@
 <!-- EXAMEN -->
 <div data-role="page" id="pageexamen" style="background-color:#fff">
 
-     <div data-role="header" data-position="fixed">
-       <a href="#mypanel" class="ui-btn-left options"><span class="pe-7s-menu"></a>
+     <div data-role="header" data-position="fixed" data-theme="b">
+       <a href="#mypanel" class="ui-btn-left options" data-theme="a"><span class="pe-7s-menu"></a>
        <h1></h1>
-       <a href="#" class="ui-btn-right closeSession salir"><span class="pe-7s-delete-user"></span></a>
+       <a href="#" class="ui-btn-right closeSession salir" data-theme="a"><span class="pe-7s-delete-user"></span></a>
      </div>
 
      <div role="main" class="ui-content">
@@ -332,10 +309,10 @@
 </div><!-- /footer -->
 </div><!-- /page -->
 <div data-role="page" id="pagescores" style="background-color:#fff">
-      <div data-role="header">
-       <a href="#mypanel" class="ui-btn-left options"><span class="pe-7s-menu"></a>
+      <div data-role="header" data-theme="b">
+       <a href="#mypanel" class="ui-btn-left options" data-theme="a"><span class="pe-7s-menu"></a>
        <h1></h1>
-       <a href="#" class="ui-btn-right closeSession salir"><span class="pe-7s-delete-user"></a>
+       <a href="#" class="ui-btn-right closeSession salir" data-theme="a"><span class="pe-7s-delete-user"></a>
      </div><!-- /header -->
 
      <div role="main" class="ui-content">
@@ -366,9 +343,9 @@
 <!-- /page -->
 <div data-role="page" id="pageprerank" style="background-color:#fff">
  <div data-role="header" data-theme="a">
-     <a href="#mypanel" class="ui-btn-left options"><span class="pe-7s-menu"></span></a>
+     <a href="#mypanel" class="ui-btn-left options" data-theme="a"><span class="pe-7s-menu"></span></a>
      <h1></h1>
-     <a href="#" class="ui-btn-right closeSession salir"><span class="pe-7s-delete-user"></span></a>
+     <a href="#" class="ui-btn-right closeSession salir" data-theme="a"><span class="pe-7s-delete-user"></span></a>
  </div><!-- /header -->
 
  <div role="main" class="ui-content">
@@ -384,10 +361,10 @@
 
 <div data-role="page" id="pageranking" style="background-color:#fff">
 
- <div data-role="header">
-       <a href="#mypanel" class="ui-btn-left options"><span class="pe-7s-menu"></a>
+ <div data-role="header" data-theme="b">
+       <a href="#mypanel" class="ui-btn-left options" data-theme="a"><span class="pe-7s-menu"></a>
        <h1></h1>
-       <a href="#" class="ui-btn-right closeSession salir"><span class="pe-7s-delete-user"></a>
+       <a href="#" class="ui-btn-right closeSession salir" data-theme="a"><span class="pe-7s-delete-user"></a>
      </div><!-- /header -->
 
      <div role="main" class="ui-content">
@@ -418,10 +395,10 @@
 <!-- /page -->
 <div data-role="page" id="pageconsultas" style="background-color:#fff">
 
-      <div data-role="header">
-       <a href="#mypanel" class="ui-btn-left options"><span class="pe-7s-menu"></a>
+      <div data-role="header" data-theme="b">
+       <a href="#mypanel" class="ui-btn-left options" data-theme="a"><span class="pe-7s-menu"></a>
        <h1></h1>
-       <a href="#" class="ui-btn-right closeSession salir"><span class="pe-7s-delete-user"></a>
+       <a href="#" class="ui-btn-right closeSession salir" data-theme="a"><span class="pe-7s-delete-user"></a>
      </div><!-- /header -->
 
      <div role="main" class="ui-content">
