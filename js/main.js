@@ -42,7 +42,7 @@ function main(){
     var fconnect = window.localStorage.getItem("fConnect");
     if(idUsuario > 0){$.mobile.changePage($("#pagemenuppal"))
         if(channelUri!=""){
-            var jqxhr = $.post('http://medchoice.com.ar/channels/nuevo',{code:channelUri,usuario:idUsuario},function(exito){alert(exito)})
+            var jqxhr = $.post('http://medchoice.com.ar/channels/nuevo',{code:channelUri,usuario:idUsuario},function(exito){})
         }
     }
     var fullTiempo = 0; //Contador de tiempo general en segundos.
@@ -596,7 +596,7 @@ function main(){
                             $.mobile.loading( 'hide');
                             // Guardar Canal de Push
                             if(channelUri!=""){
-                                var jqxhr = $.post('http://medchoice.com.ar/channels/nuevo',{code:channelUri,usuario:idUsuario},function(exito){alert("registro: "+channelUri)})
+                                var jqxhr = $.post('http://medchoice.com.ar/channels/nuevo',{code:channelUri,usuario:idUsuario},function(exito){})
                             }
                             $.mobile.changePage($("#pagemenuppal"));
                         }else{
@@ -626,7 +626,7 @@ function main(){
                                             $.mobile.loading( 'hide');
                                             // Guardar Canal de Push
                                             if(channelUri!=""){
-                                                var jqxhr = $.post('http://medchoice.com.ar/channels/nuevo',{code:channelUri,usuario:idUsuario},function(exito){alert("registro: "+channelUri)})
+                                                var jqxhr = $.post('http://medchoice.com.ar/channels/nuevo',{code:channelUri,usuario:idUsuario},function(exito){})
                                             }
                                             $.mobile.changePage($("#pagemenuppal"))
                                             console.log("ESA!");
@@ -1132,7 +1132,7 @@ function main(){
                     $.mobile.loading( 'hide');
                     // Guardar Canal de Push
                             if(channelUri!=""){
-                                var jqxhr = $.post('http://medchoice.com.ar/channels/nuevo',{code:channelUri,usuario:idUsuario},function(exito){alert("registro: "+channelUri)})
+                                var jqxhr = $.post('http://medchoice.com.ar/channels/nuevo',{code:channelUri,usuario:idUsuario},function(exito){})
                             }
                     $.mobile.changePage($("#pagemenuppal"));
                 }else{
@@ -1183,7 +1183,7 @@ function main(){
                                     $.mobile.loading( 'hide');
                                     // Guardar Canal de Push
                                     if(channelUri!=""){
-                                        var jqxhr = $.post('http://medchoice.com.ar/channels/nuevo',{code:channelUri,usuario:idUsuario},function(exito){alert("registro: "+channelUri)})
+                                        var jqxhr = $.post('http://medchoice.com.ar/channels/nuevo',{code:channelUri,usuario:idUsuario},function(exito){})
                                     }
                                     $.mobile.changePage($("#pagemenuppal"))
                                     console.log("ESA!");
@@ -1278,7 +1278,7 @@ function main(){
                                 $.mobile.loading('hide');
                                 // Guardar Canal de Push
                                 if(channelUri!=""){
-                                    var jqxhr = $.post('http://medchoice.com.ar/channels/nuevo',{code:channelUri,usuario:idUsuario},function(exito){alert("registro: "+channelUri)})
+                                    var jqxhr = $.post('http://medchoice.com.ar/channels/nuevo',{code:channelUri,usuario:idUsuario},function(exito){})
                                 }
                                 $.mobile.changePage($("#pagemenuppal"));
                             })
