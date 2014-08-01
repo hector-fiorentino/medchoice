@@ -92,6 +92,8 @@ function main(){
     $( "body>[data-role='panel']" ).panel(); //activo panel único
     $(".actualizar").hide();
     $("#glogin").hide();
+
+
     /*FUNCION UPDATE*//////////////////////////
     function actualizar(){
         $(".actualizar").hide();
@@ -588,6 +590,10 @@ function main(){
                             userID = exito.ID;
                             userName = seudonimo;
                             $.mobile.loading( 'hide');
+                            // Guardar Canal de Push
+                            if(channelUri!=""){
+                                var jqxhr = $.post('http://medchoice.com.ar/channels/nuevo',{code:channelUri,usuario:idUsuario},function(exito){alert("registro: "+channelUri)})
+                            }
                             $.mobile.changePage($("#pagemenuppal"));
                         }else{
                             $.post('http://medchoice.com.ar/login/fbuser',{uid:response.authResponse.userId},function(exito){
@@ -614,6 +620,10 @@ function main(){
                                         datos.fcreacion = exito.fcreacion;
                                         db.guardarUsuario(datos).done(function(exito){
                                             $.mobile.loading( 'hide');
+                                            // Guardar Canal de Push
+                                            if(channelUri!=""){
+                                                var jqxhr = $.post('http://medchoice.com.ar/channels/nuevo',{code:channelUri,usuario:idUsuario},function(exito){alert("registro: "+channelUri)})
+                                            }
                                             $.mobile.changePage($("#pagemenuppal"))
                                             console.log("ESA!");
                                         });
@@ -1116,6 +1126,10 @@ function main(){
                     window.localStorage.setItem("userID",idUsuario);
                     window.localStorage.setItem("userName",seudonimo);
                     $.mobile.loading( 'hide');
+                    // Guardar Canal de Push
+                            if(channelUri!=""){
+                                var jqxhr = $.post('http://medchoice.com.ar/channels/nuevo',{code:channelUri,usuario:idUsuario},function(exito){alert("registro: "+channelUri)})
+                            }
                     $.mobile.changePage($("#pagemenuppal"));
                 }else{
                     /*CHECKEO ONLINE*//////////////////////////////
@@ -1163,6 +1177,10 @@ function main(){
                                 datos.fcreacion = exito.fcreacion;
                                 db.guardarUsuario(datos).done(function(exito){
                                     $.mobile.loading( 'hide');
+                                    // Guardar Canal de Push
+                                    if(channelUri!=""){
+                                        var jqxhr = $.post('http://medchoice.com.ar/channels/nuevo',{code:channelUri,usuario:idUsuario},function(exito){alert("registro: "+channelUri)})
+                                    }
                                     $.mobile.changePage($("#pagemenuppal"))
                                     console.log("ESA!");
                                 });
@@ -1253,6 +1271,10 @@ function main(){
                                 $("#terminos-1a").prop("checked",true);
                                 $("#terminos-1b").prop("checked",true);
                                 $.mobile.loading('hide');
+                                // Guardar Canal de Push
+                                if(channelUri!=""){
+                                    var jqxhr = $.post('http://medchoice.com.ar/channels/nuevo',{code:channelUri,usuario:idUsuario},function(exito){alert("registro: "+channelUri)})
+                                }
                                 $.mobile.changePage($("#pagemenuppal"));
                             })
                         }
