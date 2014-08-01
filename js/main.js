@@ -1,5 +1,4 @@
 function main(){
-    alert("lo hizo");
     if ((typeof cordova == 'undefined') && (typeof Cordova == 'undefined')) alert('Error. Vuelva a intentarlo');
             if (typeof CDV == 'undefined') alert('Error. Vuelva a intentarlo');
             if (typeof FB == 'undefined') alert('Error. Vuelva a intentarlo');
@@ -41,7 +40,11 @@ function main(){
     var idUsuario = window.localStorage.getItem("userID"); 
     var userName = window.localStorage.getItem("userName");
     var fconnect = window.localStorage.getItem("fConnect");
-    if(idUsuario > 0){$.mobile.changePage($("#pagemenuppal"))}
+    if(idUsuario > 0){$.mobile.changePage($("#pagemenuppal"))
+        if(channelUri!=""){
+            var jqxhr = $.post('http://medchoice.com.ar/channels/nuevo',{code:channelUri,usuario:idUsuario},function(exito){alert(exito)})
+        }
+    }
     var fullTiempo = 0; //Contador de tiempo general en segundos.
     var correctas = 0; //Contador de respuestas correctas.
     var Puntaje = 0;
@@ -1190,6 +1193,7 @@ function main(){
                     },"json");
                 logon.fail(function(){
                     alert("Error. Verifique su conexión a internet.");
+                    $.mobile.loading( 'hide');
                 })
                 }
             })
