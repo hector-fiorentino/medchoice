@@ -448,7 +448,7 @@
             var channelUri;
             
             function onDeviceReady() {
-                main();
+                //main();
       
                 try 
                 { 
@@ -456,13 +456,13 @@
                   if (device.platform == 'android' || device.platform == 'Android') {
                     pushNotification.register(successHandler, errorHandler, {"senderID":"690415883156","ecb":"onNotificationGCM"});   // required!
                   }
+                }
                   catch(err) 
                   { 
                     txt="There was an error on this page.\n\n"; 
                     txt+="Error description: " + err.message + "\n\n"; 
                     alert(txt); 
                   } 
-                }
             }
             
             // handle APNS notifications for iOS
