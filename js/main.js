@@ -1,4 +1,5 @@
 function main(){
+    alert("lo hizo");
     if ((typeof cordova == 'undefined') && (typeof Cordova == 'undefined')) alert('Error. Vuelva a intentarlo');
             if (typeof CDV == 'undefined') alert('Error. Vuelva a intentarlo');
             if (typeof FB == 'undefined') alert('Error. Vuelva a intentarlo');
